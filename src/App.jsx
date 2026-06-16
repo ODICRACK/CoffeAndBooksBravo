@@ -1,5 +1,5 @@
 import { Route, Switch } from "wouter";
-
+import Footer from "./componentes/Footer/Footer"
 import './App.css'
 
 function Inicio() {
@@ -16,7 +16,7 @@ function App() {
     <Switch>
       <Route path="/" component={Inicio} />
       <Route path="/cami" component={Inicio} />
-      <Route path="/nahue" component={Inicio} />
+      <Route path="/nahue" component={Footer} />
       <Route path="/liz" component={Inicio} />
     </Switch>
   );

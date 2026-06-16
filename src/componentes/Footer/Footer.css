@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Gabarito:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+.Footer {
+    flex: 1;
+    /*height: 380px;*/
+    height: 24.5vw;
+    background-image: url(../../assets/imagenFondoFooter.svg);
+    background-position: left -70px;
+    background-size: 74%;
+}
+
+.Footer__encima {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(105deg,
+            rgba(177, 125, 99, 0) 0%,
+            rgba(126, 89, 71, 0.55) 12%,
+            rgba(49, 26, 14, 1) 40%,
+            rgba(49, 26, 14, 1) 100%);
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+.Footer__encima-cuadroInterior{
+    background-image: url(../../assets/interiorFooter.svg);
+    width: 65vw;
+    height: 95%;
+    background-repeat: no-repeat;
+    background-size: 98%;
+    background-position: left;
+
+    .Footer__encima-CuadroInterior-derechos{
+        width: 100%;
+        font-family: Roboto Mono;
+        color: white;
+    }
+}
+.Footer__encima-cuadroInterior-info{
+    height: 90%;
+    width: 100%;
+}

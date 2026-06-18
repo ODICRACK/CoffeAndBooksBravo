@@ -5,7 +5,7 @@
     /*height: 380px;*/
     height: 24.5vw;
     background-image: url(../../assets/imagenFondoFooter.svg);
-    background-position: left -70px;
+    background-position: left -3vw;
     background-size: 74%;
 }
 
@@ -20,22 +20,87 @@
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
+
 }
-.Footer__encima-cuadroInterior{
+
+.Footer__encima-cuadroInterior {
     background-image: url(../../assets/interiorFooter.svg);
-    width: 65vw;
+    width: 64.7vw;
     height: 95%;
     background-repeat: no-repeat;
-    background-size: 98%;
+    background-size: contain;
     background-position: left;
+    padding-right: 1.6vw;
 
-    .Footer__encima-CuadroInterior-derechos{
+    .Footer__encima-CuadroInterior-derechos {
         width: 100%;
         font-family: Roboto Mono;
-        color: white;
+        color: #A8A6A6;
+        -webkit-text-stroke: 0.06vw black;
+        display: flex;
+        flex-direction: row-reverse;
+        padding-right: 2vw;
+        font-size: 0.85vw;
+
+        h2 {
+            line-height: 2.4;
+        }
+
+        .Copi {
+            font-size: 2.5vw;
+            line-height: 0.89;
+            -webkit-text-stroke: 0.03vw black;
+        }
     }
 }
-.Footer__encima-cuadroInterior-info{
+
+.Footer__encima-cuadroInterior-info {
     height: 90%;
     width: 100%;
+    display: grid;
+    padding-top: 1.8vw;
+    grid-template-columns: repeat(4, 1fr);
+
+    .Logo{
+        width: 100%;
+    }
+    .Titul{
+        font-size: 1.5vw;
+        font-family: DM Serif Display;  
+        color: #C4AE95;
+        h2{
+             line-height: 0.8;
+        }
+    }
+}
+
+.Footer__encima-cuadroInterior-info-contacto {
+    div{
+        width: 100%;
+    }
+    .Telefono{
+        margin-left: 10px;
+        font-family: Crimson Text;
+        font-size: 1.1vw;
+        line-height: 2;
+        font-weight: 100;
+
+    }
+    .Numero{
+        font-family: Inter;
+        display: flex;
+        font-size: 14px;
+        
+        span{
+            scale: 0.8;
+        }
+        h3{
+            font-weight: 400;
+        }
+    }
+    .Whatsape {
+        width: 52px;
+        height: 52px;
+        color: #C4AE95;
+    }
 }

@@ -1,19 +1,60 @@
 import "./Footer.css"
-
+import FacebookIcon from "../../assets/Facebook.svg";
+import InstagramIcon from "../../assets/Instagram.svg";
+import TwitterIcon from "../../assets/Twitter.svg";
+import PlantaIcon from "../../assets/PlantaFooter.svg";
+import LibroIcon from "../../assets/LibroFooter.svg";
+import LogoIcon from "../../assets/LogoCABFooter.svg";
+import SeparacionFooter from "../../assets/SeparacionFooter.svg";
 export default function Footer() {
     return (
         <footer className="Footer">
             <div className="Footer__encima">
                 <div className="Footer__encima-cuadroInterior">
                     <div className="Footer__encima-cuadroInterior-info">
-                        <div>
-
+                        <div className="Footer__encima-cuadroInterior-info-empresa">
+                            <img src={LogoIcon} alt="" className="Logo" />
+                            <h2 className="Titul">Coffee & Books</h2>
+                            <img src={SeparacionFooter} alt="" className="Separacion" />
+                            <p className="Texto">
+                                Creamos en los pequeños placeres: un buen cafe, en la copañia de un buen libro
+                            </p>
+                            <h2 className="">Gracias por compartir esto con nosotros</h2>
                         </div>
-                        <div>
-
+                        <div className="Footer__encima-cuadroInterior-info-navegacion">
+                            <div className="Navegacion-logo">
+                                <img src={LibroIcon} alt="" className="Logo" />
+                            </div>
+                            <div className="Titul">
+                                <h2>Navegacion</h2>
+                                <div>
+                                    <ul>
+                                        <li><a href="#">Menu principal</a></li>
+                                        <li><a href="#">Cafes</a></li>
+                                        <li><a href="#">Libros</a></li>
+                                        <li><a href="#">Productos</a></li>
+                                        <li><a href="#">Contacto</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-
+                        <div className="Footer__encima-cuadroInterior-info-Ayuda">
+                            <div className="contacto-logo">
+                                <img src={PlantaIcon} alt="" className="Logo" />
+                            </div>
+                            <div className="Titul">
+                                <h2>Ayuda</h2>
+                                <div>
+                                    <ul>
+                                        <li><a href="#">Preguntas frecuentes</a></li>
+                                        <li><a href="#">Envios y entregas</a></li>
+                                        <li><a href="#">Cambios y devoluciones</a></li>
+                                        <li><a href="#">Metodos de pago</a></li>
+                                        <li><a href="#">Terminos y condicones</a></li>
+                                        <li><a href="#">Politica de privacidad</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <div className="Footer__encima-cuadroInterior-info-contacto divFour">
                             <div className="contacto-logo">
@@ -32,9 +73,20 @@ export default function Footer() {
                                         </span>
                                         <h3>+54 2901 601801</h3>
                                     </div>
+                                    <div className="ContenedorInput">
+                                        <input type="text" placeholder="Ingresa tu coreo" />
+                                        <div>
+                                            <span class="material-symbols-outlined">
+                                                outgoing_mail
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
+                            <div className="ContenedorLogos">
+                                <img src={InstagramIcon} alt="Instragram" />
+                                <img src={TwitterIcon} alt="Twitter" />
+                                <img src={FacebookIcon} alt="Facebook" />
 
                             </div>
                         </div>

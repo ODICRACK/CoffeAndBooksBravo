@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Gabarito:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 .Footer {
     flex: 1;
     /*height: 380px;*/
@@ -61,46 +61,232 @@
     padding-top: 1.8vw;
     grid-template-columns: repeat(4, 1fr);
 
-    .Logo{
-        width: 100%;
-    }
-    .Titul{
+
+
+    .Titul {
         font-size: 1.5vw;
-        font-family: DM Serif Display;  
+        font-family: DM Serif Display;
         color: #C4AE95;
-        h2{
-             line-height: 0.8;
+
+        h2 {
+            line-height: 0.8;
         }
     }
 }
 
 .Footer__encima-cuadroInterior-info-contacto {
-    div{
+    margin-left: 20px;
+
+    div {
         width: 100%;
     }
-    .Telefono{
+
+    .Telefono {
         margin-left: 10px;
         font-family: Crimson Text;
         font-size: 1.1vw;
         line-height: 2;
         font-weight: 100;
+        height: 24px;
 
     }
-    .Numero{
+
+    .Numero {
         font-family: Inter;
         display: flex;
         font-size: 14px;
-        
-        span{
+
+        span {
             scale: 0.8;
         }
-        h3{
+
+        h3 {
             font-weight: 400;
         }
     }
+
     .Whatsape {
-        width: 52px;
-        height: 52px;
+        width: 3.5vw;
+        height: auto;
         color: #C4AE95;
+    }
+
+    .ContenedorInput {
+        margin-top: 10px;
+        width: 100%;
+        height: 44px;
+        display: flex;
+        margin-right: 4px;
+
+        input {
+
+            height: 2.3vw;
+            width: 15.5vw;
+            padding-left: 10px;
+            padding-top: 4px;
+            background-color: #311A0E;
+            color: #C4AE95;
+            border-top: 2px solid #C4AE95;
+            border-left: 2px solid #C4AE95;
+            border-bottom: 2px solid #C4AE95;
+            border-right: none;
+            border-radius: 10px 0px 0px 10px;
+
+        }
+
+        input::placeholder {
+            color: #C4AE95;
+            font-size: 17px;
+            display: flex;
+            line-height: 10;
+
+        }
+
+        div {
+            height: 2.3vw;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0.2vw;
+            border-top: 2px solid #C4AE95;
+            border-left: none;
+            border-bottom: 2px solid #C4AE95;
+            border-right: 2px solid #C4AE95;
+            border-radius: 0px 10px 10px 0px;
+            cursor: pointer;
+            user-select: none;
+        }
+    }
+
+    .ContenedorLogos {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        img {
+            width: 2.5vw;
+            height: auto;
+        }
+    }
+}
+
+.Footer__encima-cuadroInterior-info-Ayuda {
+    padding-left: 10px;
+
+    .Logo {
+        width: 3vw;
+        height: auto;
+
+    }
+
+    .Titul {
+        border-right: 1px solid #C4AE95;
+        max-height: 12vw;
+    }
+
+    ul {
+
+        list-style: none;
+        padding: 0;
+
+
+    }
+
+    li {
+        height: 30px;
+    }
+
+    a {
+        color: #C4AE95;
+        text-decoration: underline;
+        font-size: 1vw;
+        line-height: 1;
+    }
+
+    a:hover {
+        opacity: 0.8;
+
+    }
+}
+
+.Footer__encima-cuadroInterior-info-navegacion {
+
+    padding-left: 12px;
+
+    .Navegacion-logo {
+        display: flex;
+        align-items: end;
+        height: 54px;
+        padding-bottom: 5px;
+    }
+
+    .Logo {
+        width: 3vw;
+        height: auto;
+    }
+
+    .Titul {
+        border-right: 1px solid #C4AE95;
+        max-height: 15vw;
+    }
+
+    ul {
+
+        list-style: none;
+        padding: 0;
+
+
+    }
+
+    li {
+        height: 30px;
+    }
+
+    a {
+        color: #C4AE95;
+        text-decoration: underline;
+        font-size: 1vw;
+        line-height: 1;
+    }
+
+    a:hover {
+        opacity: 0.8;
+
+    }
+}
+.Footer__encima-cuadroInterior-info-empresa{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    .Logo{
+        width: 4vw;
+        height: auto;
+    }
+    .Titul{
+        margin-top: 10px;
+        font-family: Rock Salt;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 100;
+    }
+    .Separacion{
+        margin-top: 5px;
+        width: auto;
+        height: 0.8vw;
+    }
+    .Texto{
+        font-weight: 100;
+        font-family: Crimson Text;
+        color: #C4AE95;
+        -webkit-text-stroke: 0.3px #1F1B15;
+        font-size: 0.9vw;
+        
+        text-align: center;
+
+        width: 70%;
     }
 }

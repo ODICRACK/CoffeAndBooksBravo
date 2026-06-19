@@ -1,0 +1,10 @@
+*{
+    background-color: rgba(9, 13, 12, 1);
+}
+.listado{
+    background-color: rgba(22, 23, 19, 1);
+}
+.box {
+    mask: radial-gradient(40px at 40px 40px,#0000 98%,#000) -40px -40px;
+    height: 1000rem;
+}

@@ -1,5 +1,5 @@
 import { Route, Switch } from "wouter";
-
+import Catalogo from "./componentes/catalogo/Catalogo.jsx";
 import './App.css'
 
 function Inicio() {
@@ -17,7 +17,7 @@ function App() {
       <Route path="/" component={Inicio} />
       <Route path="/cami" component={Inicio} />
       <Route path="/nahue" component={Inicio} />
-      <Route path="/liz" component={Inicio} />
+      <Route path="/Catalogo" component={Catalogo} />
     </Switch>
   );
 }

@@ -1,0 +1,14 @@
+.listado{
+    height: 100vh;
+    background-image: url("/src/assets/marcoListado.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    
+    margin: 5rem;
+}
+.listado_div{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 6rem 2rem;
+}

@@ -1,7 +1,6 @@
 import "./Catalogo.css";
-import Listado from "./Listado.jsx";
-
-export default function catalogo(){
+import Listado from "./listado/Listado.jsx";
+export default function Catalogo(){
     return(
         <div className="catalogo">
             <Listado />

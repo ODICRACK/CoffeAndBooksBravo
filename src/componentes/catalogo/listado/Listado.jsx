@@ -1,0 +1,13 @@
+import "./listado.css";
+import Productos from "./productos/Productos.jsx";
+export default function Listado(){
+    return(
+        <div className="listado">
+            <div className="listado_div">
+                {Array(10).fill().map((_, i) => (
+                    <Productos key={i} />
+                ))}
+            </div>
+        </div>
+    )
+}

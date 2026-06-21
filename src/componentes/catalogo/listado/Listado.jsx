@@ -9,5 +9,6 @@ export default function Listado(){
                 ))}
             </div>
         </div>
+        
     )
 }

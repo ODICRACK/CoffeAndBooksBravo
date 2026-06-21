@@ -1,0 +1,15 @@
+.categoria{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.categoria_div{
+    background-image: url("/src/assets/MarcoCatCaffe.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem;
+}

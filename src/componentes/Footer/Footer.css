@@ -1,22 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Gabarito:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&family=Seaweed+Script&display=swap');
+
 .Footer {
     flex: 1;
     /*height: 380px;*/
-    height: 24.5vw;
-    background-image: url(../../assets/imagenFondoFooter.svg);
-    background-position: left -3vw;
-    background-size: 74%;
+    height: 24.7vw;
+    background-image: url(../../assets/Frame1.svg);
+    background-position: -1px -3.1vw;
+    background-size: 100% 124%;
 }
 
 .Footer__encima {
     width: 100%;
     height: 100%;
-    background: linear-gradient(105deg,
-            rgba(177, 125, 99, 0) 0%,
-            rgba(126, 89, 71, 0.55) 12%,
-            rgba(49, 26, 14, 1) 40%,
-            rgba(49, 26, 14, 1) 100%);
+    /* background: #B17D63; */
+    background-image: url(../../assets/BordeFooter.svg);
+    background-size: 100% 101%;
+    background-repeat: no-repeat;
+    background-position: -0.001px;
+    /* background: linear-gradient(103deg, rgba(177, 125, 99, 0) 0%, rgba(126, 89, 71, 0.35) 12%, rgba(49, 26, 14, 1) 37%); */
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
@@ -25,12 +27,13 @@
 
 .Footer__encima-cuadroInterior {
     background-image: url(../../assets/interiorFooter.svg);
-    width: 64.7vw;
-    height: 95%;
+    width: 65.2vw;
+    height: 96%;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: left;
     padding-right: 1.6vw;
+    margin-right: 1.29vw;
 
     .Footer__encima-CuadroInterior-derechos {
         width: 100%;
@@ -39,7 +42,7 @@
         -webkit-text-stroke: 0.06vw black;
         display: flex;
         flex-direction: row-reverse;
-        padding-right: 2vw;
+        padding-right: 0.7vw;
         font-size: 0.85vw;
 
         h2 {
@@ -87,14 +90,14 @@
         font-size: 1.1vw;
         line-height: 2;
         font-weight: 100;
-        height: 24px;
+        height: 25px;
 
     }
 
     .Numero {
         font-family: Inter;
         display: flex;
-        font-size: 14px;
+        font-size: 0.9vw;
 
         span {
             scale: 0.8;
@@ -139,7 +142,7 @@
             font-size: 17px;
             display: flex;
             line-height: 10;
-
+            font-size: 1.11vw;
         }
 
         div {
@@ -161,7 +164,7 @@
 
     .ContenedorLogos {
         width: 100%;
-        height: 60px;
+        height: 3.95vw;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -196,7 +199,8 @@
     }
 
     li {
-        height: 30px;
+        /* height: 30px; */
+        height: 1.95vw;
     }
 
     a {
@@ -230,6 +234,7 @@
 
     .Titul {
         border-right: 1px solid #C4AE95;
+
         max-height: 15vw;
     }
 
@@ -242,7 +247,7 @@
     }
 
     li {
-        height: 30px;
+        height: 1.95vw;
     }
 
     a {
@@ -257,36 +262,61 @@
 
     }
 }
-.Footer__encima-cuadroInterior-info-empresa{
+
+.Footer__encima-cuadroInterior-info-empresa {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    .Logo{
+
+    .Logo {
         width: 4vw;
         height: auto;
     }
-    .Titul{
+
+    .Titul {
         margin-top: 10px;
         font-family: Rock Salt;
         text-align: center;
         font-size: 15px;
         font-weight: 100;
     }
-    .Separacion{
+
+    .Separacion {
         margin-top: 5px;
         width: auto;
         height: 0.8vw;
     }
-    .Texto{
+
+    .Texto {
         font-weight: 100;
         font-family: Crimson Text;
         color: #C4AE95;
         -webkit-text-stroke: 0.3px #1F1B15;
         font-size: 0.9vw;
-        
+
         text-align: center;
 
         width: 70%;
+    }
+
+    .Agradecimiento {
+        margin-top: 1vw;
+        font-family: Seaweed Script;
+        font-size: 1.1vw;
+        color: #C4AE95;
+        font-weight: 200;
+        width: 80%;
+        text-align: center;
+    }
+
+    .Contenedor {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        border-right: 1px solid #C4AE95;
     }
 }

@@ -14,12 +14,14 @@ export default function Footer() {
                     <div className="Footer__encima-cuadroInterior-info">
                         <div className="Footer__encima-cuadroInterior-info-empresa">
                             <img src={LogoIcon} alt="" className="Logo" />
-                            <h2 className="Titul">Coffee & Books</h2>
-                            <img src={SeparacionFooter} alt="" className="Separacion" />
-                            <p className="Texto">
-                                Creamos en los pequeños placeres: un buen cafe, en la copañia de un buen libro
-                            </p>
-                            <h2 className="">Gracias por compartir esto con nosotros</h2>
+                            <div className="Contenedor">
+                                <h2 className="Titul">Coffee & Books</h2>
+                                <img src={SeparacionFooter} alt="" className="Separacion" />
+                                <p className="Texto">
+                                    Creamos en los pequeños placeres: un buen cafe, en la copañia de un buen libro
+                                </p>
+                                <h2 className="Agradecimiento">Gracias por compartir esto con nosotros</h2>
+                            </div>
                         </div>
                         <div className="Footer__encima-cuadroInterior-info-navegacion">
                             <div className="Navegacion-logo">

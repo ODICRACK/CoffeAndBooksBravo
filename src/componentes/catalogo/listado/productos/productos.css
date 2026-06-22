@@ -1,5 +1,5 @@
 
-.listado__div{
+.producto__div{
     background-image: url("/src/assets/marcoCafe.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -12,31 +12,31 @@
     position: relative;
 }
 
-.listado__div-img{
+.producto__div-img{
     height: 20vh;
 }
 
-.listado__div-imgDivs{
+.producto__div-imgDivs{
     width: 8rem;
 }
-.listado__div-btn{
+.producto__div-btn{
     cursor: pointer;
     all: unset;
     position: absolute;
     transform: translateY(-50%);
     bottom: 2vh; 
 }
-.listado__div-btn img{
+.producto__div-btn img{
     cursor: pointer;
     height: 29.67px;
 }
-.listado__div-h3{
+.producto__div-h3{
     color: rgba(193, 167, 140, 1);
     font-family: "DM Serif Display", serif;
     font-weight: 500;
     font-size: 2.5vh;
 }
-.listado__div-p{
+.producto__div-p{
     font-size: 2.7vh;
     color: rgba(189, 140, 70, 1);
     font-family: "Inter", sans-serif;

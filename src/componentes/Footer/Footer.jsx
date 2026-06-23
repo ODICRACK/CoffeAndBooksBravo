@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import "./Footer.css"
 import FacebookIcon from "../../assets/Facebook.svg";
 import InstagramIcon from "../../assets/Instagram.svg";
@@ -6,7 +8,8 @@ import PlantaIcon from "../../assets/PlantaFooter.svg";
 import LibroIcon from "../../assets/LibroFooter.svg";
 import LogoIcon from "../../assets/LogoCABFooter.svg";
 import SeparacionFooter from "../../assets/SeparacionFooter.svg";
-export default function Footer() {
+
+function FooterEscritorio() {
     return (
         <footer className="Footer">
             <div className="Footer__encima">
@@ -105,4 +108,133 @@ export default function Footer() {
             </div>
         </footer>
     )
+}
+function FooterCelu() {
+    return (
+        <footer className="FooterResonsive">
+            <div className="FooterResonsive__contenedor">
+                <div className="FooterResonsive__contenedor-interior">
+                    <div className="FooterResonsive__contenedor-interior-Ayuda">
+                        <div className="ContenedorAyuda">
+                            <img src={PlantaIcon} alt="" />
+                        </div>
+                        <div className="ContenedorTitul">
+                            <h3>Ayuda</h3>
+                        </div>
+                        <div className="ContenedorUl">
+                            <ul>
+                                <li>
+                                    <a href="">Preguntas frecuentes</a>
+                                </li>
+                                <li>
+                                    <a href="">Envios y entregas</a>
+                                </li>
+                                <li>
+                                    <a href="">Cambios y devoluciones</a>
+                                </li>
+                                <li>
+                                    <a href="">Metodos de pago</a>
+                                </li>
+                                <li>
+                                    <a href="">Terminos y condicones</a>
+                                </li>
+                                <li>
+                                    <a href="">Politica de privacidad</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div className="FooterResonsive__contenedor-interior-Contacto">
+                        <div className="ContenedorContacto">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="Whatsape" viewBox="0 0 24 24">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01m-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28" />
+                            </svg>
+                            <h3>Contacto</h3>
+                        </div>
+                        <div className="ContenedorTelefono">
+                            <h3>Telefono</h3>
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    call
+                                </span>
+                                <h3>+54 2901 60 1801</h3>
+                            </div>
+                        </div>
+
+                        <div className="ContenedorInput">
+                            <input type="text" placeholder="Ingresa tu coreo" />
+                            <div>
+                                <span class="material-symbols-outlined">
+                                    outgoing_mail
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="ContenedorLogos">
+                            <img src={InstagramIcon} alt="" />
+                            <img src={TwitterIcon} alt="" />
+                            <img src={FacebookIcon} alt="" />
+                        </div>
+                    </div>
+                    <div className="FooterResponsive__encima-cuadroInterior-info-empresa">
+                        <img src={LogoIcon} alt="" className="Logo" />
+                        <div className="Contenedor">
+                            <h2 className="Titul">Coffee & Books</h2>
+                            <img src={SeparacionFooter} alt="" className="Separacion" />
+                            <p className="Texto">
+                                Creamos en los pequeños placeres: un buen cafe, en la copañia de un buen libro
+                            </p>
+                            <h2 className="Agradecimiento">Gracias por compartir esto con nosotros</h2>
+                        </div>
+                    </div>
+                    <div className="FooterResonsive__contenedor-interior-Ayuda">
+                        <div className="ContenedorAyuda">
+                            <img src={LibroIcon} alt="" className="special" />
+                        </div>
+                        <div className="ContenedorTitul">
+                            <h3>Navegacion</h3>
+                        </div>
+                        <div className="ContenedorUl">
+                            <ul>
+                                <li><a href="#">Menu principal</a></li>
+                                <li><a href="#">Cafes</a></li>
+                                <li><a href="#">Libros</a></li>
+                                <li><a href="#">Productos</a></li>
+                                <li><a href="#">Contacto</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div className="FooterResponsive__encima-CuadroInterior-derechos">
+
+                    <h2> 2026 Bravo Group Studios. Todos los derechos reservados.</h2>
+                    <h2 className="Copi">
+                        ©
+                    </h2>
+                </div>
+            </div>
+        </footer>
+    )
+}
+
+
+
+export default function Footer() {
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 780);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return isMobile ? <FooterCelu /> : <FooterEscritorio />;
 }

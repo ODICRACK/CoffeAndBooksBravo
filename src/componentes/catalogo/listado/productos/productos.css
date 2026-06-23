@@ -1,6 +1,5 @@
 
 .producto__div{
-    background-image: url("/src/assets/marcoCafe.svg");
     background-repeat: no-repeat;
     background-position: center;
 
@@ -31,14 +30,36 @@
     height: 29.67px;
 }
 .producto__div-h3{
-    color: rgba(193, 167, 140, 1);
     font-family: "DM Serif Display", serif;
     font-weight: 500;
     font-size: 2.5vh;
 }
 .producto__div-p{
     font-size: 2.7vh;
-    color: rgba(189, 140, 70, 1);
     font-family: "Inter", sans-serif;
     font-weight: 300;
+}
+
+/*cafe esp*/
+.producto__div.cafe{
+    background-image: url("/src/assets/marcoCafe.svg");
+}
+.producto__div-h3.cafe{
+    color: rgba(193, 167, 140, 1);
+}
+.producto__div-p.cafe{
+    font-size: 2.7vh;
+    color: rgba(189, 140, 70, 1);
+}
+
+/*libro esp*/
+.producto__div.libro{
+    background-image: url("/src/assets/marcolibros.svg");
+}
+.producto__div-h3.libro{
+    color: rgba(109, 29, 21, 1);
+}
+.producto__div-p.libro{
+    font-size: 2.7vh;
+    color: rgba(94, 11, 13, 1);
 }

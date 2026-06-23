@@ -6,15 +6,20 @@
 .categoria_div{
     background-repeat: no-repeat;
     background-position: center;
+    
+    background-size: contain;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin: 2rem;
-    width: 180px;
-    height: 180px;
+    width: 140px;
+    height: 140px;
     font-family: "DM Serif Display", serif;
-    font-size: 18px;
+    font-size: 17px;
+}
+.categoria_div img{
+    height: 4vw;
 }
 .categoria_div.cafe{
     color: rgba(175, 120, 64, 1);

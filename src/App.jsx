@@ -1,6 +1,6 @@
 import { Route, Switch } from "wouter";
 // import Footer from "./componentes/Footer/Footer"
-import Header from "./componentes/Header/Header"
+import Header from "./componentes/Header/Header.jsx"
 import './App.css'
 
 function Inicio() {

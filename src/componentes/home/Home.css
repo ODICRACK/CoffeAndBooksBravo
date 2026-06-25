@@ -1,0 +1,652 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IM+Fell+French+Canon:ital@0;1&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Harmattan:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* --------------------------------------------------------------------------------- */
+/* ------------------------------------- INICIO ------------------------------------ */
+/* --------------------------------------------------------------------------------- */
+
+.Inicio {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #1F1B15;
+    isolation: isolate;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+/* ------------------------------------- FONDO ------------------------------------- */
+
+.Inicio__cafe-wrapper,
+.Inicio__libro-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    filter: brightness(0.7);
+    transition: clip-path 0.4s ease, filter 0.4s ease, background-size 0.4s ease;
+    z-index: 1;
+}
+
+.Inicio__cafe-wrapper {
+    background-image: url('../../assets/home_fondo-cafe.png');
+    background-size: 72%;
+    background-position: 0% center;
+    clip-path: polygon(0 0,
+            28% 0,
+            68% 100%,
+            0 100%);
+}
+
+.Inicio__libro-wrapper {
+    background-image: url('../../assets/home_fondo-libro.png');
+    background-size: 72.2%;
+    background-position: 100% center;
+    clip-path: polygon(28% 0,
+            100% 0,
+            100% 100%,
+            68% 100%);
+}
+
+.Inicio__cafe-wrapper:hover,
+.Inicio__libro-wrapper:hover {
+    filter: brightness(0.8);
+    background-size: 73%;
+    z-index: 4;
+}
+
+.Inicio__cafe-wrapper:hover {
+    clip-path: polygon(0 0,
+            29% 0,
+            69% 100%,
+            0 100%);
+}
+
+.Inicio__libro-wrapper:hover {
+    clip-path: polygon(27% 0,
+            100% 0,
+            100% 100%,
+            67% 100%);
+}
+
+
+.Inicio::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    pointer-events: none;
+    z-index: 3;
+    background: linear-gradient(50deg,
+            transparent calc(38% + 2px),
+            rgba(5, 3, 2, 0.95) 49%,
+            rgba(5, 3, 2, 0.95) 50%,
+            transparent calc(58% - 2px));
+    filter: blur(4px);
+}
+
+.Inicio::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 15vh;
+
+    background: linear-gradient(to bottom,
+            transparent,
+            rgba(43, 38, 30, 0.776) 60%,
+            #1F1B15 100%);
+
+    z-index: 5;
+    pointer-events: none;
+}
+
+
+
+/* ------------------------------------- TEXTO ------------------------------------- */
+
+.Inicio__contenido {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    text-align: center;
+    color: #C4AE95;
+    width: min(90%, 31.25vw);
+    pointer-events: none;
+    font-family: 'IM Fell French Canon', serif;
+}
+
+.Inicio__titulo {
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: 0.026vw;
+}
+
+.Inicio__separador {
+    display: block;
+    height: 1vh;
+    margin: 0.8vh;
+}
+
+.Inicio__texto {
+    font-size: 1.7rem;
+    line-height: 1.2;
+    width: 25vw;
+    margin: 0 auto;
+    margin-top: 1vw;
+    margin-bottom: 2vw;
+
+    background: linear-gradient(to bottom,
+            #885421,
+            #ca9764);
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.Inicio__boton {
+    pointer-events: auto;
+    background-color: #621B14;
+    border: 1px solid #AD8253;
+    border-radius: 5px;
+    color: #C4AE95;
+    padding: 0.73vw 2.08vw;
+    width: 15vw;
+    font-family: 'IM Fell French Canon', serif;
+    font-size: 1.3vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Inicio__boton:hover {
+    background-color: #3b0e0a;
+}
+
+
+
+/* --------------------------------------------------------------------------------- */
+/* -------------------------------------- DATA ------------------------------------- */
+/* --------------------------------------------------------------------------------- */
+
+.Data {
+    width: 100%;
+    height: 65vh;
+    overflow: hidden;
+    background-color: #1F1B15;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Inria serif';
+    color: #C4AE95;
+}
+
+.Data__tarjeta-sobreMi,
+.Data__tarjeta-sobreMiNegocio {
+    display: flex;
+    text-align: center;
+    margin-top: 5vw;
+}
+
+.Data__tarjeta-sobreMi,
+.Data__tarjeta-sobreMiNegocio {
+    width: 43vw;
+    height: 45vh;
+
+    background-image: url("../../assets/home_data-tarjeta.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0.5rem 3rem;
+}
+
+.Data__tarjeta-logo {
+    height: 20%;
+}
+
+.Data__tarjeta-logo img {
+    height: 100%;
+    margin-bottom: 0;
+
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.Data__tarjeta-titulo {
+    font-size: 1.9rem;
+}
+
+.Data__tarjeta-separador {
+    width: 38%;
+    display: flex;
+    align-items: center;
+}
+
+.Data__tarjeta-separador img {
+    width: 100%;
+
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.Data__tarjeta-texto {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    width: 82%;
+}
+
+
+
+/* --------------------------------------------------------------------------------- */
+/* ----------------------------------- DESTACADOS ---------------------------------- */
+/* --------------------------------------------------------------------------------- */
+
+.Destacados {
+    width: 100%;
+    height: 70vh;
+    /* ACA CAMBIE 100VH POR 70VH*/
+    overflow: hidden;
+    background-color: #1F1B15;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inria serif';
+    color: #C4AE95;
+}
+
+.Destacados__titulo {
+    font-size: 2rem;
+}
+
+.Destacados__separador {
+    width: 25%;
+}
+
+.Destacados__separador img {
+    width: 100%;
+
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.Destacados__carrusel {
+    display: flex;
+    width: 90%;
+    height: 71%;
+    padding: 0;
+    position: relative;
+}
+
+.Destacados__carrusel-contenedor {
+    display: flex;
+    align-items: center;
+    background-color: #121818;
+    overflow: hidden;
+    width: 100%;
+    padding: 0 2.5%;
+    gap: 2rem;
+    z-index: 1;
+}
+
+.Destacados__carrusel-btn {
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    height: 102%;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+.Destacados__carrusel-btn:hover {
+    cursor: pointer;
+}
+
+.Destacados__carrusel-btn img {
+    height: 100%;
+
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.Destacados__carrusel-atras {
+    left: -2%;
+}
+
+.Destacados__carrusel-sig {
+    right: -2%;
+}
+
+.Destacados__carrusel-tarjeta {
+    display: flex;
+    position: relative;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+    width: 20%;
+
+    background-image: url("../../assets/home_dest-tarjeta.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+}
+
+.Destacados__carrusel-tarjeta:hover {
+    cursor: pointer;
+}
+
+.Destacados__carrusel-tarjeta:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -20px;
+    width: 1px;
+    height: 100%;
+
+    background: linear-gradient(to bottom,
+            #302316 0%,
+            #866440 10%,
+            #AD8253 50%,
+            #866440 90%,
+            #302316 100%);
+}
+
+.Destacados__carrusel-tarjeta--top {
+    height: 55%;
+    position: relative;
+}
+
+.Destacados__carrusel-tarjeta--img {
+    height: 100%;
+}
+
+.Destacados__carrusel-tarjeta--img img {
+    display: flex;
+    margin-bottom: 0;
+    height: 100%;
+}
+
+.Destacados__carrusel-tarjeta--icono {
+    height: 35%;
+    position: absolute;
+    top: 97%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Destacados__carrusel-tarjeta--icono img {
+    height: 100%;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.Destacados__carrusel-tarjeta--bottom {
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.4rem;
+    margin: 12% 0 0 0;
+    font-family: 'Inria Serif';
+    font-weight: lighter;
+}
+
+.Destacados__carrusel-tarjeta--separador {
+    margin: 0;
+    height: 3%;
+    width: 85%;
+    display: flex;
+    align-items: center;
+}
+
+.Destacados__carrusel-tarjeta--separador img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.Destacados__carrusel-tarjeta--precio {
+    margin: 5%;
+}
+
+
+
+
+/* --------------------------------------------------------------------------------- */
+/* ----------------------------------- CATEGORIAS ---------------------------------- */
+/* --------------------------------------------------------------------------------- */
+
+.Categorias {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    width: 100%;
+    height: 130vh;
+
+    background-color: #120E0C;
+}
+
+.Categorias__header-titulo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.3rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+
+    color: transparent;
+    -webkit-text-stroke: 1px #AD8253;
+
+    text-align: center;
+    margin: 0.2rem;
+}
+
+.Categorias__header-deco {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 95%;
+    width: auto;
+    z-index: 0;
+
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.Categorias__header-deco--izq {
+    left: 2rem;
+}
+
+.Categorias__header-deco--der {
+    right: 2rem;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+.Categorias__contenedor {
+    display: flex;
+    position: relative;
+    flex: 1;
+    width: 90%;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+    align-content: flex-start;
+    column-gap: 9rem;
+    row-gap: 4rem;
+}
+
+.Categorias__tarjeta::after {
+    content: "";
+    position: absolute;
+    top: -9rem;
+    bottom: -3.8rem;
+    right: -4.5rem;
+    width: 0;
+    border-right: 2px dashed #735D2E;
+}
+
+.Categorias__tarjeta:nth-child(3n)::after {
+    content: none;
+}
+
+.Categorias__tarjeta::before {
+    content: "";
+    position: absolute;
+    left: -4.5rem;
+    right: -4.5rem;
+    bottom: -2rem;
+    height: 0;
+    border-bottom: 2px dashed #735D2E;
+}
+
+.Categorias__tarjeta:nth-last-child(-n+3)::before {
+    content: none;
+}
+
+.Categorias__tarjeta {
+    position: relative;
+    width: 20%;
+    margin-top: 9rem;
+}
+
+.Categorias__tarjeta--inner {
+    position: relative;
+    width: 100%;
+    transition: transform 0.9s ease;
+}
+
+.Categorias__tarjeta:hover .Categorias__tarjeta--inner {
+    cursor: pointer;
+    transform: scale(1.25);
+    z-index: 10;
+    filter: drop-shadow(0 0 5px #BA9F57);
+}
+
+
+.Categorias__tarjeta-btn {
+    display: none;
+    margin-top: 0.2rem;
+    padding: 0 0.3rem;
+    border-radius: 0.2rem;
+    font-family: 'Inter', monospace;
+    font-size: 0.65rem;
+    cursor: pointer;
+    height: 1.2rem;
+}
+
+.Categorias__cafe .Categorias__tarjeta-btn {
+    background: #17120E;
+    border: 1px solid #BA9F57;
+    color: #BA9F57;
+}
+
+.Categorias__libro .Categorias__tarjeta-btn {
+    background: #3f201d;
+    border: 1px solid #621B14;
+    color: #EFBE8A;
+}
+
+.Categorias__tarjeta:hover .Categorias__tarjeta-btn {
+    display: block;
+}
+
+.Categorias__tarjeta-fondo {
+    display: block;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+}
+
+.Categorias__tarjeta-circulo {
+    position: absolute;
+    z-index: 1;
+
+    top: -6.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.Categorias__tarjeta-marco {
+    position: absolute;
+    z-index: 2;
+
+    top: -7rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 50%;
+
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.Categorias__tarjeta-contenido {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    text-align: center;
+    box-sizing: border-box;
+
+    padding: 15% 0.7rem 0;
+}
+
+.Categorias__libro {
+    color: #311A0E;
+}
+
+.Categorias__cafe {
+    color: white;
+}
+
+.Categorias__tarjeta-titulo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    width: 100%;
+}
+
+.Categorias__tarjeta-texto {
+    margin-top: 0.2rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+}

@@ -3,14 +3,14 @@ export default function Filtros(){
     return(
         <div className="select">
             <div className="select_div">
-                <div className="select_div-header">
+                <div className="select_div-header active">
                     <p className="select_div-header-lavel">Ordenar por</p>
                     <div className="select_div-header-div">
                         <span className="select_div-header-div-opc">Relevancia</span>
                         <span className="material-symbols-outlined">keyboard_arrow_down</span>
                     </div>
                 </div>
-                <ul className="select-ul" style={{ display: "none" }}>
+                <ul className="select-ul" >
                     <li className="select_div-header-div-opc" data-value="relevancia">Relevancia</li>
                     <li className="select_div-header-div-opc" data-value="mas-vendidos">Más vendidos</li>
                     <li className="select_div-header-div-opc" data-value="menos-vendidos">Menos vendidos</li>
@@ -26,11 +26,11 @@ export default function Filtros(){
                         <span class="material-symbols-outlined">keyboard_arrow_down</span>
                     </div>
                 </div>
-                <ul className="select-ul" style={{ display: "none" }}>
-                    <li data-value="todos">Todos</li>
-                    <li data-value="mayor-menor">Mayor a menor</li>
-                    <li data-value="menor-mayor">Menor a mayor</li>
-                    <li data-value="ofertas">Ofertas</li>
+                <ul className="select-ul" style={{display:"none"}}>
+                    <li className="select_div-header-div-opc" data-value="todos">Todos</li>
+                    <li className="select_div-header-div-opc" data-value="mayor-menor">Mayor a menor</li>
+                    <li className="select_div-header-div-opc" data-value="menor-mayor">Menor a mayor</li>
+                    <li className="select_div-header-div-opc" data-value="ofertas">Ofertas</li>
                 </ul>
             </div>
         </div>

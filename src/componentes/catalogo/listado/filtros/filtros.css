@@ -6,24 +6,37 @@
     top: 2rem;
 }
 .select_div{
+    width: 214.19px;
+    margin: 0 1vw;
+    position: relative; 
+}
+.select_div-header{
     background-image: url("/src/assets/filtros/marcoFiltrosHeader.svg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    margin: 0 1vw;
-    padding: 1vw;
-    width: 10vw;
+    height: 9vh;
+}
+.select_div-header.active{
+    background-image: url("/src/assets/filtros/marcoFiltrosHeader-active.svg");
+    
+    background-size: 100% 100%;
 }
 .select_div-header-div-opc{
     color: rgba(215, 176, 121, 1);
     font-family: "Inter", sans-serif;
     font-size: 15px;
     font-weight: 600;
+    padding: 0.5vh 1.5vw;
+}
+.select_div-header-div-opc:hover{
+    background-color: rgba(31, 38, 36, 1);
 }
 .select_div-header-lavel{
     font-family: "Inter", sans-serif;
     color: rgba(189, 140, 70, 1);
     font-weight: 200;
     font-size: 13px;
+    padding: 1vh 1.5vw 0.5vh;
 }
 .select_div-header-div{
     display: flex;
@@ -31,4 +44,16 @@
 }
 .select_div-header-div .material-symbols-outlined{
     color: rgba(189, 140, 70, 1);
+}
+
+.select-ul{
+    background-image: url("/src/assets/filtros/marcoFiltrosUl.svg");
+    background-repeat: no-repeat;
+    list-style: none;
+    position: absolute;           
+    width: 100%;        
+    z-index: 1001;   
+    margin: 0;
+    padding: 0;
+    height: 25vh;
 }

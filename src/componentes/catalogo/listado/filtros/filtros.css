@@ -1,0 +1,34 @@
+.select{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    align-self: center;
+    top: 2rem;
+}
+.select_div{
+    background-image: url("/src/assets/filtros/marcoFiltrosHeader.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 0 1vw;
+    padding: 1vw;
+    width: 10vw;
+}
+.select_div-header-div-opc{
+    color: rgba(215, 176, 121, 1);
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+.select_div-header-lavel{
+    font-family: "Inter", sans-serif;
+    color: rgba(189, 140, 70, 1);
+    font-weight: 200;
+    font-size: 13px;
+}
+.select_div-header-div{
+    display: flex;
+    justify-content: space-between
+}
+.select_div-header-div .material-symbols-outlined{
+    color: rgba(189, 140, 70, 1);
+}

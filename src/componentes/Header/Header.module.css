@@ -38,7 +38,7 @@
     background-size: 100%;
     background-position: left center;
     display: flex;
-
+    position: relative;
     padding-top: 0.3vw;
     padding-bottom: 1.8vw;
     padding-left: 7vw;
@@ -112,10 +112,58 @@
         font-weight: 100;
         font-size: 1.6vw;
         color: #C4AE95;
+        position: relative;
+        z-index: 10;
+
+    }
+    .Link:hover{
+        color:#AD8253 ;
+        transition: 0.8s;
+    }
+
+    .hache {
         border-right: 1.5px solid #C4AE95;
         padding-right: 1.5vw;
     }
+
+    .BanderaContainer {
+        position: absolute;
+        top: -1.93vw;
+        left: 42.99vw;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        width: 9vw;
+        height: 8vw;
+        /* height: 2vw; */
+        overflow: hidden;
+        transition: .4s ease;
+    }
+
+    .Bandera {
+        width: 9vw;
+        height: 9vw;
+
+        display: block;
+    }
+
+    .hache:nth-child(1):hover~.BanderaContainer {
+        transform: translateX(0);
+
+    }
+
+    .hache:nth-child(2):hover~.BanderaContainer {
+        transform: translateX(8.7vw);
+    }
+
+    .hache:nth-child(3):hover~.BanderaContainer {
+        transform: translateX(16vw);
+    }
 }
+
+
+
+
 
 .Header__div-div-nav-iconos {
     padding-right: 2.3vw;
@@ -144,7 +192,7 @@
         }
     }
 
-    .Icono:hover{
+    /* .Icono:hover {
         transition: 0.7s;
         width: 20vw !important;
         flex-direction: row-reverse;
@@ -163,7 +211,7 @@
             font-size: 1.1vw;
 
         }
-    }
+    } */
 }
 
 .Activo {

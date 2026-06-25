@@ -1,9 +1,14 @@
 :root {
-  --fondoHeader: #211B08;
-  --selecFondo: #212108;
-  --letras: #A0A177;
-  --fondo: #0C0821;
-  --bordes: #7E77A1
+  --botones1: #621B14;
+  --botones2: #311A0E;
+  --bordes1: #AD8253;
+  --bordes2: #1F1B15;
+  --bordes3: #120E0C;
+  --letras: #C4AE95;
+  --fondoTargetas: #121818;
+  --fondo1: #0A0E0D;
+  --fondo2: #1B1A18;
+  --bordes: #7E77A1;
 }
 
 * {

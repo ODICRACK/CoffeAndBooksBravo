@@ -1,6 +1,7 @@
 import { Route, Switch } from "wouter";
 // import Footer from "./componentes/Footer/Footer"
-import Header from "./componentes/Header/Header.jsx"
+//import Header from "./componentes/Header/Header.jsx"
+import PreguntasFrecuentes from "./componentes/PreguntasFrecuentes/PreguntasFrecuentes"
 import './App.css'
 
 function Inicio() {
@@ -17,7 +18,7 @@ function App() {
     <Switch>
       <Route path="/" component={Inicio} />
       <Route path="/cami" component={Inicio} />
-      <Route path="/nahue" component={Header} />
+      <Route path="/nahue" component={PreguntasFrecuentes} />
       <Route path="/liz" component={Inicio} />
     </Switch>
   );

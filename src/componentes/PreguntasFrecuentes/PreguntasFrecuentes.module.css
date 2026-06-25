@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.Div{
+    height: 100%;
+    background-color: var(--fondo1);
+}
+.Div__main{
+    display: flex;
+}
+.Div__main-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.Preguntas{
+    width: 34.8vw;
+    Preguntas-titul{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.Sepa{
+
+    img{
+        height: 83.4vh;
+    }
+}
+.Nada{
+    justify-content: center;
+    align-items: center;
+    color: var(--letras);
+    h2{
+        font-family: Crimson Text;
+    }
+}

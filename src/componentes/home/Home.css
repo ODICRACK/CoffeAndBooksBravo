@@ -267,7 +267,6 @@
 .Destacados {
     width: 100%;
     height: 70vh;
-    /* ACA CAMBIE 100VH POR 70VH*/
     overflow: hidden;
     background-color: #1F1B15;
     display: flex;

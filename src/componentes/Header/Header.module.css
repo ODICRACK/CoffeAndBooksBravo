@@ -109,6 +109,16 @@
     height: auto;
     gap: 1vw;
 
+
+
+    .hache {
+        border-right: 1.5px solid #C4AE95;
+        padding-right: 1.5vw;
+        height: 60%;
+        display: flex;
+        align-items: center;
+    }
+
     .Link {
         font-family: IM FELL Great Primer;
         font-weight: 100;
@@ -124,13 +134,7 @@
         transition: 0.8s;
     }
 
-    .hache {
-        border-right: 1.5px solid #C4AE95;
-        padding-right: 1.5vw;
-        height: 60%;
-        display: flex;
-        align-items: center;
-    }
+
 
     .BanderaContainer {
         position: absolute;
@@ -149,7 +153,7 @@
     .Bandera {
         width: 9vw;
         height: 9vw;
-        
+
     }
 
     .hache:nth-child(1):hover~.BanderaContainer {
@@ -246,4 +250,115 @@
 
     }
 
+}
+
+@media (max-width: 768px) {
+    .Header {
+        display: flex;
+        justify-content: center;
+        padding-top: 1.8vw;
+    }
+
+    .Header__div {
+        /*height: 90px; */
+        width: 100vw;
+        box-sizing: border-box;
+        background-image: url(../../assets/FondoHeaderResponsivesvg.svg);
+        background-repeat: no-repeat;
+        background-position: left start;
+        padding-top: 0.3vw;
+        padding-bottom: 2vw;
+        /* padding-bottom: 2.7%; */
+        padding-left: 7.7vw;
+        padding-right: 7.7vw;
+    }
+
+    .Header__div-div {
+        height: 8.4vw;
+        margin-bottom: 0.8vw;
+        display: flex;
+        justify-content: start;
+    }
+
+    .Header__div-div-logo {
+        padding-left: 3.6vw;
+        margin-right: 4vw;
+
+        img {
+            width: 7.5vw;
+            height: auto;
+            transition: 1s;
+        }
+
+        h1 {
+            display: none;
+        }
+    }
+
+    .Header__div-div-logo:hover {
+        transition: 1s;
+
+        img {
+            transition: 1s;
+            width: 7.9vw;
+            height: auto;
+        }
+    }
+
+    .Header__div-div-nav-nav {
+        gap: 3vw;
+
+        .hache {
+            height: 40%;
+            padding-right: 4vw;
+        }
+
+        .Link {
+            font-size: 2.8vw;
+        }
+
+        .BanderaContainer {
+            top: -4.6vw;
+            left: -5vw;
+            width: 20vw;
+            height: 20vw;
+        }
+
+        .Bandera {
+            width: 19vw;
+            height: 19vw;
+
+        }
+
+        .hache:nth-child(1):hover~.BanderaContainer {
+            transform: translateX(0);
+
+        }
+
+        .hache:nth-child(2):hover~.BanderaContainer {
+            transform: translateX(17.6vw);
+        }
+
+        .hache:nth-child(3):hover~.BanderaContainer {
+            transform: translateX(33vw);
+        }
+    }
+
+    .Header__div-div-nav-iconos {
+        gap: 1.8vw;
+
+        .Icono {
+            width: 5.3vw;
+            height: 5.3vw;
+            border: 1.5px dashed #C4AE95;
+
+            span {
+                font-size: 3.8vw;
+            }
+
+            .Input {
+                display: none;
+            }
+        }
+    }
 }

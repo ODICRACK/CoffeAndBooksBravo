@@ -18,12 +18,64 @@ export default function Filtros(){
                     <li className="select_div-header-div-opc" data-value="menos-recientes">Menos recientes</li>
                 </ul>
             </div>
+            <div style={{display:"none"}}>
+                <h2>FILTROS ESPECIFICOS</h2>
+                <div className="linea-decorativa"></div>
+                    <h3>Tipo</h3>
+                    <div className="grupo-filtros">
+                        <label>
+                            <input type="checkbox" />
+                            Todos
+                        </label>
+
+                        <label>
+                            <input type="checkbox" />
+                            En grano
+                        </label>
+
+                        <label>
+                            <input type="checkbox" />
+                            Molido
+                        </label>
+
+                        <label>
+                            <input type="checkbox" />
+                            En cápsula
+                        </label>
+                    </div>
+                <div className="linea-decorativa"></div>
+                <h3>Intensidad</h3>
+                <div className="grupo-filtros">
+                    <label>
+                        <input type="checkbox" />
+                        Suave
+                    </label>
+                    <label>
+                        <input type="checkbox" />
+                        Intermedio
+                    </label>
+
+                    <label>
+                        <input type="checkbox" />
+                        Intenso
+                    </label>
+
+                    <label>
+                        <input type="checkbox" />
+                        Muy intenso
+                    </label>
+                </div>
+
+            </div>
+            <div className="select_div-esp">
+                <span className="material-symbols-outlined">tune</span>
+            </div>
             <div className="select_div">
                 <div className="select_div-header">
                     <p className="select_div-header-lavel">Ordenar por precio</p>
                     <div className="select_div-header-div">
                         <span className="select_div-header-div-opc">Todos</span>
-                        <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                        <span className="material-symbols-outlined">keyboard_arrow_down</span>
                     </div>
                 </div>
                 <ul className="select-ul" style={{display:"none"}}>

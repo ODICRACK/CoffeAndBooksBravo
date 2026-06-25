@@ -57,3 +57,17 @@
     padding: 0;
     height: 25vh;
 }
+
+.select_div-esp{
+    color: rgba(189, 140, 70, 1);
+     background-image: url("/src/assets/filtrosEsp.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

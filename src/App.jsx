@@ -1,7 +1,7 @@
 import { Route, Link, Switch } from "wouter";
 
 
-// import Footer from "./componentes/Footer/Footer"
+import Footer from "./componentes/Footer/Footer"
 //import Header from "./componentes/Header/Header.jsx"
 import PreguntasFrecuentes from "./componentes/PreguntasFrecuentes/PreguntasFrecuentes"
 import Home from './componentes/home/Home';
@@ -30,7 +30,7 @@ function App() {
         <Route path="/home" component={Home} />
         <Route path="/carrito" component={Carrito} />
         <Route path="/preguntas" component={PreguntasFrecuentes} />
-        <Route path="/liz" component={Inicio} />
+        <Route path="/liz" component={Footer} />
       </Switch>
     </div>
   );

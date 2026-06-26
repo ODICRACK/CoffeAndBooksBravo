@@ -69,6 +69,11 @@ export default function PreguntasFrecuentes() {
                             <h3>SOBRE LOS LIBROS</h3>
                         </div>
                     </div>
+                    <div className={Style.Button}>
+                        <span class="material-symbols-outlined">
+                            arrow_forward_ios
+                        </span>
+                    </div>
                 </section>
                 <section className={`${Style["Div__main-section"]} ${Style["Sepa"]}`}>
                     <img src={sepa} alt="" />
@@ -137,7 +142,7 @@ export default function PreguntasFrecuentes() {
                         <div className={`${Style["Cont"]} ${Style["Plegado"]}`}>
                             <article className={Style["Algo__article-div-Titul"]}>
                                 <h2> ¿Cómo agrego productos al carrito?
-</h2>
+                                </h2>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={Style["Dawn"]}>
                                     <path d="M0 0h24v24H0z" fill="none" />
                                     <g fill="none" fill-rule="evenodd">

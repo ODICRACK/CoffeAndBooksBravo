@@ -203,10 +203,6 @@
     display: flex;
     text-align: center;
     margin-top: 5vw;
-}
-
-.Data__tarjeta-sobreMi,
-.Data__tarjeta-sobreMiNegocio {
     width: 43vw;
     height: 45vh;
 
@@ -219,6 +215,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: default;
 
     padding: 0.5rem 3rem;
 }
@@ -462,7 +459,7 @@
     text-transform: uppercase;
 
     color: transparent;
-    -webkit-text-stroke: 1px #AD8253;
+    -webkit-text-stroke: 0.6px #AD8253;
 
     text-align: center;
     margin: 0.2rem;
@@ -648,4 +645,321 @@
     margin-top: 0.2rem;
     font-family: 'Inter', sans-serif;
     font-size: 0.7rem;
+}
+
+
+/* =================================================================================== */
+/* ============================== RESPONSIVE - MOBILE (<=600px) ===================== */
+/* =================================================================================== */
+
+@media (max-width: 1024px) {
+
+    /* ---------- INICIO ---------- */
+
+    .Inicio {
+        height: 100vh;
+    }
+
+    .Inicio::after {
+        background: linear-gradient(56deg,
+                transparent calc(38% + 2px),
+                rgba(5, 3, 2, 0.95) 49%,
+                rgba(5, 3, 2, 0.95) 50%,
+                transparent calc(58% - 2px));
+
+        left: -8.5vw;
+    }
+
+    .Inicio__cafe-wrapper,
+    .Inicio__libro-wrapper {
+        transition: clip-path 0.6s ease, filter 0.6s ease, background-size 0.6s ease;
+        background-size: 200vw;
+    }
+
+    .Inicio__cafe-wrapper {
+        background-position: -90vw center;
+        clip-path: polygon(0 0,
+                1% 0,
+                99% 100%,
+                0 100%);
+    }
+
+    .Inicio__libro-wrapper {
+        background-position: 1vw center;
+        clip-path: polygon(1% 0,
+                100% 0,
+                100% 100%,
+                99% 100%);
+    }
+
+    .Inicio__cafe-wrapper:hover,
+    .Inicio__libro-wrapper:hover {
+        filter: brightness(0.8);
+        background-size: 205vw;
+        z-index: 4;
+    }
+
+    .Inicio__cafe-wrapper:hover {
+        clip-path: polygon(0 0,
+                3% 0,
+                101% 100%,
+                0 100%);
+    }
+
+    .Inicio__libro-wrapper:hover {
+        clip-path: polygon(-1% 0,
+                100% 0,
+                100% 100%,
+                97% 100%);
+    }
+
+    .Inicio__contenido {
+        top: 50vw;
+        width: 60vw;
+    }
+
+    .Inicio__titulo {
+        font-size: 4vw;
+    }
+
+    .Inicio__separador {
+        width: 50vw;
+        margin: 0.5vw auto;
+    }
+
+    .Inicio__separador img {
+        width: 100%;
+    }
+
+    .Inicio__texto {
+        font-size: 3.5vw;
+        width: 50vw;
+        line-height: 1.35;
+        margin: 0 auto;
+        margin-top: 2.5vw;
+        margin-bottom: 1vw;
+    }
+
+    .Inicio__boton {
+        width: 25vw;
+        font-size: 4vw;
+        padding: 1.5vw 0;
+        border-radius: 1.5vw;
+    }
+
+    /* ---------- DATA ---------- */
+
+    .Data {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 5vw;
+        padding-bottom: 0;
+        gap: 8vw;
+    }
+
+    .Data__tarjeta-sobreMi,
+    .Data__tarjeta-sobreMiNegocio {
+        width: 86vw;
+        height: 43vw;
+        margin-top: 0;
+        padding: 0 7vw;
+    }
+
+    .Data__tarjeta-logo {
+        height: 7vw;
+    }
+
+    .Data__tarjeta-titulo {
+        font-size: 5.5vw;
+    }
+
+    .Data__tarjeta-separador {
+        width: 35vw;
+    }
+
+    .Data__tarjeta-texto {
+        font-size: 3vw;
+        line-height: 1.35;
+        width: 65vw;
+    }
+
+    /* ---------- DESTACADOS ---------- */
+
+    .Destacados {
+        height: auto;
+        padding: 10vw 0 8vw;
+    }
+
+    .Destacados__titulo {
+        font-size: 6vw;
+    }
+
+    .Destacados__separador {
+        width: 60vw;
+        margin: 0.3vw 0;
+    }
+
+    .Destacados__carrusel {
+        width: 90vw;
+        height: 36vw;
+        padding: 0;
+    }
+
+    .Destacados__carrusel-contenedor {
+        gap: 2vw;
+        margin: 0 4.5vw;
+        padding-left: 4.5vw;
+    }
+
+    .Destacados__carrusel-tarjeta {
+        width: 34vw;
+    }
+
+    .Destacados__carrusel-tarjeta:not(:last-child)::after {
+        right: -2vw;
+    }
+
+    .Destacados__carrusel-tarjeta--bottom {
+        font-size: 3vw;
+        margin-top: 2.5vw
+    }
+
+    .Destacados__carrusel-tarjeta--separador {
+        width: 20vw;
+    }
+
+    .Destacados__carrusel-atras {
+        left: -2vw;
+    }
+
+    .Destacados__carrusel-sig {
+        right: -2vw;
+    }
+
+    .Destacados__carrusel-btn {
+        height: 100%;
+        width: 10vw;
+    }
+
+    .Destacados__carrusel-btn img {
+        height: 102%;
+        width: 100%;
+    }
+
+
+
+    /* ---------- CATEGORIAS ---------- */
+
+    .Categorias {
+        height: auto;
+        padding: 6vw 0 12vw;
+    }
+
+    .Categorias__header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Categorias__header-titulo {
+        font-size: 8vw;
+        letter-spacing: 2vw;
+    }
+
+    .Categorias__header-deco {
+        position: absolute;
+        top: 82vw;
+        transform: translateY(-50%);
+        height: 160vw;
+        width: auto;
+    }
+
+    .Categorias__header-deco--izq {
+        left: 2vw;
+    }
+
+    .Categorias__header-deco--der {
+        right: 2vw;
+        transform: translateY(-50%) scaleX(-1);
+    }
+
+    .Categorias__contenedor {
+        width: 85vw;
+        column-gap: 5vw;
+        row-gap: 8vw;
+    }
+
+    .Categorias__tarjeta {
+        width: 38vw;
+        margin-top: 18vw;
+    }
+
+    .Categorias__tarjeta:nth-child(3n)::after {
+        content: "";
+    }
+
+    .Categorias__tarjeta:nth-last-child(-n+3)::before {
+        content: "";
+    }
+
+    .Categorias__tarjeta::after {
+        top: -18vw;
+        bottom: -7vw;
+        right: -2.5vw;
+    }
+
+    .Categorias__tarjeta:nth-child(2n)::after {
+        content: none;
+    }
+
+    .Categorias__tarjeta::before {
+        left: -4vw;
+        right: -4vw;
+        bottom: -8vw;
+    }
+
+    .Categorias__tarjeta:nth-last-child(-n+2)::before {
+        content: none;
+    }
+
+    .Categorias__tarjeta-circulo {
+        top: -14.5vw;
+        width: 20vw;
+    }
+
+    .Categorias__tarjeta-marco {
+        top: -16vw;
+        width: 20vw;
+    }
+
+    .Categorias__tarjeta-contenido {
+        padding-top: 6vw;
+    }
+
+    .Categorias__tarjeta-titulo {
+        font-size: 4vw;
+        width: 35vw;
+    }
+
+    .Categorias__tarjeta-texto {
+        font-size: 2vw;
+        margin-top: 0.1vw;
+        line-height: 1;
+    }
+
+    .Categorias__tarjeta-btn {
+        font-size: 1.8vw;
+        margin-top: 0.5vw;
+    }
+
+
+    .Categorias__tarjeta:hover .Categorias__tarjeta-btn {
+        display: block;
+    }
+
+    .Categorias__tarjeta:hover .Categorias__tarjeta--inner {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 5px #BA9F57);
+    }
 }

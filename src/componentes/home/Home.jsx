@@ -1,5 +1,8 @@
 import './Home.css';
 
+// import Header from "../Header/Header"
+// import Footer from "../Footer/Footer"
+
 import inicioSeparador from '../../assets/home_inicio-separador.svg';
 import dataSeparador from '../../assets/home_data-separador.svg';
 import dataLogo1 from '../../assets/home_data-logo1.svg';

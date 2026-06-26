@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IM+Fell+French+Canon:ital@0;1&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Harmattan:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Carrito {
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+
+    background-image: url("../../assets/carrito_fondo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+.Carrito::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.655);
+    z-index: 0;
+}
+
+.Carrito__modal {
+    position: absolute;
+
+    width: 23%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+    z-index: 1;
+
+    right: 0;
+
+    background-color: #121818;
+}
+
+.Carrito__modal-titulo {
+    font-family: 'DM Serif Display', serif;
+    color: #BB9B5F;
+    font-size: 2.6rem;
+    letter-spacing: 0.01em;
+    font-weight: lighter;
+    margin-top: 3vh;
+    text-align: center;
+}
+
+.Carrito__modal-deco {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: -2.5%;
+    margin: 0 auto;
+    height: 98%;
+    width: 1%;
+}
+
+.Carrito__modal-deco img {
+    height: 100%;
+}
+
+.Carrito__modal-listado {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+    padding: 0 2% 2%;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+
+.Carrito__modal-listado--tarjeta {
+    width: 75%;
+    left: 4.25%;
+    min-height: 20vh;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    padding: 2% 12% 2% 4%;
+
+    background-image: url("../../assets/carrito_tarjeta.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+.Carrito__tarjeta-top {
+    position: absolute;
+    width: 32%;
+    left: -10%;
+    aspect-ratio: 1 / 1;
+}
+
+.Carrito__tarjeta-top--img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.Carrito__tarjeta-top--icono {
+    position: absolute;
+    bottom: 30%;
+    right: -10%;
+    width: 30%;
+    height: 40%;
+}
+
+.Carrito__tarjeta-data {
+    flex: 1;
+    font-family: 'Inter', sans-serif;
+
+    display: flex;
+    flex-direction: column;
+
+    left: 28%;
+    width: 60%;
+
+    position: absolute;
+}
+
+.Carrito__tarjeta-data--titulo {
+    color: #C4AE95;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.Carrito__tarjeta-data--texto {
+    color: #885419;
+    font-size: 0.6rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.35rem;
+}
+
+.Carrito__tarjeta-data--texto::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+    height: 0.1rem;
+    background-image: linear-gradient(to right, #3B3B3B 40%, transparent 40%);
+    background-size: 0.5rem 1rem;
+    /* ancho total de cada "paso" (punto + espacio) */
+    background-repeat: repeat-x;
+}
+
+.Carrito__tarjeta-data--precio {
+    color: #C4AE95;
+    font-size: 0.9rem;
+    font-weight: bolder;
+    margin-top: 0.25rem;
+}
+
+.Carrito__tarjeta-btn {
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    height: 15%;
+    width: 15%;
+    position: absolute;
+    top: 77%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    z-index: 3;
+}
+
+.Carrito__tarjeta-btn img {
+    height: 100%;
+    width: 100%;
+}
+
+.Carrito__tarjeta-cantidad {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 4%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2%;
+
+    background-color: #120E0C;
+    padding: 2%;
+    border-radius: 1rem;
+
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+
+.Carrito__tarjeta-cantidad--aumentar,
+.Carrito__tarjeta-cantidad--disminuir {
+    background: none;
+    border: none;
+    color: #AD8253;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 1% 3%;
+}
+
+.Carrito__tarjeta-cantidad--numero {
+    color: #C4AE95;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.Carrito__modal-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    position: relative;
+    font-family: 'DM Serif Display', serif;
+}
+
+.Carrito__data-cantidad {
+    color: #C4AE95;
+    font-size: 0.9rem;
+}
+
+.Carrito__data-separador {
+    width: 80%;
+}
+
+.Carrito__data-separador img {
+    width: 100%;
+}
+
+.Carrito__data-total {
+    color: #AD8253;
+    font-size: 1rem;
+}
+
+.Carrito__data-btnFinalizar,
+.Carrito__data-btnVaciar {
+    display: flex;
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    margin-top: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.Carrito__data-btnFinalizar {
+    width: 50%;
+}
+
+.Carrito__data-btnVaciar {
+    width: 32%;
+    align-self: flex-end;
+}
+
+.Carrito__data-btnFinalizar img,
+.Carrito__data-btnVaciar img {
+    width: 100%;
+}

@@ -3,6 +3,7 @@ import Style from "./PreguntasFrecuentes.module.css"
 import sepa from "../../assets/SeparacionPFsvg.svg";
 // import IconoPF from "../../assets/IconoPF.png";
 import Header from "../Header/Header"
+import Footer from "../Footer/Footer"
 
 export default function PreguntasFrecuentes() {
     return (
@@ -16,7 +17,7 @@ export default function PreguntasFrecuentes() {
                     <div className={Style["Preguntas-temas"]}>
                         <div className={Style["Preguntas-temas-item"]}>
                             <div>
-                                <span class="material-symbols-outlined">
+                                <span className="material-symbols-outlined">
                                     box
                                 </span>
 
@@ -25,7 +26,7 @@ export default function PreguntasFrecuentes() {
                         </div>
                         <div className={Style["Preguntas-temas-item"]}>
                             <div>
-                                <span class="material-symbols-outlined">
+                                <span className="material-symbols-outlined">
                                     local_shipping
                                 </span>
 
@@ -34,7 +35,7 @@ export default function PreguntasFrecuentes() {
                         </div>
                         <div className={Style["Preguntas-temas-item"]}>
                             <div>
-                                <span class="material-symbols-outlined">
+                                <span className="material-symbols-outlined">
                                     published_with_changes
                                 </span>
 
@@ -43,7 +44,7 @@ export default function PreguntasFrecuentes() {
                         </div>
                         <div className={Style["Preguntas-temas-item"]}>
                             <div>
-                                <span class="material-symbols-outlined">
+                                <span className="material-symbols-outlined">
                                     account_balance_wallet
                                 </span>
 
@@ -52,7 +53,7 @@ export default function PreguntasFrecuentes() {
                         </div>
                         <div className={Style["Preguntas-temas-item"]}>
                             <div>
-                                <span class="material-symbols-outlined">
+                                <span className="material-symbols-outlined">
                                     local_cafe
                                 </span>
 
@@ -61,7 +62,7 @@ export default function PreguntasFrecuentes() {
                         </div>
                         <div className={Style["Preguntas-temas-item"]}>
                             <div>
-                                <span class="material-symbols-outlined">
+                                <span className="material-symbols-outlined">
                                     menu_book
                                 </span>
 
@@ -70,7 +71,7 @@ export default function PreguntasFrecuentes() {
                         </div>
                     </div>
                     <div className={Style.Button}>
-                        <span class="material-symbols-outlined">
+                        <span className="material-symbols-outlined">
                             arrow_forward_ios
                         </span>
                     </div>
@@ -199,6 +200,7 @@ export default function PreguntasFrecuentes() {
                     </article>
                 </section>
             </main>
+            <Footer/>
         </div >
     )
 }

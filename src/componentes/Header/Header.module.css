@@ -27,10 +27,12 @@
     display: flex;
     justify-content: center;
     padding-top: 1.71vw;
+    z-index: 9999;
 }
 
 .Header__div {
     /*height: 90px; */
+    z-index: 5;
     width: 87.4vw;
     max-width: 1500px;
     background-image: url(../../assets/headerFondo.svg);
@@ -144,8 +146,8 @@
         align-items: start;
         justify-content: center;
         width: 9vw;
-        /* height: 8vw; */
-        height: 2vw;
+        height: 8vw;
+        /* height: 2vw; */
         overflow: hidden;
         transition: .6s ease;
     }
@@ -209,7 +211,7 @@
         scale: 1.02;
     }
 
-    /* .Icono:hover {
+    .activo:hover {
         transition: 0.7s;
         width: 20vw !important;
         flex-direction: row-reverse;
@@ -228,7 +230,7 @@
             font-size: 1.1vw;
 
         }
-    } */
+    }
 }
 
 .Activo {

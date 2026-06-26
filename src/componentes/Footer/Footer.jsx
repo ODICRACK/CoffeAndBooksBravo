@@ -73,7 +73,7 @@ function FooterEscritorio() {
                                 <div>
                                     <h3 className="Telefono">Telefono</h3>
                                     <div className="Numero">
-                                        <span class="material-symbols-outlined">
+                                        <span className="material-symbols-outlined">
                                             call
                                         </span>
                                         <h3>+54 2901 601801</h3>
@@ -81,7 +81,7 @@ function FooterEscritorio() {
                                     <div className="ContenedorInput">
                                         <input type="text" placeholder="Ingresa tu coreo" />
                                         <div>
-                                            <span class="material-symbols-outlined">
+                                            <span className="material-symbols-outlined">
                                                 outgoing_mail
                                             </span>
                                         </div>
@@ -156,7 +156,7 @@ function FooterCelu() {
                         <div className="ContenedorTelefono">
                             <h3>Telefono</h3>
                             <div>
-                                <span class="material-symbols-outlined">
+                                <span className="material-symbols-outlined">
                                     call
                                 </span>
                                 <h3>+54 2901 60 1801</h3>
@@ -166,7 +166,7 @@ function FooterCelu() {
                         <div className="ContenedorInput">
                             <input type="text" placeholder="Ingresa tu coreo" />
                             <div>
-                                <span class="material-symbols-outlined">
+                                <span className="material-symbols-outlined">
                                     outgoing_mail
                                 </span>
                             </div>

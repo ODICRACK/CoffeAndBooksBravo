@@ -1,4 +1,4 @@
-import { Route, Switch } from "wouter";
+import { Route, Link, Switch } from "wouter";
 
 
 // import Footer from "./componentes/Footer/Footer"
@@ -11,21 +11,28 @@ import './App.css'
 function Inicio() {
   return (
     <div>
-      <h1>Inicio</h1>
-      <p>Esta es la página principal.</p>
+      <h1>Inicio</h1><br />
+      <p>Esta es la página principal.</p><br />
+      <Link href="/home">Home</Link><br />
+      <Link href="/Productos">productos</Link><br />
+      <Link href="/carrito">carrito</Link><br />
+      <Link href="/preguntas">preguntas frecuentes</Link><br />
     </div>
   );
 }
 
 function App() {
   return (
-    <Switch>
-      <Route path="/" component={Inicio} />
-      <Route path="/cami1" component={Home} />
-      <Route path="/cami2" component={Carrito} />
-      <Route path="/nahue" component={PreguntasFrecuentes} />
-      <Route path="/liz" component={Inicio} />
-    </Switch>
+    <div>
+
+      <Switch>
+        <Route path="/" component={Inicio} />
+        <Route path="/home" component={Home} />
+        <Route path="/carrito" component={Carrito} />
+        <Route path="/preguntas" component={PreguntasFrecuentes} />
+        <Route path="/liz" component={Inicio} />
+      </Switch>
+    </div>
   );
 }
 

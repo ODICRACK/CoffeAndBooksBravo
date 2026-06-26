@@ -370,12 +370,12 @@
     .Carrito__tarjeta-btn {
         height: 5vw;
         width: 10vw;
-        top: 29vw;
+        top: 35vw;
         left: 35vw;
     }
 
     .Carrito__tarjeta-cantidad {
-        top: 17vw;
+        top: 22vw;
         right: 2vw;
         border-radius: 3vw;
         padding: 1vw;

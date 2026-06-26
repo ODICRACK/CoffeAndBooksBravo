@@ -1,4 +1,6 @@
 import { Route, Switch } from "wouter";
+import { hashLocation } from "wouter/use-hash-location";
+
 // import Footer from "./componentes/Footer/Footer"
 //import Header from "./componentes/Header/Header.jsx"
 import PreguntasFrecuentes from "./componentes/PreguntasFrecuentes/PreguntasFrecuentes"
@@ -17,7 +19,7 @@ function Inicio() {
 
 function App() {
   return (
-    <Switch>
+    <Switch hook={hashLocation}>
       <Route path="/" component={Inicio} />
       <Route path="/cami1" component={Home} />
       <Route path="/cami2" component={Carrito} />

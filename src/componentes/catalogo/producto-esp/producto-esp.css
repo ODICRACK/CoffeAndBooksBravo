@@ -14,7 +14,7 @@
 }
 .producto-esp_div.molido{
     background-image: url("/src/assets/marcoProdEsp-cafeMolido.svg");
-    
+    position: relative;
     width: 20vw;
     height:75vh;
 }
@@ -54,19 +54,49 @@
     padding: 2vh;
     top: 15.9vh;
 }
-/*
-.producto-esp_div img.molido{
-    
-     width: 250px;
-    height: 180px;
-    object-fit: cover;
 
-    clip-path: path("M0,180 L0,40 C0,15 30,0 60,0 L190,0 C220,0 250,15 250,40 L250,180 Z");
+.producto-esp_div img.molido{
+    width: 212px;
+    height: 126.2px;
+    right: 41px;
+    clip-path: ellipse(50% 100% at 49% 100%);
     padding: 2vh;
-    top: 1vh;
-}*/
-.producto-esp_div img.capsula{
+    top: 22.93vh;
+    
+}
+.modeda{
     display: none;
+}
+.modeda.molido{
+    display: block;
+    position: absolute;
+    background: none !important;
+    top: 6vw !important;
+    z-index: 3;
+}
+
+.producto-esp_div img.capsula:not(.marcoImg){
+    position: absolute;
+    width: 175px;
+    height: 175px;
+    top: 19vh;
+    left: 7.5vw;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    padding: 1vw;
+}
+
+.marcoImg.capsula{
+    position: absolute;
+    top: 18.9vh;
+    transform: translateX(-50%);
+    width: 183px; 
+    left: 7.5vw;
+    height: 183px;
+    background: transparent !important;
+    padding: 0;
+    border-radius: 0;
+    z-index: 3;
 }
 .producto-esp_div h2,.producto-esp_div h3{
     font-family: "IM Fell French Canon", serif;

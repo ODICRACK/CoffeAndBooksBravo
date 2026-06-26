@@ -53,6 +53,7 @@
         align-items: center;
         height: 3.3vw;
         color: var(--letrasObscuras);
+        transition: 0.6s;
         /* color: white; */
         border-radius: 0.3vw;
         margin-bottom: 1vw;
@@ -79,147 +80,203 @@
             font-weight: 400;
         }
     }
-}
 
-.Sepa {
-    height: 83vh;
-
-    img {
-        height: 77.2vh;
-    }
-}
-
-.Nada {
-    justify-content: center;
-    align-items: center;
-    color: var(--letras);
-    gap: 2.5vw;
-    margin-left: 8vw;
-
-    h2 {
-        font-family: Crimson Text;
-        font-weight: 100;
-        font-size: 1;
-        width: 65%;
-        text-align: center;
-        line-height: 1.2;
-        margin-top: 1.2vw;
+    .Preguntas-temas-item:hover {
+        transition: 0.6s;
+        color: white;
+        background-color: #d9d9d917;
     }
 
-    img {
-        width: 6.5vw;
-        height: auto;
-        margin-top: 3vw;
-    }
-}
-
-.Algo {
-    justify-content: center;
-    align-items: center;
-    color: var(--letras);
-    margin-left: 5.2vw;
-    margin-right: 7.8vw;
-    flex: 1;
-    height: 80vh;
-}
-
-.Algo__article {
-    /* padding-top: 13.5vh; */
-    padding-top: 5.5vh;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    /* background-color: aliceblue; */
-    width: 100%;
-    height: 100%;
-    gap: .65vw;
-    display: flex;
-    flex-direction: column;
-
-    .Cont {
-        border: 0.1vw solid var(--bordes1);
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        border-radius: .45vw;
     }
 
+    .Sepa {
+        height: 83vh;
 
-    .Plegado {
-        background-color: var(--bordes2);
-
-        .Algo__article-div-Titul {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
+        img {
+            height: 77.2vh;
         }
+    }
 
-        .Algo__article-div-article {
-            display: none;
-        }
+    .Nada {
+        justify-content: center;
+        align-items: center;
+        color: var(--letras);
+        gap: 2.5vw;
+        margin-left: 8vw;
 
         h2 {
-            font-family: Inter;
-            font-style: italic;
-            color: white;
-            font-size: 1.03vw;
-            font-weight: 300;
-            margin-left: 3.5vw;
+            font-family: Crimson Text;
+            font-weight: 100;
+            font-size: 1;
+            width: 65%;
+            text-align: center;
+            line-height: 1.2;
+            margin-top: 1.2vw;
         }
 
-        .Dawn {
-            padding-top: 0.4vw;
-            width: 2.3vw;
+        img {
+            width: 6.5vw;
             height: auto;
-            margin-right: 2vw;
-            color: #E3E3E3;
-
+            margin-top: 3vw;
         }
-
     }
 
-    .Desplegado {
-        background-color: #311A0E !important;
-        min-height: 11.54vw !important;
-        display: flex;
-        align-items: end;
-        padding-top: 1vw;
+    .Algo {
+        justify-content: center;
+        align-items: center;
+        color: var(--letras);
+        margin-left: 5.2vw;
+        margin-right: 7.8vw;
+        flex: 1;
+        height: 80vh;
+    }
 
-        .Algo__article-div-Titul {
+    .Algo__article {
+        padding-top: 13.5vh;
+        /* padding-top: 5.5vh; */
+        overflow-y: scroll;
+        scrollbar-width: none;
+        /* background-color: aliceblue; */
+        width: 100%;
+        height: 100%;
+        gap: .65vw;
+        display: flex;
+        flex-direction: column;
+
+        .Cont {
+            border: 0.1vw solid var(--bordes1);
             width: 100%;
-            height: 1vw;
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
+            flex-direction: column;
+            border-radius: .45vw;
         }
 
-        .Algo__article-div-article {
-            display: block;
-            padding-inline: 3.3vw;
+
+        .Plegado {
+            transition: .7s;
+            background-color: var(--bordes2);
+            height: 3.4vw;
+
+            .Algo__article-div-Titul {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .Algo__article-div-article {
+                display: none;
+            }
+
+            h2 {
+                font-family: Inter;
+                font-style: italic;
+                color: white;
+                font-size: 1.03vw;
+                font-weight: 300;
+                margin-left: 3.5vw;
+            }
+
+            .Dawn {
+                padding-top: 0.4vw;
+                width: 2.3vw;
+                height: auto;
+                margin-right: 2vw;
+                color: #E3E3E3;
+
+            }
+
+        }
+
+        .Desplegado {
+            background-color: #311A0E !important;
+            min-height: 11.54vw !important;
+            display: flex;
+            align-items: end;
             padding-top: 1vw;
-            padding-bottom: 0.3vh;
-            font-family: Inter;
-            color: var(--letras);
-            font-size: 0.9vw;
-            p{
-                line-height: 1.8;
+
+            .Algo__article-div-Titul {
+                width: 100%;
+                height: 1vw;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .Algo__article-div-article {
+                display: block;
+                padding-inline: 3.3vw;
+                padding-top: 1vw;
+                padding-bottom: 0.3vh;
+                font-family: Inter;
+                color: var(--letras);
+                font-size: 0.9vw;
+
+                p {
+                    line-height: 1.8;
+                }
+            }
+
+            h2 {
+                font-family: Inter;
+                font-style: italic;
+                color: white;
+                font-size: 1.03vw;
+                font-weight: 300;
+                margin-left: 3.5vw;
+            }
+
+            .Dawn {
+                display: none;
             }
         }
 
-        h2 {
-            font-family: Inter;
-            font-style: italic;
-            color: white;
-            font-size: 1.03vw;
-            font-weight: 300;
-            margin-left: 3.5vw;
-        }
+        .Plegado:hover {
+            transition: .9s;
+            background-color: #311A0E !important;
+            min-height: 11.54vw !important;
+            display: flex;
+            align-items: end;
+            padding-top: 1vw;
 
-        .Dawn {
-            display: none;
+            .Algo__article-div-Titul {
+                width: 100%;
+                height: 1vw;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .Algo__article-div-article {
+                transition: 1s;
+                display: block;
+                padding-inline: 3.3vw;
+                padding-top: 1vw;
+                padding-bottom: 0.3vh;
+                font-family: Inter;
+                color: var(--letras);
+                font-size: 0.9vw;
+
+                p {
+                    line-height: 1.8;
+                }
+            }
+
+            h2 {
+                font-family: Inter;
+                font-style: italic;
+                color: white;
+                font-size: 1.03vw;
+                font-weight: 300;
+                margin-left: 3.5vw;
+            }
+
+            .Dawn {
+                display: none;
+            }
         }
     }
-}

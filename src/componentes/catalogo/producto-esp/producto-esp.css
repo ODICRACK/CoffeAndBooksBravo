@@ -98,10 +98,10 @@
     border-radius: 0;
     z-index: 3;
 }
-.producto-esp_div h2,.producto-esp_div h3{
+.producto-esp_div.cafe h2,.producto-esp_div.cafe h3{
     font-family: "IM Fell French Canon", serif;
 }
-.producto-esp_div h2{
+.producto-esp_div.cafe h2{
     top: 10px;
 }
 
@@ -197,4 +197,152 @@
     color: rgba(25, 13, 7, 1);
     font-size: 17px;
     font-weight: 600;
+}
+
+/*libro*/
+.producto-esp_div.libroesp{
+    width: 220px;
+    height: 542px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 1200px;
+}
+
+.libroesp{
+    position: relative;
+    color: rgba(187, 155, 95, 1);
+    font-family: "DM Serif Display", serif;
+    font-weight: 100;
+    width: 100%;
+    height: 100%;
+
+    transform-style: preserve-3d;
+    transition: transform .8s ease;
+}
+
+
+.producto-esp_div.libroesp:hover .libroesp{
+    transform: rotateY(180deg);
+}
+
+/* Caras */
+
+.libro__cara{
+    position: absolute;
+    
+    width: 45vw;
+    height:35vw;
+    backface-visibility: hidden;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+/* Portada */
+
+.libro__frente{
+    background-image: url("/src/assets/marcoProdEsp-LibroPortada.svg");
+
+}
+
+/* Contraportada */
+
+.libro__atras{
+    background-image: url("/src/assets/marcoProdEsp-contratapa.svg.svg");
+
+    transform: rotateY(180deg);
+}
+.libro__frente-h2{
+    position: absolute;
+    font-size: 17px;
+    top: 4vw;
+    right: 14vw;
+    width: 30%;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.libro__frente-h3{
+    position: absolute;
+    bottom: 6vw;
+    font-size: 17px;
+    letter-spacing: 2px;
+    right: 18vw;
+}
+.libro__frente-img{
+    top: 7.5vw;
+    width:180px;
+    height:280px;
+    left: 17.5vw;
+    object-fit:cover;
+
+    --r:22px;
+
+    -webkit-mask:
+        radial-gradient(var(--r) at var(--r) var(--r),#0000 98%,#000) calc(-1*var(--r)) calc(-1*var(--r));
+
+    mask:
+        radial-gradient(var(--r) at var(--r) var(--r),#0000 98%,#000) calc(-1*var(--r)) calc(-1*var(--r));
+}
+
+.libro__atras-contenido{
+    position: absolute;
+
+    top: 3.8vw;
+    left: 13vw;
+
+    width: 16vw;
+    height: 23vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.libro__sinopsis{
+    height: 18vw;
+    overflow-y: auto;
+    padding-right: .4vw;
+    text-align: center;
+    width: 90%;
+}
+.libro__sinopsis::-webkit-scrollbar{
+    width: 4px;
+}
+
+.libro__sinopsis::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+.libro__sinopsis::-webkit-scrollbar-thumb{
+    background: #5d4d3d;
+    border-radius: 20px;
+}
+
+.libro__sinopsis p,
+.libro__info p{
+    color: rgba(187,155,95,1);
+    
+    
+    font-family: "DM Serif Display", serif ;
+
+    font-size: .95vw;
+
+    line-height: 1.45;
+
+}
+.libro__info{
+    margin:1vw;
+    display: block !important;
+}
+
+.libro__info strong{
+    font-weight: bold;
+}
+.libro__info p{
+    margin: .2vw 0;
+    text-align: left;
 }

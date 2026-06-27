@@ -19,7 +19,7 @@ export default function Home() {
                 <span className='Carrito__modal-deco'><img src={carritoDeco} alt="" /></span>
 
                 <Link
-                    href=""
+                    href="/home"
                     className='Carrito__modal-volver'
                     aria-label="Volver"
                 >

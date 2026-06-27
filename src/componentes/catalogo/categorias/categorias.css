@@ -44,3 +44,14 @@
 .categoria_div.libros.active{
     background-image: url("/src/assets/MarcoCatLibros-active.svg");
 }
+@media (max-width: 768px) {
+    .categoria_div{
+        margin: 0rem 0rem;
+        width: 100px;
+        height: 100px;
+        font-size: 15px;
+    }
+    .categoria_div img{
+        height: 10vw;
+    }
+}

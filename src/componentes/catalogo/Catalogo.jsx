@@ -5,7 +5,7 @@ import ProductoEsp from "./producto-esp/Producto-esp.jsx";
 export default function Catalogo(){
     return(
 
-        <div className="catalogo modal-abierto">
+        <div className="catalogo">
 
             <Categorias />
             <Listado />

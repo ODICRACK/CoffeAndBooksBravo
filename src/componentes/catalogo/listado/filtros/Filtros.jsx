@@ -4,14 +4,14 @@ export default function Filtros(){
     return(
         <div className="select">
             <div className="select_div">
-                <div className="select_div-header">
+                <div className="select_div-header active">
                     <p className="select_div-header-lavel">Ordenar por</p>
                     <div className="select_div-header-div">
                         <span className="select_div-header-div-opc">Relevancia</span>
                         <span className="material-symbols-outlined">keyboard_arrow_down</span>
                     </div>
                 </div>
-                <ul className="select-ul" >
+                <ul className="select-ul active" >
                     <li className="select_div-header-div-opc" data-value="relevancia">Relevancia</li>
                     <li className="select_div-header-div-opc" data-value="mas-vendidos">Más vendidos</li>
                     <li className="select_div-header-div-opc" data-value="menos-vendidos">Menos vendidos</li>
@@ -19,7 +19,7 @@ export default function Filtros(){
                     <li className="select_div-header-div-opc" data-value="menos-recientes">Menos recientes</li>
                 </ul>
             </div>
-            <div className="select_div-fltrosEsp  cafe">
+            <div className="select_div-fltrosEsp active cafe">
                 <div className="select_div-fltrosEsp-h2">
                     <h2>FILTROS ESPECIFICOS</h2>
                     <img src={imgDivisor} alt="" />

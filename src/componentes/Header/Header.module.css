@@ -27,14 +27,13 @@
     display: flex;
     justify-content: center;
     padding-top: 1.71vw;
-    z-index: 9999;
 }
 
 .Header__div {
     /*height: 90px; */
     z-index: 5;
     width: 87.4vw;
-    max-width: 1500px;
+    /* max-width: 1500px; */
     background-image: url(../../assets/headerFondo.svg);
     background-repeat: no-repeat;
     background-size: 100%;

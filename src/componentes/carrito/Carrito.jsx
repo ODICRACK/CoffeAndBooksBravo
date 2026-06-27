@@ -1,3 +1,5 @@
+import { Link } from 'wouter';
+
 import './Carrito.css';
 
 import carritoDeco from '../../assets/carrito_deco.svg';
@@ -15,6 +17,14 @@ export default function Home() {
         <div className="Carrito">
             <section className='Carrito__modal'>
                 <span className='Carrito__modal-deco'><img src={carritoDeco} alt="" /></span>
+
+                <Link
+                    href="/home"
+                    className='Carrito__modal-volver'
+                    aria-label="Volver"
+                >
+                    &#8249;
+                </Link>
 
                 <h1 className='Carrito__modal-titulo'>CARRITO</h1>
 

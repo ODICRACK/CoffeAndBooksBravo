@@ -407,4 +407,49 @@ body{
             padding-top: 2.1vw !important;
         }
     }
+    .Plegado:hover {
+        transition: .9s;
+        background-color: #311A0E !important;
+        min-height: 30.54vw !important;
+        display: flex;
+        align-items: end;
+        padding-top: 1vw;
+
+        .Algo__article-div-Titul {
+            width: 100%;
+            height: 1vw;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .Algo__article-div-article {
+            transition: 1s;
+            display: block;
+            padding-inline: 3.3vw;
+            padding-top: 1vw;
+            padding-bottom: 0.3vh;
+            font-family: Inter;
+            color: var(--letras);
+            font-size: 1.2vw;
+
+            p {
+                line-height: 1.8;
+            }
+        }
+
+        h2 {
+            font-family: Inter;
+            font-style: italic;
+            color: white;
+            font-size: 1.03vw;
+            font-weight: 300;
+            margin-left: 3.5vw;
+        }
+
+        .Dawn {
+            display: none;
+        }
+    }
 }

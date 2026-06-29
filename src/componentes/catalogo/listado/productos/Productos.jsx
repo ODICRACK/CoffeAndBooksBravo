@@ -2,7 +2,7 @@ import "./productos.css";
 import imgcaffe from "../../../../assets/imgProductos/CaffeColombia.svg";
 import imglibro from "../../../../assets/imgProductos/libroCrepusculo.svg"
 import divisorCardCafe from "../../../../assets/divisorCardCafe.svg"
-import divisorCardLibro from "../../../../assets/divisorCardlibro.svg"
+import divisorCardLibro from "../../../../assets/divisorCardLibro.svg"
 import btnCarrito from "../../../../assets/btnCarrito.svg"
 import btnCarritoLibro from "../../../../assets/btnCarritoLibro.svg"
 export default function Produtos() {

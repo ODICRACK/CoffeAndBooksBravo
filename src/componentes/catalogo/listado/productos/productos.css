@@ -1,0 +1,167 @@
+.producto__div{
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 353.47px;
+    position: relative;
+}
+
+.producto__div-img{
+    height: 20vh;
+}
+
+.producto__div-imgDivs{
+    width: 8rem;
+}
+.producto__div-btn{
+    cursor: pointer;
+    all: unset;
+    position: absolute;
+    transform: translateY(-50%);
+    bottom: 2vh; 
+}
+.producto__div-btn img{
+    cursor: pointer;
+    height: 29.67px;
+}
+.producto__div-h3{
+    font-family: "DM Serif Display", serif;
+    font-weight: 500;
+    font-size: 2.5vh;
+}
+.producto__div-p{
+    font-size: 2.7vh;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+}
+
+/*cafe esp*/
+.producto__div.cafe{
+    background-image: url("/src/assets/marcoCafe.svg");
+}
+.producto__div-h3.cafe{
+    color: rgba(193, 167, 140, 1);
+}
+.producto__div-p.cafe{
+    font-size: 2.7vh;
+    color: rgba(189, 140, 70, 1);
+}
+
+/*libro esp*/
+.producto__div.libro{
+    background-image: url("/src/assets/marcolibros.svg");
+}
+.producto__div-h3.libro{
+    color: rgba(109, 29, 21, 1);
+}
+.producto__div-p.libro{
+    font-size: 2.7vh;
+    color: rgba(94, 11, 13, 1);
+}
+
+/*descuento*/
+.producto__div-descuento{
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+    height: 10vh;
+    background-size: contain;
+}
+.producto__div-descuento p{
+    font-size: 20px;
+    font-family: "DM Serif Display", serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+.producto__div-descuento.libro p{
+    color:rgba(188, 159, 122, 1);
+}
+.producto__div-descuento.cafe p{
+    color: rgba(45, 45, 29, 1);
+}
+.producto__div-img-container{
+    position: relative;
+}
+
+.producto__div-descuento.libro{
+    top: -5px;
+    right: -80%;
+    background-image: url("/src/assets/marcoDescuentoLibro.svg");
+}
+.producto__div-descuento.cafe{
+    top: -20px;
+    left: -90%;
+    background-image: url("/src/assets/marcoDescuentoCafe.svg");
+}
+
+@media (max-width: 768px) {
+    .producto__div{
+    height: 170px;
+    background-size: contain;
+    margin-top: 3rem;
+}
+
+.producto__div-img{
+    height: 15vh;
+}
+
+.producto__div-imgDivs{
+    width: 4rem;
+}
+.producto__div-btn{
+    transform: translateY(80%);
+    bottom: 1vh; 
+}
+.producto__div-btn img{
+    height: 20px;
+}
+.producto__div-h3{
+    font-weight: 500;
+    font-size: 2vh;
+}
+.producto__div-p{
+    font-weight: 300;
+}
+
+/*cafe esp*/
+.producto__div-p.cafe{
+    font-size: 1.8vh;
+}
+
+/*libro esp*/
+.producto__div-p.libro{
+    font-size: 1.8vh;
+}
+
+/*descuento*/
+.producto__div-descuento{
+    width: 10vw;
+    height: 10vh;
+}
+.producto__div-descuento p{
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+.producto__div-descuento.libro{
+    top: -15px;
+    right: -40%;
+    background-image: url("/src/assets/marcoDescuentoLibro.svg");
+}
+.producto__div-descuento.cafe{
+    top: -15px;
+    left: -45%;
+    background-image: url("/src/assets/marcoDescuentoCafe.svg");
+}
+
+}

@@ -1,0 +1,57 @@
+.categoria{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.categoria_div{
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0rem 5rem;
+    width: 140px;
+    height: 140px;
+    font-family: "DM Serif Display", serif;
+    font-size: 17px;
+}
+.categoria_div img{
+    height: 4vw;
+}
+.categoria_div.cafe{
+    color: rgba(175, 120, 64, 1);
+    background-image: url("/src/assets/MarcoCatCafe.svg");
+}
+.categoria_div.cafe.active{
+    background-image: url("/src/assets/MarcoCatCafe-active.svg");
+}
+
+.categoria_div.todos{
+    color: rgba(196, 174, 149, 1);
+    background-image: url("/src/assets/MarcoCatTodos.svg");
+}
+.categoria_div.todos.active{
+    background-image: url("/src/assets/MarcoCatTodos-active.svg");
+}
+
+.categoria_div.libros{
+    color: rgba(98, 27, 20, 1);
+    background-image: url("/src/assets/MarcoCatLibros.svg");
+}
+.categoria_div.libros.active{
+    background-image: url("/src/assets/MarcoCatLibros-active.svg");
+}
+@media (max-width: 768px) {
+    .categoria_div{
+        margin: 0rem 0rem;
+        width: 100px;
+        height: 100px;
+        font-size: 15px;
+    }
+    .categoria_div img{
+        height: 10vw;
+    }
+}

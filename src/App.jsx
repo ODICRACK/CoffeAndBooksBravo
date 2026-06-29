@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Route, Link, Switch } from "wouter";
 
 
@@ -7,6 +8,10 @@ import PreguntasFrecuentes from "./componentes/PreguntasFrecuentes/PreguntasFrec
 import Home from './componentes/home/Home';
 import Carrito from './componentes/carrito/Carrito'
 import Catalogo from "./componentes/catalogo/Catalogo"
+=======
+import { Route, Switch } from "wouter";
+import Catalogo from "./componentes/catalogo/Catalogo.jsx";
+>>>>>>> Liz
 import './App.css'
 
 function Inicio() {
@@ -25,6 +30,7 @@ function Inicio() {
 
 function App() {
   return (
+<<<<<<< HEAD
     <div>
 
       <Switch>
@@ -35,6 +41,14 @@ function App() {
         <Route path="/catalogo" component={Catalogo} />
       </Switch>
     </div>
+=======
+    <Switch>
+      <Route path="/" component={Inicio} />
+      <Route path="/cami" component={Inicio} />
+      <Route path="/nahue" component={Inicio} />
+      <Route path="/Catalogo" component={Catalogo} />
+    </Switch>
+>>>>>>> Liz
   );
 }
 

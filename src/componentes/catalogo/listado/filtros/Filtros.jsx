@@ -4,14 +4,14 @@ export default function Filtros(){
     return(
         <div className="select">
             <div className="select_div">
-                <div className="select_div-header active">
+                <div className="select_div-header  ">
                     <p className="select_div-header-lavel">Ordenar por</p>
                     <div className="select_div-header-div">
                         <span className="select_div-header-div-opc">Relevancia</span>
                         <span className="material-symbols-outlined">keyboard_arrow_down</span>
                     </div>
                 </div>
-                <ul className="select-ul active" >
+                <ul className="select-ul  " >
                     <li className="select_div-header-div-opc" data-value="relevancia">Relevancia</li>
                     <li className="select_div-header-div-opc" data-value="mas-vendidos">Más vendidos</li>
                     <li className="select_div-header-div-opc" data-value="menos-vendidos">Menos vendidos</li>
@@ -75,7 +75,7 @@ export default function Filtros(){
                 </div>
 
             </div>
-            <div className="select_div-fltrosEsp  libro">
+            <div className="select_div-fltrosEsp   libro">
                 <div className="select_div-fltrosEsp-h2">
                     <h2>FILTROS ESPECIFICOS</h2>
                     <img src={imgDivisor} alt="" />
@@ -95,7 +95,6 @@ export default function Filtros(){
                     <ul className="select-ul  genero" >
                         <li className="select_div-header-div-opc">Todos</li>
                         <li className="select_div-header-div-opc">Fantasia</li>
-                        <li className="select_div-header-div-opc">Ciencia Ficción</li>
                         <li className="select_div-header-div-opc">Romance</li>
                         <li className="select_div-header-div-opc">Terror</li>
                         <li className="select_div-header-div-opc">Drama</li>
@@ -132,14 +131,14 @@ export default function Filtros(){
                 <span className="material-symbols-outlined">tune</span>
             </div>
             <div className="select_div">
-                <div className="select_div-header  active">
+                <div className="select_div-header   ">
                     <p className="select_div-header-lavel">Ordenar por precio</p>
                     <div className="select_div-header-div">
                         <span className="select_div-header-div-opc">Todos</span>
                         <span className="material-symbols-outlined">keyboard_arrow_down</span>
                     </div>
                 </div>
-                <ul className="select-ul active porPrecio">
+                <ul className="select-ul   porPrecio">
                     <li className="select_div-header-div-opc" data-value="todos">Todos</li>
                     <li className="select_div-header-div-opc" data-value="mayor-menor">Mayor a menor</li>
                     <li className="select_div-header-div-opc" data-value="menor-mayor">Menor a mayor</li>

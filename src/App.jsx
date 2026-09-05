@@ -7,6 +7,8 @@ import PreguntasFrecuentes from "./componentes/PreguntasFrecuentes/PreguntasFrec
 import Home from './componentes/home/Home';
 import Carrito from './componentes/carrito/Carrito'
 import Catalogo from "./componentes/catalogo/Catalogo"
+import Search from "./componentes/SearchMovile/SearchMovile"
+
 import './App.css'
 
 function Inicio() {
@@ -33,6 +35,7 @@ function App() {
         <Route path="/carrito" component={Carrito} />
         <Route path="/preguntas" component={PreguntasFrecuentes} />
         <Route path="/catalogo" component={Catalogo} />
+        <Route path="/search" component={Search} />
       </Switch>
     </div>
   );

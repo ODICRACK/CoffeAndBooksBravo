@@ -39,7 +39,7 @@
         width: 100%;
         font-family: Roboto Mono;
         color: #A8A6A6;
-        -webkit-text-stroke: 0.06vw black;
+        -webkit-text-stroke: 0.001vw black;
         display: flex;
         flex-direction: row-reverse;
         padding-right: 0.7vw;
@@ -52,7 +52,7 @@
         .Copi {
             font-size: 2.5vw;
             line-height: 0.89;
-            -webkit-text-stroke: 0.03vw black;
+            -webkit-text-stroke: 0.0002vw black;
         }
     }
 }
@@ -585,7 +585,7 @@
         align-items: end;
         font-family: Roboto Mono;
         color: #A8A6A6;
-        -webkit-text-stroke: 0.06vw black;
+        -webkit-text-stroke: 0.001vw black;
         display: flex;
         flex-direction: row-reverse;
         padding-right: 0.7vw;
@@ -598,6 +598,6 @@
         .Copi {
             font-size: 2.7vw;
             line-height: 2;
-            -webkit-text-stroke: 0.03vw black;
+            -webkit-text-stroke: 0.001vw black;
         }
     }

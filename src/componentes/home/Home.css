@@ -585,7 +585,7 @@
     position: absolute;
     z-index: 1;
 
-    top: -6.4rem;
+    top: -6.733333333333334vw;
     left: 50%;
     transform: translateX(-50%);
 
@@ -599,7 +599,7 @@
     position: absolute;
     z-index: 2;
 
-    top: -7rem;
+    top: -7.4vw;
     left: 50%;
     transform: translateX(-50%);
 
@@ -637,8 +637,8 @@
 
 .Categorias__tarjeta-titulo {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.8rem;
-    width: 100%;
+    font-size: clamp(0.5rem, 1.9vw, 2rem);
+    width: 110%;
 }
 
 .Categorias__tarjeta-texto {
@@ -651,6 +651,17 @@
 /* =================================================================================== */
 /* ============================== RESPONSIVE - MOBILE (<=600px) ===================== */
 /* =================================================================================== */
+@media (min-height:1000px) {
+    .Categorias {
+        height: 60vh;
+    }
+}
+
+@media (max-width: 1220px) and (min-width:1024px) {
+    .Categorias__tarjeta-contenido {
+        padding-top: .5vw;
+    }
+}
 
 @media (max-width: 1024px) {
 
@@ -673,11 +684,11 @@
     .Inicio__cafe-wrapper,
     .Inicio__libro-wrapper {
         transition: clip-path 0.6s ease, filter 0.6s ease, background-size 0.6s ease;
-        background-size: 200vw;
+        background-size: 150vw;
     }
 
     .Inicio__cafe-wrapper {
-        background-position: -90vw center;
+        background-position: -80vw center;
         clip-path: polygon(0 0,
                 1% 0,
                 99% 100%,
@@ -695,7 +706,7 @@
     .Inicio__cafe-wrapper:hover,
     .Inicio__libro-wrapper:hover {
         filter: brightness(0.8);
-        background-size: 205vw;
+        background-size: 170vw;
         z-index: 4;
     }
 
@@ -714,7 +725,7 @@
     }
 
     .Inicio__contenido {
-        top: 50vw;
+        top: 62%;
         width: 60vw;
     }
 

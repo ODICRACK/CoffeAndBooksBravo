@@ -115,10 +115,10 @@
         color: #C4AE95;
     }
 
-    .ContenedorInput {
+    .ContenedorInput2 {
         margin-top: 10px;
         width: 100%;
-        height: 2.29;
+        height: 2.29vw;
         display: flex;
         margin-right: 4px;
 
@@ -362,9 +362,11 @@
 
 .FooterResonsive__contenedor-interior-Ayuda {
     max-height: 27.7vw;
-    .special{
+
+    .special {
         height: 4vw;
     }
+
     .ContenedorAyuda {
         padding-top: 1vw;
         width: 100%;
@@ -414,6 +416,7 @@
 
 .FooterResonsive__contenedor-interior-Contacto {
     max-height: 27.7vw;
+
     .ContenedorContacto {
         padding-top: 1vw;
         width: 100%;
@@ -438,34 +441,38 @@
         align-items: center;
         width: 100%;
         color: #C4AE95;
-        h3{
+
+        h3 {
             font-weight: 100;
             font-size: 2vw;
             text-align: center;
             height: 2.3vw;
         }
-        div{
+
+        div {
             display: flex;
 
-            span{
+            span {
                 font-size: 1.8vw;
                 display: flex;
                 align-items: end;
             }
-            h3{
+
+            h3 {
                 font-family: Inter;
                 font-weight: 400;
                 font-size: 2vw;
             }
         }
     }
+
     .ContenedorInput {
         margin-top: 10px;
         width: 100%;
         height: 5vw;
         display: flex;
         margin-right: 4px;
-        
+
         input {
 
             height: 4.3vw;
@@ -503,25 +510,27 @@
             border-radius: 0px 1vw 1vw 0px;
             cursor: pointer;
             user-select: none;
-            
-            span{
+
+            span {
                 font-size: 3vw;
             }
         }
     }
-    .ContenedorLogos{
+
+    .ContenedorLogos {
         display: flex;
         flex-direction: row-reverse;
-        justify-content:center;
+        justify-content: center;
         gap: 2vw;
 
-        img{
+        img {
 
             width: 4vw;
             height: auto;
         }
     }
 }
+
 .FooterResponsive__encima-cuadroInterior-info-empresa {
     display: flex;
     flex-direction: column;
@@ -579,25 +588,27 @@
         height: auto;
     }
 }
-.FooterResponsive__encima-CuadroInterior-derechos {
-        width: 100%;
-        display: flex;
-        align-items: end;
-        font-family: Roboto Mono;
-        color: #A8A6A6;
-        -webkit-text-stroke: 0.06vw black;
-        display: flex;
-        flex-direction: row-reverse;
-        padding-right: 0.7vw;
-        font-size: 1.3vw;
-        gap: 1vw;
-        h2 {
-            line-height: 2.4;
-        }
 
-        .Copi {
-            font-size: 2.7vw;
-            line-height: 2;
-            -webkit-text-stroke: 0.03vw black;
-        }
+.FooterResponsive__encima-CuadroInterior-derechos {
+    width: 100%;
+    display: flex;
+    align-items: end;
+    font-family: Roboto Mono;
+    color: #A8A6A6;
+    -webkit-text-stroke: 0.06vw black;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 0.7vw;
+    font-size: 1.3vw;
+    gap: 1vw;
+
+    h2 {
+        line-height: 2.4;
     }
+
+    .Copi {
+        font-size: 2.7vw;
+        line-height: 2;
+        -webkit-text-stroke: 0.03vw black;
+    }
+}

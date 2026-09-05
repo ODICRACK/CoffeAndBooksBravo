@@ -78,7 +78,7 @@ function FooterEscritorio() {
                                         </span>
                                         <h3>+54 2901 601801</h3>
                                     </div>
-                                    <div className="ContenedorInput">
+                                    <div className="ContenedorInput2">
                                         <input type="text" placeholder="Ingresa tu coreo" />
                                         <div>
                                             <span className="material-symbols-outlined">

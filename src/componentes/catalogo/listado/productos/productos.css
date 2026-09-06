@@ -103,7 +103,7 @@
 }
 .producto__div-descuento.cafe{
     top: -20px;
-    left: -90%;
+    left: -25%;
     background-image: url("/src/assets/marcoDescuentoCafe.svg");
 }
 

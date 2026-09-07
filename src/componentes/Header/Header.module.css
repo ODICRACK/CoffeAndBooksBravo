@@ -28,10 +28,12 @@
     justify-content: center;
     padding-top: 1.71vw;
 }
+
 .Header {
     display: flex;
     justify-content: center;
 }
+
 .Header__div {
     /*height: 90px; */
     z-index: 5;
@@ -121,6 +123,7 @@
         height: 60%;
         display: flex;
         align-items: center;
+
     }
 
     .Link {
@@ -318,6 +321,16 @@
             padding-right: 4vw;
         }
 
+        .ulti {
+            padding-right: 0;
+            width: 120%;
+
+            .Link {
+                margin-right: 1vw;
+                font-size: clamp(0.507rem,2.3vw,2rem);
+            }
+        }
+
         .Link {
             font-size: 2.75vw;
         }
@@ -341,17 +354,18 @@
         }
 
         .hache:nth-child(2):hover~.BanderaContainer {
-            transform: translateX(17.6vw);
+            transform: translateX(15.6vw);
         }
 
         .hache:nth-child(3):hover~.BanderaContainer {
-            transform: translateX(33vw);
+            transform: translateX(28vw);
         }
     }
 
     .Header__div-div-nav-iconos {
         gap: 1.8vw;
         padding-top: 0.2vw;
+
         .Icono {
             width: 5.7vw;
             height: 5.7vw;

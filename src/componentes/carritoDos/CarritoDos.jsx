@@ -50,7 +50,8 @@ export default function Home() {
                             </p>
                         </div>
 
-                        <div className='Carrito__tarjeta-cantidad'>
+                        <div className='Carrito__tarjeta-cantidadCont'>
+                            <div className='Carrito__tarjeta-cantidad'>
                             <button className='Carrito__tarjeta-cantidad--aumentar'>+</button>
 
                             <p className="Carrito__tarjeta-cantidad--numero">
@@ -58,6 +59,7 @@ export default function Home() {
                             </p>
 
                             <button className='Carrito__tarjeta-cantidad--disminuir'>-</button>
+                        </div>
                         </div>
 
                         <button className='Carrito__tarjeta-btn'><img src={carritoBtnEliminar} alt="" /></button>

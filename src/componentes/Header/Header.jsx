@@ -38,7 +38,7 @@ export default function Header({ modo }) {
                         <div className={Style["Header__div-div-nav"]}>
                             <div className={Style["Header__div-div-nav-nav"]}>
                                 <h2 className={Style.hache}><Link className={Style.Link} href="/productos">Catalogo</Link></h2>
-                                <h2 className={Style.hache}><Link className={Style.Link} href="/home">Sobre mi</Link></h2>
+                                <h2 className={`${Style.hache} ${Style.ulti}`}><Link className={Style.Link} href="/home">Sobre mi</Link></h2>
                                 <h2 className={Style.hache}><Link className={Style.Link} href="/home">Inicio</Link></h2>
                                 <div className={Style["BanderaContainer"]}>
                                     <img src={bandera} alt="" className={Style["Bandera"]} />

@@ -196,10 +196,10 @@
 }
 
 .Carrito__tarjeta-cantidad {
-    position: absolute;
+    /* position: absolute;
     top: 4.5vw;
     transform: translateY(-50%);
-    right: 0.5vw;
+    right: 0.5vw; */
 
     display: flex;
     flex-direction: column;

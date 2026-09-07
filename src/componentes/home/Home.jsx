@@ -71,8 +71,16 @@ export default function Home() {
 
             <section className='Inicio'>
                 <Header />
-                <div className="Inicio__cafe-wrapper"></div>
-                <div className="Inicio__libro-wrapper"></div>
+
+                <Link
+                    href={`/catalogo?tipo=cafe`}
+                    className="Inicio__cafe-wrapper"
+                ></Link>
+
+                <Link
+                    href={`/catalogo?tipo=libro`}
+                    className="Inicio__libro-wrapper"
+                ></Link>
 
                 <div className="Inicio__contenido">
                     <h1 className="Inicio__titulo">Elige entre nuestros estilos</h1>
@@ -83,7 +91,11 @@ export default function Home() {
                         Desde la pagina para entretenerte hasta el cafe para disfrutarlo
                     </p>
 
-                    <button className="Inicio__boton">Productos</button>
+                    <Link
+                        className="Inicio__boton"
+                        href='/catalogo'>
+                        Productos
+                    </Link>
                 </div>
             </section>
 

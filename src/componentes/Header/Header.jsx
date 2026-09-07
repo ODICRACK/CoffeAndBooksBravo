@@ -17,10 +17,14 @@ export default function Header({ modo, onBuscar }) {
             if (texto === "") {
                 return;
             }
+
             onBuscar?.(texto);
 
+            const tipo =
+                new URLSearchParams(window.location.search).get("tipo");
+
             setLocation(
-                `/catalogo?busqueda=${encodeURIComponent(texto)}`
+                `/catalogo?tipo=${tipo || ""}&busqueda=${encodeURIComponent(texto)}`
             );
         }
     };

@@ -20,6 +20,9 @@ export default function Catalogo() {
     const categoria =
         new URLSearchParams(window.location.search).get("categoria") || "";
 
+    const tipo =
+        new URLSearchParams(window.location.search).get("tipo") || "";
+
     return (
         <div className="catalogo">
             <Header onBuscar={setBusqueda} />
@@ -29,6 +32,7 @@ export default function Catalogo() {
             <Listado
                 busqueda={busqueda}
                 categoria={categoria}
+                tipo={tipo}
             />
 
             <div className="overlay"></div>

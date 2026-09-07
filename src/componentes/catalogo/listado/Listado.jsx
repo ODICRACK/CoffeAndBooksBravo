@@ -7,8 +7,8 @@ import Filtros from "./filtros/Filtros.jsx";
 import { useEffect, useState } from "react";
 
 import {
-    obtenerCafes,
-    obtenerLibros,
+    // obtenerCafes,
+    // obtenerLibros,
     obtenerTodosLosProductos,
 } from "../../../servicios/googleSheets.js";
 

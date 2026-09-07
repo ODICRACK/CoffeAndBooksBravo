@@ -24,7 +24,7 @@ export function obtenerCafes() {
     return obtenerDatos("Cafes!A2:L")
         .then((datos) => {
             return datos
-                .filter((fila) =>fila[0].trim() !== "")
+                .filter((fila) => fila[0].trim() !== "")
                 .map((fila) => ({
                     id: fila[0],
                     img: fila[1].replace(
@@ -51,7 +51,7 @@ export function obtenerLibros() {
     return obtenerDatos("Libros!A2:L")
         .then((datos) => {
             return datos
-                .filter((fila) =>fila[0].trim() !== "")
+                .filter((fila) => fila[0].trim() !== "")
                 .map((fila) => ({
                     id: fila[0],
                     img: fila[1].replace(
@@ -99,6 +99,24 @@ export function obtenerTodosLosProductos() {
 }
 
 // OBTENER PREGUNTAS FRECUENTES
+
 export function obtenerPreguntasFrecuentes() {
-    return obtenerDatos("Preguntas frecuentes!A2:D");
+
+    return Promise.all([obtenerDatos("Preguntas frecuentes!A2:D"), obtenerDatos("Tipo frecuente!A2:C")])
+        .then(([datosPreguntas, datosCategorias]) => {
+
+            const preguntasFrecuentes = datosPreguntas.map((fila) => ({
+                id: fila[0],
+                tipoId: fila[1],
+                pregunta: fila[2],
+                respuesta: fila[3]
+            }));
+
+            const categoriasFrecuentes = datosCategorias.map((fila) => ({
+                id: fila[0],
+                nombre: fila[1],
+                icono: fila[2]
+            }));
+            return { categoriasFrecuentes, preguntasFrecuentes };
+        });
 }

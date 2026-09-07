@@ -5,7 +5,7 @@ import { Route, Link, Switch } from "wouter";
 //import Header from "./componentes/Header/Header.jsx"
 import PreguntasFrecuentes from "./componentes/PreguntasFrecuentes/PreguntasFrecuentes"
 import Home from './componentes/home/Home';
-import Carrito from './componentes/carrito/Carrito'
+import Carrito from './componentes/modales/Carrito/Carrito'
 import Catalogo from "./componentes/catalogo/Catalogo"
 import Search from "./componentes/SearchMovile/SearchMovile"
 

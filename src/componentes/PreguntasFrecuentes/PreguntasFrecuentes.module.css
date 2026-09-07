@@ -59,7 +59,7 @@ body{
     .Preguntas-temas-item {
         display: flex;
         align-items: center;
-        height: 3.3vw;
+        min-height: 3.3vw;
         color: var(--letrasObscuras);
         transition: 0.6s;
         /* color: white; */
@@ -165,7 +165,7 @@ body{
     .Plegado {
         transition: .7s;
         background-color: var(--bordes2);
-        height: 3.4vw;
+        min-height: 3.4vw;
 
         .Algo__article-div-Titul {
             width: 100%;
@@ -184,7 +184,7 @@ body{
             font-family: Inter;
             font-style: italic;
             color: white;
-            font-size: 1.03vw;
+            font-size: clamp(.7rem, 1.03vw, 2rem);
             font-weight: 300;
             margin-left: 3.5vw;
         }
@@ -361,11 +361,11 @@ body{
         .Button {
             display: flex;
             color: #621B14;
-
+            cursor: pointer;
             position: absolute;
             top: 22vw;
 
-            left: 92vw;
+            left: 91vw;
             span{
                 width: 0vw;
                 height: 3vw !important;

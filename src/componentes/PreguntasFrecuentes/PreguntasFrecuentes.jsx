@@ -112,7 +112,7 @@ export default function PreguntasFrecuentes({ preTipo }) {
                                     }
                                     else {
                                         return (
-                                            <div className={`${Style["Cont"]} ${Style["Plegado"]} ${seleccionados.includes(preguntaE.id)
+                                            <div className={`${Style["Cont"]} ${seleccionados.includes(preguntaE.id)
                                                 ? Style["Desplegado"]
                                                 : Style["Plegado"]
                                                 }`} key={preguntaE.id} onClick={() => cambiarSeleccion(preguntaE.id)}>

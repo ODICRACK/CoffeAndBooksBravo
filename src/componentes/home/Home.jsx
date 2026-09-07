@@ -2,7 +2,7 @@ import './Home.css';
 
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
-import Carrito from "../modales/Carrito/Carrito"
+// import Carrito from "../modales/Carrito/Carrito"
 
 import inicioSeparador from '../../assets/home_inicio-separador.svg';
 import dataSeparador from '../../assets/home_data-separador.svg';

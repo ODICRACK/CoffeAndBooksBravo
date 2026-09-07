@@ -10,6 +10,10 @@ export default function Header({ modo, onBuscar }) {
     const [busqueda, setBusqueda] = useState("");
     const [, setLocation] = useLocation();
 
+    const mover = () => {
+        window.scrollTo(0, 0)
+        setLocation("/");
+    }
     const buscar = (e) => {
         if (e.key === "Enter") {
             const texto = busqueda.trim();
@@ -74,7 +78,7 @@ export default function Header({ modo, onBuscar }) {
 
                 <div className={Style["Header__div-div"]}>
 
-                    <div className={Style["Header__div-div-logo"]}>
+                    <div className={Style["Header__div-div-logo"]} onClick={() => mover()}>
                         <img
                             src={logoHeader}
                             alt=""

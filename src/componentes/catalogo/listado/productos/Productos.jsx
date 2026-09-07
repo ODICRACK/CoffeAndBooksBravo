@@ -7,6 +7,7 @@ import btnCarrito from "../../../../assets/btnCarrito.svg";
 import btnCarritoLibro from "../../../../assets/btnCarritoLibro.svg";
 
 export default function Productos({ producto }) {
+
     return (
         <div>
             {producto.productoTipo === "cafe" && (
@@ -17,10 +18,12 @@ export default function Productos({ producto }) {
                             src={producto.img}
                             alt={producto.nombre}
                         />
-                        <div className="producto__div-descuento cafe">
-                            <p>{producto.descuento}%</p>
-                            <p>OFF</p>
-                        </div>
+                        {producto.descuento > 0 && (
+                            <div className="producto__div-descuento cafe">
+                                <p>{producto.descuento}%</p>
+                                <p>OFF</p>
+                            </div>
+                        )}
                     </div>
                     <h3 className="producto__div-h3 cafe">
                         {producto.nombre}
@@ -52,10 +55,12 @@ export default function Productos({ producto }) {
                             src={producto.img}
                             alt={producto.nombre}
                         />
-                        <div className="producto__div-descuento libro">
-                            <p>{producto.descuento}%</p>
-                            <p>OFF</p>
-                        </div>
+                        {producto.descuento > 0 && (
+                            <div className="producto__div-descuento libro">
+                                <p>{producto.descuento}%</p>
+                                <p>OFF</p>
+                            </div>
+                        )}
                     </div>
                     <img
                         className="producto__div-imgDivs"

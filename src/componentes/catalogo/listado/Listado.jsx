@@ -1,40 +1,91 @@
 import "./listado.css";
 
 import Productos from "./productos/Productos.jsx";
-
 import Filtros from "./filtros/Filtros.jsx";
 
 import { useEffect, useState } from "react";
 
 import {
-    obtenerCafes,
-    obtenerLibros,
     obtenerTodosLosProductos,
 } from "../../../servicios/googleSheets.js";
 
-export default function Listado() {
-    const [productos, setProductos] = useState([]);
-    useEffect(() => {
 
-    obtenerTodosLosProductos()
-        .then((productos) => {
-            setProductos(productos);
-        })
-        .catch((error) => {
-            console.error("ERROR PRODUCTOS:", error);
-        });
-}, []);
-    return(
+export default function Listado({ busqueda = "" }) {
+
+    const [productos, setProductos] = useState([]);
+
+    useEffect(() => {
+        obtenerTodosLosProductos()
+            .then((productos) => {
+                console.log(
+                    "PRODUCTOS RECIBIDOS:",
+                    productos
+                );
+                setProductos(productos);
+            })
+
+            .catch((error) => {
+                console.error(
+                    "ERROR PRODUCTOS:",
+                    error
+                );
+            });
+    }, []);
+
+    const productosDisponibles = productos.filter(
+        (producto) => producto.disponible === "TRUE"
+    );
+
+    const textoBusqueda = busqueda.trim().toLowerCase();
+
+    const productosFiltrados =
+        textoBusqueda === ""
+            ? []
+            : productosDisponibles.filter(
+                (producto) => {
+                    const nombre =
+                        producto.nombre
+                            ?.toLowerCase() || "";
+                    const autor =
+                        producto.autor
+                            ?.toLowerCase() || "";
+                    return (
+                        nombre.includes(textoBusqueda) ||
+                        autor.includes(textoBusqueda)
+                    );
+                }
+            );
+
+    const productosAMostrar = [
+        ...productosFiltrados,
+        ...productosDisponibles.filter(
+            (producto) =>
+                !productosFiltrados.includes(producto)
+        )
+    ];
+
+
+    return (
         <div className="listado">
             <Filtros />
+
+            <div className="listado_textoError">
+                {textoBusqueda !== "" &&
+                    productosFiltrados.length === 0 && (
+                        <p>No encontramos productos relacionados con "{textoBusqueda}".</p>
+                    )}
+            </div>
+
             <div className="listado_div">
-                {productos.map((producto) => (
-                    <Productos
-                        key={producto.id}
-                        producto={producto}
-                    />
-                ))}
+                {productosAMostrar.map(
+                    (producto) => (
+                        <Productos
+                            key={producto.id}
+                            producto={producto}
+                        />
+                    )
+                )}
             </div>
         </div>
-    )
+    );
 }

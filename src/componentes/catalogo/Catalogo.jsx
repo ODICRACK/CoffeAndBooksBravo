@@ -1,18 +1,33 @@
+import { useState } from "react";
+
 import "./Catalogo.css";
+import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
 import Listado from "./listado/Listado.jsx";
 import Categorias from "./categorias/Categorias.jsx";
 import ProductoEsp from "./producto-esp/Producto-esp.jsx";
 
-export default function Catalogo(){
-    return(
-        <div className="catalogo ">
+export default function Catalogo() {
+
+    const [busqueda, setBusqueda] = useState(
+        new URLSearchParams(window.location.search).get("busqueda") || ""
+    );
+
+    return (
+        <div className="catalogo">
+            <Header onBuscar={setBusqueda} />
+
             <Categorias />
-            <Listado />
+
+            <Listado busqueda={busqueda} />
+
             <div className="overlay"></div>
+
             <div className="producto-especifico">
                 <ProductoEsp />
             </div>
-        </div>
-    )
 
+            <Footer />
+        </div>
+    );
 }

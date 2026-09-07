@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./Catalogo.css";
 import Header from "../Header/Header.jsx";
@@ -13,13 +13,23 @@ export default function Catalogo() {
         new URLSearchParams(window.location.search).get("busqueda") || ""
     );
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    const categoria =
+        new URLSearchParams(window.location.search).get("categoria") || "";
+
     return (
         <div className="catalogo">
             <Header onBuscar={setBusqueda} />
 
             <Categorias />
 
-            <Listado busqueda={busqueda} />
+            <Listado
+                busqueda={busqueda}
+                categoria={categoria}
+            />
 
             <div className="overlay"></div>
 

@@ -380,12 +380,30 @@
 
 .Destacados__carrusel-tarjeta--img {
     height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.Destacados__img-cafe {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.Destacados__img-libro {
+    height: 82%;
+    width: 82%;
+    object-fit: contain;
 }
 
 .Destacados__carrusel-tarjeta--img img {
     display: flex;
     margin-bottom: 0;
     height: 100%;
+    object-fit: contain;
 }
 
 .Destacados__carrusel-tarjeta--icono {

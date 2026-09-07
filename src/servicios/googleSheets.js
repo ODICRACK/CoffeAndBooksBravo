@@ -24,7 +24,7 @@ export function obtenerCafes() {
     return obtenerDatos("Cafes!A2:L")
         .then((datos) => {
             return datos
-                .filter((fila) =>fila[0].trim() !== "")
+                .filter((fila) => fila[0].trim() !== "")
                 .map((fila) => ({
                     id: fila[0],
                     img: fila[1].replace(
@@ -51,7 +51,7 @@ export function obtenerLibros() {
     return obtenerDatos("Libros!A2:L")
         .then((datos) => {
             return datos
-                .filter((fila) =>fila[0].trim() !== "")
+                .filter((fila) => fila[0].trim() !== "")
                 .map((fila) => ({
                     id: fila[0],
                     img: fila[1].replace(
@@ -96,6 +96,31 @@ export function obtenerTodosLosProductos() {
                 });
         });
 
+}
+
+export function obtenerProductosDestacados() {
+    return obtenerTodosLosProductos().then((productos) => {
+        return productos.sort((a, b) => Number(b.vendidos) - Number(a.vendidos)).slice(0, 10);
+    });
+}
+
+export function obtenerCategorias() {
+    return obtenerDatos("Categorias!A2:E")
+        .then((datos) => {
+            return datos
+                .filter((fila) => fila[0] && fila[4] === "TRUE")
+                .slice(0, 6)
+                .map((fila) => ({
+                    categoria: fila[0],
+                    tipo: fila[1],
+                    descripcion: fila[2],
+                    img: fila[3]
+                        .replace(
+                            "https://drive.google.com/file/d/",
+                            "https://drive.google.com/thumbnail?id="
+                        ).replace("/view?usp=sharing", ""),
+                }));
+        });
 }
 
 // OBTENER PREGUNTAS FRECUENTES

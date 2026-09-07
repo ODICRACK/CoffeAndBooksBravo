@@ -33,9 +33,9 @@ import catTarjetaImgCafe3 from '../../assets/home_cat-tarjeta-imgCafe3.svg';
 export default function Home() {
     return (
         <div className='Home'>
-            
+
             <section className='Inicio'>
-                <Header/>    
+                <Header />
                 <div className="Inicio__cafe-wrapper"></div>
                 <div className="Inicio__libro-wrapper"></div>
 
@@ -384,8 +384,8 @@ export default function Home() {
 
                 </div>
             </section>
-            <Footer/>
-            <Carrito/>
+            <Footer />
+            {/* <Carrito/> */}
         </div>
     )
 }

@@ -305,6 +305,8 @@
     padding: 0 2.5%;
     gap: 2rem;
     z-index: 1;
+    overflow-x: scroll;
+    scrollbar-width: none;
 }
 
 .Destacados__carrusel-btn {
@@ -380,12 +382,14 @@
 
 .Destacados__carrusel-tarjeta--img {
     height: 100%;
+    user-select: none;
 }
 
 .Destacados__carrusel-tarjeta--img img {
     display: flex;
     margin-bottom: 0;
     height: 100%;
+    user-select: none;
 }
 
 .Destacados__carrusel-tarjeta--icono {
@@ -598,7 +602,7 @@
 .Categorias__tarjeta-marco {
     position: absolute;
     z-index: 2;
-
+    user-select: none;
     top: -7.4vw;
     left: 50%;
     transform: translateX(-50%);
@@ -937,6 +941,7 @@
     .Categorias__tarjeta-circulo {
         top: -14.5vw;
         width: 20vw;
+        user-select: none;
     }
 
     .Categorias__tarjeta-marco {

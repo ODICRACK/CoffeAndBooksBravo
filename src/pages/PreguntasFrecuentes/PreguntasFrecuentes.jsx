@@ -25,6 +25,11 @@ export default function PreguntasFrecuentes({ preTipo }) {
             });
     }, [])
 
+    const carrusel = ()=>{
+        const carru = document.getElementById("carruPF")
+
+        carru.scrollBy({left:300, behavior: "smooth"});
+    }
     const cambiarSeleccionTipos = (id) => {
         setSeleccionado((actual) => {
             if (actual === id) {
@@ -66,7 +71,7 @@ export default function PreguntasFrecuentes({ preTipo }) {
                     <div className={Style["Preguntas-titul"]}>
                         <h2>Preguntas Frecuentes</h2>
                     </div>
-                    <div className={Style["Preguntas-temas"]}>
+                    <div className={Style["Preguntas-temas"]} id="carruPF">
                         {tipo.map((tipoE) => {
                             console.log(tipoE)
                             let iconoE = iconos.find(icono => icono.nombre == tipoE.icono)
@@ -86,7 +91,7 @@ export default function PreguntasFrecuentes({ preTipo }) {
                             )
                         })}
                     </div>
-                    <div className={Style.Button}>
+                    <div className={Style.Button} onClick={carrusel}>
                         <span className="material-symbols-outlined">
                             arrow_forward_ios
                         </span>

@@ -175,7 +175,7 @@ export default function Home() {
                                 </div>
 
                                 <div className='Destacados__carrusel-tarjeta--bottom'>
-                                    <p className='Destacados__carrusel-tarjeta--titulo'>
+                                    <p className='Destacados__carrusel-tarjeta--titulo' title={producto.nombre}>
                                         {producto.nombre}
                                     </p>
 

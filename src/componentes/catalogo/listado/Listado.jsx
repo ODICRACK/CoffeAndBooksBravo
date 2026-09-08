@@ -126,6 +126,13 @@ export default function Listado({
                             No encontramos productos relacionados con "{textoBusqueda}".
                         </p>
                     )}
+
+                {categoria !== "" &&
+                    productosPorCategoria.length === 0 && (
+                        <p>
+                            No encontramos productos relacionados con "{categoria}".
+                        </p>
+                    )}
             </div>
 
             {/* CON COINCIDENCIAS */}
@@ -134,6 +141,13 @@ export default function Listado({
                     productosFiltrados.length > 0 && (
                         <p>
                             Resultados de la búsqueda "{textoBusqueda}"
+                        </p>
+                    )}
+
+                {categoria !== "" &&
+                    productosPorCategoria.length > 0 && (
+                        <p>
+                            Resultados de la búsqueda "{categoria}"
                         </p>
                     )}
             </div>

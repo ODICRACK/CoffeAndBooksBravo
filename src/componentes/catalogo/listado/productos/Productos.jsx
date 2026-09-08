@@ -3,20 +3,28 @@ import "./productos.css";
 import divisorCardCafe from "../../../../assets/divisorCardCafe.svg";
 import divisorCardLibro from "../../../../assets/divisorCardLibro.svg";
 
+import imgNoDisponibleCafe from "../../../../assets/img no disponible-cafe.svg";
+import imgNoDisponibleLibro from "../../../../assets/img no disponible-libro.svg";
+
 import btnCarrito from "../../../../assets/btnCarrito.svg";
 import btnCarritoLibro from "../../../../assets/btnCarritoLibro.svg";
 
-export default function Productos({ producto }) {
-
+export default function Productos({ producto, onProductoClick }) {
     return (
         <div>
             {producto.productoTipo === "cafe" && (
-                <div className="producto__div cafe">
+                <div
+                    className="producto__div cafe"
+                    onClick={() => onProductoClick(producto)}
+                >
                     <div className="producto__div-img-container">
                         <img
                             className="producto__div-img"
                             src={producto.img}
                             alt={producto.nombre}
+                            onError={(e) => {
+                                e.currentTarget.src = imgNoDisponibleCafe;
+                            }}
                         />
                         {producto.descuento > 0 && (
                             <div className="producto__div-descuento cafe">
@@ -44,8 +52,12 @@ export default function Productos({ producto }) {
                     </button>
                 </div>
             )}
+
             {producto.productoTipo === "libro" && (
-                <div className="producto__div libro">
+                <div
+                    className="producto__div libro"
+                    onClick={() => onProductoClick(producto)}
+                >
                     <h3 className="producto__div-h3 libro" title={producto.nombre}>
                         {producto.nombre}
                     </h3>
@@ -54,6 +66,9 @@ export default function Productos({ producto }) {
                             className="producto__div-img"
                             src={producto.img}
                             alt={producto.nombre}
+                            onError={(e) => {
+                                e.currentTarget.src = imgNoDisponibleLibro;
+                            }}
                         />
                         {producto.descuento > 0 && (
                             <div className="producto__div-descuento libro">

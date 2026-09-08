@@ -9,10 +9,11 @@
     margin: 0;
 }
 
-body{
+body {
     background-color: var(--fondo1);
     color: white;
 }
+
 .Div {
     height: 100%;
     background-color: var(--fondo1);
@@ -91,6 +92,7 @@ body{
 
     }
 
+    .Preguntas-temas-item-active,
     .Preguntas-temas-item:hover {
         transition: 0.6s;
         color: white;
@@ -178,6 +180,7 @@ body{
 
         .Algo__article-div-article {
             display: none;
+            width: 100%;
         }
 
         h2 {
@@ -200,7 +203,7 @@ body{
     }
 
     .Desplegado {
-        background-color: #311A0E !important;
+        /* background-color: #311A0E !important; */
         min-height: 11.54vw !important;
         display: flex;
         align-items: end;
@@ -226,6 +229,7 @@ body{
 
             p {
                 line-height: 1.8;
+                white-space: pre-line;
             }
         }
 
@@ -272,6 +276,7 @@ body{
 
             p {
                 line-height: 1.8;
+                white-space: pre-line;
             }
         }
 
@@ -291,8 +296,13 @@ body{
 }
 
 @media (max-width: 768px) {
+
     .Div__main {
         flex-direction: column-reverse;
+    }
+
+    .Div__main-section {
+        justify-content: start;
     }
 
     .Sepa {
@@ -365,8 +375,9 @@ body{
             position: absolute;
             top: 22vw;
 
-            left: 91vw;
-            span{
+            left: 89vw;
+
+            span {
                 width: 0vw;
                 height: 3vw !important;
             }
@@ -380,7 +391,7 @@ body{
     }
 
     .Algo__article {
-        padding-top: 34.55vh;
+        /* padding-top: 34.55vh; */
         overflow-y: visible;
         width: 92%;
         gap: 3.4vw;
@@ -407,8 +418,10 @@ body{
             padding-top: 2.1vw !important;
         }
     }
+
     .Plegado:hover {
         transition: .9s;
+
         background-color: #311A0E !important;
         min-height: 30.54vw !important;
         display: flex;
@@ -444,6 +457,53 @@ body{
             font-style: italic;
             color: white;
             font-size: 1.03vw;
+            font-weight: 300;
+            margin-left: 3.5vw;
+        }
+
+        .Dawn {
+            display: none;
+        }
+    }
+
+    .Desplegado {
+        height: 50vw !important;
+        transition: .9s;
+        background-color: #311A0E !important;
+        min-height: 30.54vw !important;
+        display: flex;
+        align-items: end;
+        padding-top: 1vw;
+
+        .Algo__article-div-Titul {
+            width: 100%;
+            height: 9vw !important;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .Algo__article-div-article {
+            transition: 1s;
+            display: block;
+            padding-inline: 3.3vw;
+            padding-top: 2vw;
+            padding-bottom: 0.3vh;
+            font-family: Inter;
+            color: var(--letras);
+            font-size: 3.2vw !important;
+            width: 100%;
+            p {
+                line-height: 1.8;
+            }
+        }
+
+        h2 {
+            font-family: Inter;
+            font-style: italic;
+            color: white;
+            font-size: 5.03vw !important;
             font-weight: 300;
             margin-left: 3.5vw;
         }

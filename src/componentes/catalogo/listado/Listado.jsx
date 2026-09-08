@@ -15,7 +15,8 @@ import {
 
 export default function Listado({
     busqueda = "",
-    tipo = ""
+    tipo = "",
+    onProductoClick
 }) {
 
     const [productos, setProductos] = useState([]);
@@ -129,6 +130,7 @@ export default function Listado({
                         <Productos
                             key={producto.id}
                             producto={producto}
+                            onProductoClick={onProductoClick}
                         />
                     ))
 

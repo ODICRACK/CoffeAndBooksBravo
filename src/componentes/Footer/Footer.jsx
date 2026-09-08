@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { Link } from "wouter";
 import "./Footer.css"
 import FacebookIcon from "../../assets/Facebook.svg";
 import InstagramIcon from "../../assets/Instagram.svg";
@@ -51,7 +51,7 @@ function FooterEscritorio() {
                                 <h2>Ayuda</h2>
                                 <div>
                                     <ul>
-                                        <li><a href="#">Preguntas frecuentes</a></li>
+                                        <li><Link href="/preguntas" onClick={() => { window.scrollTo(0, 0) }}>Preguntas frecuentes</Link></li>
                                         <li><a href="#">Envios y entregas</a></li>
                                         <li><a href="#">Cambios y devoluciones</a></li>
                                         <li><a href="#">Metodos de pago</a></li>

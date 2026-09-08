@@ -10,6 +10,7 @@ body{
     background-color: rgb(9,13,12);
 }
 
+
 /* Cuando el modal esté abierto */
 body.modal-abierto{
     overflow: hidden;

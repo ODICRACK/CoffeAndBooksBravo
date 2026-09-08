@@ -66,6 +66,11 @@ export default function Home() {
 
     }, []);
 
+    const carrusel = (num) => {
+        const carru = document.getElementById("carru")
+
+        carru.scrollBy({ left: num > 0 ? 300 : -300, behavior: "smooth" });
+    }
     return (
         <div className='Home'>
 
@@ -101,7 +106,7 @@ export default function Home() {
 
 
 
-            <section className='Data'>
+            <section className='Data' id='info'>
                 <div className="Data__tarjeta-sobreMi">
                     <span className='Data__tarjeta-logo'><img src={dataLogo1} alt="" /></span>
 
@@ -138,7 +143,7 @@ export default function Home() {
 
                 <div className='Destacados__carrusel'>
                     <button className='Destacados__carrusel-atras Destacados__carrusel-btn'>
-                        <img src={destCarruselAtras} alt="" />
+                        <img src={destCarruselAtras} alt="" onClick={() => carrusel(-1)} />
                     </button>
 
                     <div className='Destacados__carrusel-contenedor'>
@@ -188,7 +193,7 @@ export default function Home() {
                     </div>
 
                     <button className='Destacados__carrusel-sig Destacados__carrusel-btn'>
-                        <img src={destCarruselSig} alt="" />
+                        <img src={destCarruselSig} alt="" onClick={() => carrusel(1)} />
                     </button>
                 </div>
             </section>

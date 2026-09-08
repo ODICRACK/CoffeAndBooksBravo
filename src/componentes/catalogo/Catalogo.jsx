@@ -28,6 +28,7 @@ export default function Catalogo() {
     const tipo =
         new URLSearchParams(window.location.search).get("tipo") || "";
 
+
     return (
         <div className={`catalogo ${productoSeleccionado ? "modal-abierto" : ""}`}>
             <Header onBuscar={setBusqueda} />

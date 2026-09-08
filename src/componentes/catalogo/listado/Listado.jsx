@@ -15,6 +15,7 @@ import {
 
 export default function Listado({
     busqueda = "",
+    categoria = "",
     tipo = "",
     onProductoClick
 }) {
@@ -48,6 +49,7 @@ export default function Listado({
                     producto.productoTipo === tipo
             );
 
+
     //PARA LAS TILDES
     const normalizar = (texto) =>
         texto
@@ -55,6 +57,17 @@ export default function Listado({
             .replace(/[\u0300-\u036f]/g, "")
             .toLowerCase();
 
+    const productosPorCategoria =
+        categoria === ""
+            ? productosPorTipo
+            : productosPorTipo.filter((producto) => {
+                const valorCategoria =
+                    producto.productoTipo === "cafe"
+                        ? producto.tipo
+                        : producto.genero;
+
+                return normalizar(valorCategoria || "") === normalizar(categoria);
+            });
 
     const textoBusqueda = normalizar(busqueda.trim());
 
@@ -69,6 +82,9 @@ export default function Listado({
                     const autor =
                         normalizar(producto.autor || "");
 
+                    const genero =
+                        normalizar(producto.genero || "");
+
                     const marca =
                         normalizar(producto.marca || "");
 
@@ -78,6 +94,7 @@ export default function Listado({
                     return (
                         nombre.includes(textoBusqueda) ||
                         autor.includes(textoBusqueda) ||
+                        genero.includes(textoBusqueda) ||
                         marca.includes(textoBusqueda) ||
                         tipo.includes(textoBusqueda)
                     );
@@ -135,10 +152,11 @@ export default function Listado({
                     ))
 
                     /* Si NO hay coincidencias, muestra TODOS */
-                    : productosPorTipo.map((producto) => (
+                    : productosPorCategoria.map((producto) => (
                         <Productos
                             key={producto.id}
                             producto={producto}
+                            onProductoClick={onProductoClick}
                         />
                     ))
                 }
@@ -160,6 +178,7 @@ export default function Listado({
                             <Productos
                                 key={producto.id}
                                 producto={producto}
+                                onProductoClick={onProductoClick}
                             />
                         ))}
                     </div>

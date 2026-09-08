@@ -136,7 +136,7 @@ export default function Header({ modo, onBuscar }) {
                                 </Link>
                             </h2>
 
-                            <h2 className={Style.hache}>
+                            <h2 className={`${Style.hache} ${Style.ulti}`}>
                                 <a className={Style.Link} href="/#info">
                                     Sobre mi
                                 </a>

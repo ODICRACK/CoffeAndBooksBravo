@@ -25,7 +25,7 @@ export default function Productos({ producto }) {
                             </div>
                         )}
                     </div>
-                    <h3 className="producto__div-h3 cafe">
+                    <h3 className="producto__div-h3 cafe" title={producto.nombre}>
                         {producto.nombre}
                     </h3>
                     <img
@@ -46,7 +46,7 @@ export default function Productos({ producto }) {
             )}
             {producto.productoTipo === "libro" && (
                 <div className="producto__div libro">
-                    <h3 className="producto__div-h3 libro">
+                    <h3 className="producto__div-h3 libro" title={producto.nombre}>
                         {producto.nombre}
                     </h3>
                     <div className="producto__div-img-container">

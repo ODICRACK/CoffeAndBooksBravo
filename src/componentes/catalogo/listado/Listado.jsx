@@ -3,6 +3,9 @@ import "./listado.css";
 import Productos from "./productos/Productos.jsx";
 import Filtros from "./filtros/Filtros.jsx";
 
+import Deco1 from '../../../assets/cat-deco-busqueda1.svg';
+import Deco2 from '../../../assets/cat-deco-busqueda2.svg';
+
 import { useEffect, useState } from "react";
 
 import {
@@ -20,10 +23,6 @@ export default function Listado({
     useEffect(() => {
         obtenerTodosLosProductos()
             .then((productos) => {
-                console.log(
-                    "PRODUCTOS RECIBIDOS:",
-                    productos
-                );
                 setProductos(productos);
             })
 
@@ -40,7 +39,6 @@ export default function Listado({
     );
 
 
-    // FILTRO POR TIPO
     const productosPorTipo =
         tipo === ""
             ? productosDisponibles
@@ -49,8 +47,15 @@ export default function Listado({
                     producto.productoTipo === tipo
             );
 
+    //PARA LAS TILDES
+    const normalizar = (texto) =>
+        texto
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase();
 
-    const textoBusqueda = busqueda.trim().toLowerCase();
+
+    const textoBusqueda = normalizar(busqueda.trim());
 
     const productosFiltrados =
         textoBusqueda === ""
@@ -58,34 +63,45 @@ export default function Listado({
             : productosPorTipo.filter(
                 (producto) => {
                     const nombre =
-                        producto.nombre
-                            ?.toLowerCase() || "";
+                        normalizar(producto.nombre || "");
 
                     const autor =
-                        producto.autor
-                            ?.toLowerCase() || "";
+                        normalizar(producto.autor || "");
+
+                    const marca =
+                        normalizar(producto.marca || "");
+
+                    const tipo =
+                        normalizar(producto.tipo || "");
 
                     return (
                         nombre.includes(textoBusqueda) ||
-                        autor.includes(textoBusqueda)
+                        autor.includes(textoBusqueda) ||
+                        marca.includes(textoBusqueda) ||
+                        tipo.includes(textoBusqueda)
                     );
                 }
             );
 
-    const productosAMostrar = [
-        ...productosFiltrados,
-        ...productosPorTipo.filter(
+
+    const tipoBuscado =
+        normalizar(productosFiltrados[0]?.tipo || "");
+
+    const productosRelacionados =
+        productosPorTipo.filter(
             (producto) =>
+                normalizar(producto.tipo || "") === tipoBuscado &&
                 !productosFiltrados.includes(producto)
-        )
-    ];
+        );
+
 
 
     return (
         <div className="listado">
             <Filtros />
 
-            <div className="listado_textoError">
+            {/* SIN COINCIDENCIAS */}
+            <div className="listado_texto">
                 {textoBusqueda !== "" &&
                     productosFiltrados.length === 0 && (
                         <p>
@@ -94,16 +110,59 @@ export default function Listado({
                     )}
             </div>
 
+            {/* CON COINCIDENCIAS */}
+            <div className="listado_texto">
+                {textoBusqueda !== "" &&
+                    productosFiltrados.length > 0 && (
+                        <p>
+                            Resultados de la búsqueda "{textoBusqueda}"
+                        </p>
+                    )}
+            </div>
+
+            {/* PRODUCTOS */}
             <div className="listado_div">
-                {productosAMostrar.map(
-                    (producto) => (
+
+                {/* Si hay coincidencias, muestra las coincidencias */}
+                {productosFiltrados.length > 0
+                    ? productosFiltrados.map((producto) => (
                         <Productos
                             key={producto.id}
                             producto={producto}
                         />
-                    )
-                )}
+                    ))
+
+                    /* Si NO hay coincidencias, muestra TODOS */
+                    : productosPorTipo.map((producto) => (
+                        <Productos
+                            key={producto.id}
+                            producto={producto}
+                        />
+                    ))
+                }
+
             </div>
+
+            {/* RELACIONADOS */}
+            {productosFiltrados.length > 0 && (
+                <div className="listado_div-relacionados">
+
+                    <div className="listado_div-relacionados--deco">
+                        <img src={Deco1} alt="linea decorativa" />
+                        <p>RELACIONADOS</p>
+                        <img src={Deco2} alt="linea decorativa" />
+                    </div>
+
+                    <div className="listado_div-relacionados--list">
+                        {productosRelacionados.map((producto) => (
+                            <Productos
+                                key={producto.id}
+                                producto={producto}
+                            />
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

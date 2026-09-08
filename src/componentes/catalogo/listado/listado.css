@@ -17,7 +17,11 @@
     padding-top: 5rem;
 }
 
-.listado_textoError p {
+.listado_div-relacionados {
+    padding-top: 0;
+}
+
+.listado_texto p {
     position: absolute;
     top: 12vh;
     left: 5vw;
@@ -25,6 +29,27 @@
     margin: 0;
     padding: 0;
     display: flex;
+}
+
+.listado_div-relacionados--deco {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 2vw;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.listado_div-relacionados--deco p {
+    color: #BF8829;
+    font-size: 1.5rem;
+}
+
+.listado_div-relacionados--list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding-top: 0;
 }
 
 

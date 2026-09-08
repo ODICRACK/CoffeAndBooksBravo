@@ -5,9 +5,9 @@ import { Link } from 'wouter';
 
 import { obtenerCategorias, obtenerProductosDestacados } from "../../servicios/googleSheets";
 
-import Header from "../Header/Header"
-import Footer from "../Footer/Footer"
-import Carrito from "../modales/Carrito/Carrito"
+import Header from "../../componentes/Header/Header"
+import Footer from "../../componentes/Footer/Footer"
+// import Carrito from "../modales/Carrito/Carrito"
 
 import inicioSeparador from '../../assets/home_inicio-separador.svg';
 import dataSeparador from '../../assets/home_data-separador.svg';
@@ -146,7 +146,7 @@ export default function Home() {
                         <img src={destCarruselAtras} alt="" onClick={() => carrusel(-1)} />
                     </button>
 
-                    <div className='Destacados__carrusel-contenedor'>
+                    <div className='Destacados__carrusel-contenedor' id='carru'>
 
                         {destacados.map((producto) => (
                             <div

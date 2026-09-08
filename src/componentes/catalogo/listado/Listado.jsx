@@ -146,7 +146,7 @@ export default function Listado({
             </div>
 
             {/* RELACIONADOS */}
-            {productosFiltrados.length > 0 && (
+            {productosFiltrados.length > 0 && productosRelacionados.length > 0 && (
                 <div className="listado_div-relacionados">
 
                     <div className="listado_div-relacionados--deco">

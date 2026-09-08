@@ -41,21 +41,11 @@ export default function Listado({
     );
 
 
-    const productosPorTipo =
-        tipo === ""
-            ? productosDisponibles
-            : productosDisponibles.filter(
-                (producto) =>
-                    producto.productoTipo === tipo
-            );
+    const productosPorTipo = tipo === "" ? productosDisponibles : productosDisponibles.filter((producto) => producto.productoTipo === tipo);
 
 
     //PARA LAS TILDES
-    const normalizar = (texto) =>
-        texto
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .toLowerCase();
+    const normalizar = (texto) =>texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
     const productosPorCategoria =
         categoria === ""

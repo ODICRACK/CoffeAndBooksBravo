@@ -22,11 +22,9 @@ export default function Catalogo() {
         window.scrollTo(0, 0);
     }, []);
 
-    const categoria =
-        new URLSearchParams(window.location.search).get("categoria") || "";
+    const categoria = new URLSearchParams(window.location.search).get("categoria") || "";
 
-    const tipo =
-        new URLSearchParams(window.location.search).get("tipo") || "";
+    const tipo = new URLSearchParams(window.location.search).get("tipo") || "";
 
 
     return (

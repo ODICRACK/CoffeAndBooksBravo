@@ -1,50 +1,114 @@
 import "./producto-esp.css";
-import imgcaffe from "../../../assets/imgProductos/CaffeColombia.svg";
-import imglibro from "../../../assets/imgProductos/libroHarryPotter.svg";
-import imgMoneda from "../../../assets/bola.svg"
-import imgMarcoCap from "../../../assets/marcoImg-capsula.svg"
-export default function ProductoEsp() {
+import imgMoneda from "../../../assets/bola.svg";
+import imgMarcoCap from "../../../assets/marcoImg-capsula.svg";
+import imgNoDisponibleCafe from "../../../assets/img no disponible-cafe.svg";
+import imgNoDisponibleLibro from "../../../assets/img no disponible-libro.svg";
+
+export default function ProductoEsp({ producto, onCerrar }) {
+    const obtenerClaseCafe = (tipo) => {
+        const tipoNormalizado = tipo?.trim().toLowerCase() || "";
+        if (
+            tipoNormalizado.includes("capsula") ||
+            tipoNormalizado.includes("cápsula")
+        ) {
+            return "capsula";
+        }
+        if (tipoNormalizado.includes("molido")) {
+            return "molido";
+        }
+        return "enGrano";
+    };
+
+    const claseCafe =
+        producto?.productoTipo === "cafe"
+            ? obtenerClaseCafe(producto.tipo)
+            : "";
+    if (!producto) {
+        return null;
+    }
+
     return (
-        <div className="producto-esp cafe" >
-            <div >
-                <div className="producto-esp_div enGrano">
-                    <img className="modeda enGrano" src={imgMoneda} />
-                    <img className="marcoImg enGrano" src={imgMarcoCap} />
-                    <img className="enGrano" src={imgcaffe} />
+        <div className={`producto-esp ${producto.productoTipo}`}>
+            {producto.productoTipo === "cafe" && (
+                <div className={`producto-esp_div cafe ${claseCafe}`}>
+                    {claseCafe === "molido" && (
+                        <img
+                            className={`modeda ${claseCafe}`}
+                            src={imgMoneda}
+                            alt=""
+                        />
+                    )}
+                    {claseCafe === "capsula" && (
+                        <img
+                            className={`marcoImg ${claseCafe}`}
+                            src={imgMarcoCap}
+                            alt=""
+                        />
+                    )}
+                    <h3 className={`peso ${claseCafe}`}>
+                        {producto.intensidad}/4
+                    </h3>
+                    <img
+                        className={claseCafe}
+                        src={producto.img}
+                        alt={producto.nombre}
+                        onError={(e) => {
+                            e.currentTarget.src = imgNoDisponibleCafe;
+                        }}
+                    />
+                    <h2 className={`nombre ${claseCafe}`}>
+                        {producto.nombre}
+                    </h2>
+                    <h2 className={`gramos ${claseCafe}`}>
+                        {producto.peso}
+                    </h2>
                 </div>
-                <h3 className="peso enGrano">3/4</h3>
-                <h2 className="nombre enGrano">
-                    Cafe docheano moderado frnases jaj
-                </h2>
-                <h2 className="gramos enGrano">
-                    250g
-                </h2>
-            </div>
-            <div className="producto-esp_div libroesp" style={{ display: "none" }}>
-                <div className="libroesp " >
-                    <div className="libro__cara libro__frente">
-                        <h2 className="libro__frente-h2">Harry Potter y el misterio del príncipe</h2>
-                        <img src={imglibro} className="libro__frente-img" />
-                        <h3 className="libro__frente-h3">J.K. Rowling</h3>
-                    </div>
-                    <div className="libro__cara libro__atras">
-                        <div className="libro__atras-contenido">
-                            <div className="libro__sinopsis">
-                                <p>
-                                    En efecto, suspendido en el cielo encima del castillo, había un reluciente cráneo verde con lengua de serpiente, la marca que dejaban los mortífagos cuando salían de un edificio donde habían matado...Una nochc de verano, Dumbledore llega a Privet Drive para recoger a Harry Potter. Tiene la mano de la varita ennegrecida y arrugada, pero no explica el motivo. Entre los magos circulan secretos y sospechas, y ni siquiera Hogwarts se encuentra a salvo. Harry está convencido de que Malfoy lleva grabada la Marca Tenebrosa: hay un mortífago entre ellos. Así, Harry necesitará practicar su magia más potente y contar con la ayuda de amigos de verdad para explorar los secretos más oscuros de Voldemort, mientras Dumbledore se prepara para afrontar su destino...
-                                </p>
-                            </div>
-                            <div className="libro__info">
-                                <p><strong>Género:</strong> novela de fantasía y aventura</p>
-                                <p><strong>Formato:</strong> tapa blanda</p>
+            )}
+            {producto.productoTipo === "libro" && (
+                <div className="producto-esp_div libroesp">
+                    <div className="libroesp">
+                        <div className="libro__cara libro__frente">
+                            <h2 className="libro__frente-h2">
+                                {producto.nombre}
+                            </h2>
+                            <img
+                                src={producto.img}
+                                className="libro__frente-img"
+                                alt={producto.nombre}
+                                onError={(e) => {
+                                    e.currentTarget.src =
+                                        imgNoDisponibleLibro;
+                                }}
+                            />
+                            <h3 className="libro__frente-h3">
+                                {producto.autor}
+                            </h3>
+                        </div>
+                        <div className="libro__cara libro__atras">
+                            <div className="libro__atras-contenido">
+                                <div className="libro__sinopsis">
+                                    <p>
+                                        {producto.sinopsis}
+                                    </p>
+                                </div>
+                                <div className="libro__info">
+                                    <p>
+                                        <strong>Género:</strong>{" "}
+                                        {producto.genero}
+                                    </p>
+                                    <p>
+                                        <strong>Formato:</strong>{" "}
+                                        {producto.formato}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            )}
             <div className="producto-esp_btn">
                 <p>AÑADIR AL CARRITO</p>
             </div>
         </div>
-    )
+    );
 }

@@ -46,6 +46,7 @@
 .producto-esp_div img{
     position: absolute;
     background-color: rgb(207, 196, 184);
+    object-fit: contain;
 }
 .producto-esp_div img.enGrano{
     border-radius: 100%;
@@ -62,8 +63,8 @@
     clip-path: ellipse(50% 100% at 49% 100%);
     padding: 2vh;
     top: 22.93vh;
-    
 }
+
 .modeda{
     display: none;
 }
@@ -102,13 +103,10 @@
     font-family: "IM Fell French Canon", serif;
     
 }
-.producto-esp_div.cafe h2{
-    top: 10px;
-}
 
 .peso.enGrano{
     position: absolute;
-    top: 4.5vh;
+    top: 3.5vh;
     
     color: rgba(25, 13, 7, 1);
     left: 16vw;
@@ -128,7 +126,7 @@
 
 .gramos.enGrano{
     position: absolute;
-    bottom: 12vh;
+    bottom: 4vh;
     
     color: rgba(25, 13, 7, 1);
     font-size: 20px;
@@ -137,7 +135,7 @@
 
 .peso.molido{
     position: absolute;
-    bottom: 16vh;
+    bottom: 8vh;
     left: 14.5vw;
     color: rgba(196, 174, 149, 1);
      font-family: "Inika", serif;
@@ -153,14 +151,14 @@
     text-transform: uppercase;
     font-size: 18px;
     font-weight: 500;
-    
+    color: rgba(18, 14, 12, 1);
 }
 
 .gramos.molido{
     position: absolute;
     
     right: 13.5vw;
-    bottom: 16vh;
+    bottom: 8vh;
     color: rgba(173, 130, 83, 1);
     font-size: 20px;
     font-weight: 500;
@@ -194,7 +192,7 @@
     font-family: "IM Fell French Canon", serif;
     transform: rotate(5deg);
     right: 9.5vw;
-    bottom: 17vh;
+    bottom: 8vh;
     color: rgba(25, 13, 7, 1);
     font-size: 17px;
     font-weight: 600;

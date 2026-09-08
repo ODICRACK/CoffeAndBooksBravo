@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import "./Catalogo.css";
 import Header from "../Header/Header.jsx";
 import Footer from "../Footer/Footer.jsx";
@@ -8,25 +7,36 @@ import Categorias from "./categorias/Categorias.jsx";
 import ProductoEsp from "./producto-esp/Producto-esp.jsx";
 
 export default function Catalogo() {
+    const [busqueda, setBusqueda] = useState("");
+    const [productoSeleccionado, setProductoSeleccionado] = useState(null);
 
-    const [busqueda, setBusqueda] = useState(
-        new URLSearchParams(window.location.search).get("busqueda") || ""
-    );
+    const abrirProducto = (producto) => {
+        setProductoSeleccionado(producto);
+    };
+    const cerrarProducto = () => {
+        setProductoSeleccionado(null);
+    };
 
     return (
-        <div className="catalogo">
+        <div className={`catalogo ${productoSeleccionado ? "modal-abierto" : ""}`}>
             <Header onBuscar={setBusqueda} />
-
             <Categorias />
-
-            <Listado busqueda={busqueda} />
-
-            <div className="overlay"></div>
-
+            <Listado
+                busqueda={busqueda}
+                onProductoClick={abrirProducto}
+            />
+            <div
+                className="overlay"
+                onClick={cerrarProducto}
+            ></div>
             <div className="producto-especifico">
-                <ProductoEsp />
+                {productoSeleccionado && (
+                    <ProductoEsp
+                        producto={productoSeleccionado}
+                        onCerrar={cerrarProducto}
+                    />
+                )}
             </div>
-
             <Footer />
         </div>
     );

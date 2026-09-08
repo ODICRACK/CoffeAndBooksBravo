@@ -10,7 +10,7 @@ import {
 } from "../../../servicios/googleSheets.js";
 
 
-export default function Listado({ busqueda = "" }) {
+export default function Listado({ busqueda = "", onProductoClick }) {
 
     const [productos, setProductos] = useState([]);
 
@@ -82,6 +82,7 @@ export default function Listado({ busqueda = "" }) {
                         <Productos
                             key={producto.id}
                             producto={producto}
+                            onProductoClick={onProductoClick}
                         />
                     )
                 )}

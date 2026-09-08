@@ -4,7 +4,7 @@ import cafe from "../../assets/cafe.svg"
 //import libro from "../../assets/libro.svg"
 //import cafeLibro from "../../assets/libroCafe.svg"
 
-import Header from "../Header/Header"
+import Header from "../../componentes/Header/Header"
 export default function SearchMovile() {
     return (
         <div className={Style["hola"]}>

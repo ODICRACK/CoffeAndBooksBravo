@@ -10,9 +10,9 @@ export default function Header({ modo, onBuscar }) {
     const [busqueda, setBusqueda] = useState("");
     const [, setLocation] = useLocation();
 
-    const mover = () => {
+    const mover = (donde) => {
         window.scrollTo(0, 0)
-        setLocation("/");
+        setLocation(`/${donde}`);
     }
     const buscar = (e) => {
         if (e.key === "Enter") {
@@ -78,7 +78,7 @@ export default function Header({ modo, onBuscar }) {
 
                 <div className={Style["Header__div-div"]}>
 
-                    <div className={Style["Header__div-div-logo"]} onClick={() => mover()}>
+                    <div className={Style["Header__div-div-logo"]} onClick={() => mover("")}>
                         <img
                             src={logoHeader}
                             alt=""
@@ -103,18 +103,18 @@ export default function Header({ modo, onBuscar }) {
                             </h2>
 
                             <h2 className={Style.hache}>
-                                <Link
+                                <a
                                     className={Style.Link}
-                                    href="/home"
+                                    href="/#info"
                                 >
                                     Sobre mi
-                                </Link>
+                                </a>
                             </h2>
 
                             <h2 className={Style.hache}>
                                 <Link
                                     className={Style.Link}
-                                    href="/home"
+                                    href="/"
                                 >
                                     Inicio
                                 </Link>

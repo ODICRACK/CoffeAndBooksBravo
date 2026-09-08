@@ -3,8 +3,8 @@ import Style from "./PreguntasFrecuentes.module.css"
 
 import sepa from "../../assets/SeparacionPFsvg.svg";
 import IconoPF from "../../assets/IconoPF.png";
-import Header from "../Header/Header"
-import Footer from "../Footer/Footer"
+import Header from "../../componentes/Header/Header"
+import Footer from "../../componentes/Footer/Footer"
 
 import { obtenerPreguntasFrecuentes } from "../../servicios/googleSheets";
 
@@ -55,7 +55,7 @@ export default function PreguntasFrecuentes({ preTipo }) {
         else {
             setMostrando(nombre)
         }
-    
+
     }
 
     return (

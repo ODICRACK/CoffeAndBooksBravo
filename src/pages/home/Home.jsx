@@ -1,7 +1,7 @@
 import './Home.css';
 
-import Header from "../Header/Header"
-import Footer from "../Footer/Footer"
+import Header from "../../componentes/Header/Header"
+import Footer from "../../componentes/Footer/Footer"
 // import Carrito from "../modales/Carrito/Carrito"
 
 import inicioSeparador from '../../assets/home_inicio-separador.svg';
@@ -54,7 +54,7 @@ export default function Home() {
 
 
 
-            <section className='Data'>
+            <section className='Data' id='info'>
                 <div className="Data__tarjeta-sobreMi">
                     <span className='Data__tarjeta-logo'><img src={dataLogo1} alt="" /></span>
 

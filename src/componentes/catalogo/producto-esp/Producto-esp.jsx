@@ -3,14 +3,14 @@ import imgcaffe from "../../../assets/imgProductos/CaffeColombia.svg";
 import imglibro from "../../../assets/imgProductos/libroHarryPotter.svg";
 import imgMoneda from "../../../assets/bola.svg"
 import imgMarcoCap from "../../../assets/marcoImg-capsula.svg"
-export default function ProductoEsp(){
-    return(
+export default function ProductoEsp() {
+    return (
         <div className="producto-esp cafe" >
-            <div style={{display:"none"}}>
+            <div >
                 <div className="producto-esp_div enGrano">
-                    <img className="modeda enGrano" src={imgMoneda}/>
-                    <img className="marcoImg enGrano"src={imgMarcoCap} />
-                    <img className="enGrano" src={imgcaffe}/>
+                    <img className="modeda enGrano" src={imgMoneda} />
+                    <img className="marcoImg enGrano" src={imgMarcoCap} />
+                    <img className="enGrano" src={imgcaffe} />
                 </div>
                 <h3 className="peso enGrano">3/4</h3>
                 <h2 className="nombre enGrano">
@@ -20,7 +20,7 @@ export default function ProductoEsp(){
                     250g
                 </h2>
             </div>
-            <div className="producto-esp_div libroesp" >
+            <div className="producto-esp_div libroesp" style={{ display: "none" }}>
                 <div className="libroesp " >
                     <div className="libro__cara libro__frente">
                         <h2 className="libro__frente-h2">Harry Potter y el misterio del príncipe</h2>

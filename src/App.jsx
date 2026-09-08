@@ -3,8 +3,8 @@ import { Route, Router, Switch } from "wouter";
 
 // import Footer from "./componentes/Footer/Footer"
 //import Header from "./componentes/Header/Header.jsx"
-import PreguntasFrecuentes from "./componentes/PreguntasFrecuentes/PreguntasFrecuentes"
-import Home from './componentes/home/Home';
+import PreguntasFrecuentes from "./pages/PreguntasFrecuentes/PreguntasFrecuentes"
+import Home from './pages/home/Home';
 import Catalogo from "./componentes/catalogo/Catalogo"
 import './App.css'
 

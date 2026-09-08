@@ -216,7 +216,7 @@
         scale: 1.02;
     }
 
-    .activo:hover {
+    .activo {
         transition: 0.7s;
         width: 20vw !important;
         flex-direction: row-reverse;
@@ -327,7 +327,7 @@
 
             .Link {
                 margin-right: 1vw;
-                font-size: clamp(0.507rem,2.3vw,2rem);
+                font-size: clamp(0.507rem, 2.3vw, 2rem);
             }
         }
 
@@ -372,6 +372,7 @@
             border: 1.5px dashed #C4AE95;
 
             span {
+                padding: 0;
                 font-size: 3.8vw;
             }
 

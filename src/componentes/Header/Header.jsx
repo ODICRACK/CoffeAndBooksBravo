@@ -1,6 +1,6 @@
 import Style from "./Header.module.css";
 import { Link, useLocation } from "wouter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import logoHeader from "../../assets/logoHeader.svg";
 import bandera from "../../assets/banner.svg";
@@ -8,12 +8,47 @@ import bandera from "../../assets/banner.svg";
 export default function Header({ modo, onBuscar }) {
 
     const [busqueda, setBusqueda] = useState("");
+    const [activo, setActivo] = useState(false);
+    const [pantallaChica, setPantallaChica] = useState(window.innerWidth < 768);
+
     const [, setLocation] = useLocation();
 
+    useEffect(() => {
+
+        const verificarPantalla = () => {
+            const esChica = window.innerWidth < 768;
+
+            setPantallaChica(esChica);
+
+            if (esChica) {
+                setActivo(false);
+            }
+        };
+
+        verificarPantalla();
+
+        window.addEventListener("resize", verificarPantalla);
+
+        return () => {
+            window.removeEventListener("resize", verificarPantalla);
+        };
+
+    }, []);
+
+    const search = () => {
+        console.log("hola")
+        if (pantallaChica == false) {
+            setActivo(true)
+        }
+        else {
+            setActivo(false)
+        }
+    }
     const mover = (donde) => {
         window.scrollTo(0, 0)
         setLocation(`/${donde}`);
     }
+
     const buscar = (e) => {
         if (e.key === "Enter") {
             const texto = busqueda.trim();
@@ -42,18 +77,13 @@ export default function Header({ modo, onBuscar }) {
                     <div
                         className={`${Style["Header__div-div-nav-iconos"]} ${Style["responsive"]}`}
                     >
-                        <Link
-                            className={Style["Icono"]}
-                            href="/carrito"
-                        >
+                        <Link className={Style["Icono"]} href="/carrito">
                             <span className="material-symbols-outlined">
                                 arrow_back_ios_new
                             </span>
                         </Link>
 
-                        <div
-                            className={`${Style["Icono"]} ${Style["search"]}`}
-                        >
+                        <div className={`${Style["Icono"]} ${Style["search"]}`}>
 
                             <span className="material-symbols-outlined">
                                 search
@@ -136,11 +166,8 @@ export default function Header({ modo, onBuscar }) {
 
                         </div>
 
-
                         <div className={Style["Header__div-div-nav-iconos"]}>
-                            <div
-                                className={`${Style["Icono"]} ${Style["activo"]}`}
-                            >
+                            <div className={`${Style["Icono"]} ${activo ? `${Style["activo"]}` : ""}`} onClick={search}>
                                 <span className="material-symbols-outlined">
                                     search
                                 </span>
@@ -148,9 +175,7 @@ export default function Header({ modo, onBuscar }) {
                                     type="text"
                                     className={Style.Input}
                                     value={busqueda}
-                                    onChange={(e) =>
-                                        setBusqueda(e.target.value)
-                                    }
+                                    onChange={(e) => setBusqueda(e.target.value)}
                                     onKeyDown={buscar}
                                 />
                             </div>

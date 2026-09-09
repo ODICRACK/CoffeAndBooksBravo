@@ -59,6 +59,11 @@ export default function Listado({
                 return normalizar(valorCategoria || "") === normalizar(categoria);
             });
 
+    const productosPorCategoriaFinal =
+        categoria !== "" && productosPorCategoria.length === 0
+            ? productosPorTipo
+            : productosPorCategoria;
+
     const textoBusqueda = normalizar(busqueda.trim());
 
     const productosFiltrados =
@@ -92,16 +97,26 @@ export default function Listado({
             );
 
 
-    const tipoBuscado =
-        normalizar(productosFiltrados[0]?.tipo || "");
 
+    // TIPO DE PRODUCTO PARA LOS RELACIONADOS
+    // LO QUE SE MUESTRA ARRIBA (búsqueda, o fallback por categoría)
+    const productosMostrados =
+        productosFiltrados.length > 0
+            ? productosFiltrados
+            : productosPorCategoriaFinal;
+
+    // TIPO DE PRODUCTO PARA LOS RELACIONADOS
+    const tipoRelacionado = productosMostrados[0]?.productoTipo || tipo;
+
+    // PRODUCTOS RELACIONADOS
     const productosRelacionados =
-        productosPorTipo.filter(
-            (producto) =>
-                normalizar(producto.tipo || "") === tipoBuscado &&
-                !productosFiltrados.includes(producto)
-        );
-
+        tipoRelacionado === ""
+            ? []
+            : productosDisponibles.filter(
+                (producto) =>
+                    producto.productoTipo === tipoRelacionado &&
+                    !productosMostrados.includes(producto)
+            );
 
 
     return (
@@ -156,7 +171,7 @@ export default function Listado({
                     ))
 
                     /* Si NO hay coincidencias, muestra TODOS */
-                    : productosPorCategoria.map((producto) => (
+                    : productosPorCategoriaFinal.map((producto) => (
                         <Productos
                             key={producto.id}
                             producto={producto}
@@ -168,7 +183,7 @@ export default function Listado({
             </div>
 
             {/* RELACIONADOS */}
-            {productosFiltrados.length > 0 && productosRelacionados.length > 0 && (
+            {productosRelacionados.length > 0 && (
                 <div className="listado_div-relacionados">
 
                     <div className="listado_div-relacionados--deco">
@@ -186,6 +201,7 @@ export default function Listado({
                             />
                         ))}
                     </div>
+
                 </div>
             )}
         </div>

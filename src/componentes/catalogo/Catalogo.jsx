@@ -8,7 +8,9 @@ import Categorias from "./categorias/Categorias.jsx";
 import ProductoEsp from "./producto-esp/Producto-esp.jsx";
 
 export default function Catalogo() {
-    const [busqueda, setBusqueda] = useState("");
+    const [busqueda, setBusqueda] = useState(
+        () => new URLSearchParams(window.location.search).get("busqueda") || ""
+    );
     const [productoSeleccionado, setProductoSeleccionado] = useState(null);
 
     const abrirProducto = (producto) => {

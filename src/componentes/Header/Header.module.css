@@ -169,16 +169,16 @@
     }
 
     .hache:nth-child(1):hover~.BanderaContainer {
-        transform: translateX(0);
+        transform: translateX(0) !important;
 
     }
 
     .hache:nth-child(2):hover~.BanderaContainer {
-        transform: translateX(8.4vw);
+        transform: translateX(8.4vw) !important;
     }
 
     .hache:nth-child(3):hover~.BanderaContainer {
-        transform: translateX(16vw);
+        transform: translateX(16vw) !important;
     }
 }
 

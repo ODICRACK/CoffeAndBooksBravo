@@ -8,9 +8,22 @@ import Carrito from "../modales/Carrito/Carrito";
 export default function Header({ modo, onBuscar }) {
 
     const [busqueda, setBusqueda] = useState("");
-    const [, setLocation] = useLocation();
+    const [location, setLocation] = useLocation();
     const [carritoAbierto, setCarritoAbierto] = useState(false);
     const [cerrandoCarrito, setCerrandoCarrito] = useState(false);
+
+
+    console.log(location)
+    const cambiarBandera = () => {
+        if (location == "/catalogo") {
+            console.log("aca")
+            return(0)
+        }
+        if (location == "/") {
+            console.log("acano")
+            return(16)
+        }
+    }
     const cerrarCarrito = () => {
         setCerrandoCarrito(true);
 
@@ -110,7 +123,7 @@ export default function Header({ modo, onBuscar }) {
                                 <h2 className={Style.hache}>
                                     <Link
                                         className={Style.Link}
-                                        href="/catalogo"
+                                        onClick={()=>mover("catalogo?tipo=todos")}
                                     >
                                         Catalogo
                                     </Link>
@@ -134,7 +147,7 @@ export default function Header({ modo, onBuscar }) {
                                     </Link>
                                 </h2>
 
-                                <div className={Style["BanderaContainer"]}>
+                                <div className={Style["BanderaContainer"]} style={{"transform":`translateX(${cambiarBandera()}vw)`}}>
 
                                     <img
                                         src={bandera}

@@ -91,9 +91,17 @@ export default function Filtros({ categoriaActiva }) {
                     <img src={imgDivisor} alt="" />
                 </div>
                 <h3>Género</h3>
-
                 <div className="select_div select_div-mini">
-                    <div className="select_div-header  mini">
+                    <div
+                        className={`select_div-header mini ${
+                            selectActivo === "genero" ? "active" : ""
+                        }`}
+                        onClick={() =>
+                            setSelectActivo(
+                                selectActivo === "genero" ? null : "genero"
+                            )
+                        }
+                    >
                         <div className="select_div-header-div">
                             <span className="select_div-header-div-opc">Todos</span>
                             <span className="material-symbols-outlined">
@@ -102,7 +110,11 @@ export default function Filtros({ categoriaActiva }) {
                         </div>
                     </div>
 
-                    <ul className="select-ul  genero" >
+                    <ul
+                        className={`select-ul genero ${
+                            selectActivo === "genero" ? "active" : ""
+                        }`}
+                    >
                         <li className="select_div-header-div-opc">Todos</li>
                         <li className="select_div-header-div-opc">Fantasia</li>
                         <li className="select_div-header-div-opc">Romance</li>
@@ -120,7 +132,16 @@ export default function Filtros({ categoriaActiva }) {
                 <h3>Formato</h3>
 
                 <div className="select_div select_div-mini">
-                    <div className="select_div-header  mini">
+                    <div
+                        className={`select_div-header mini ${
+                            selectActivo === "formato" ? "active" : ""
+                        }`}
+                        onClick={() =>
+                            setSelectActivo(
+                                selectActivo === "formato" ? null : "formato"
+                            )
+                        }
+                    >
                         <div className="select_div-header-div">
                             <span className="select_div-header-div-opc">Todos</span>
                             <span className="material-symbols-outlined">
@@ -129,7 +150,11 @@ export default function Filtros({ categoriaActiva }) {
                         </div>
                     </div>
 
-                    <ul className="select-ul  formato" >
+                    <ul
+                        className={`select-ul formato ${
+                            selectActivo === "formato" ? "active" : ""
+                        }`}
+                    >
                         <li className="select_div-header-div-opc">Todos</li>
                         <li className="select_div-header-div-opc">Tapa blanda</li>
                         <li className="select_div-header-div-opc">Tapa dura</li>

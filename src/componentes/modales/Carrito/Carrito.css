@@ -28,9 +28,28 @@ button {
     img {
         position: relative;
         left: 0.6vw;
-        
+
         animation: aparecerCarrito 0.4s ease-out;
     }
+}
+
+.modal-content-volver {
+    display: flex;
+    position: absolute;
+    right: 20vw;
+    font-size: 2rem;
+    color: #BB9B5F;
+    cursor: pointer;
+}
+
+.modal-content-title {
+    font-family: 'DM Serif Display', serif;
+    color: #BB9B5F;
+    font-size: 2.7vw;
+    letter-spacing: 0.1vw;
+    font-weight: lighter;
+    margin-top: 1vw;
+    text-align: center;
 }
 
 .modal-content.cerrando {
@@ -68,6 +87,7 @@ button {
     align-items: center;
     animation: aparecerCarrito 0.4s ease-out;
 }
+
 @keyframes aparecerCarrito {
     from {
         transform: translateX(200%);
@@ -231,25 +251,27 @@ button {
     background-color: var(--bordes3);
     border-radius: 100vw;
     color: var(--bordes1);
-    font-size: Inter;
     height: 60%;
+
+    h3 {
+        all: unset;
+        font-family: Inter;
+        color: var(--letras);
+        height: 40%;
+    }
 
     button {
         all: unset;
         cursor: pointer;
         font-family: Inter;
-        color: var(--letras);
-        height: 50%;
-    }
-
-    h3 {
-        font-family: Inter;
         font-size: 1rem;
         height: 30%;
+        width: 100%;
         display: flex;
         align-items: center;
+        justify-content: center;
+        z-index: 1000;
     }
-
 }
 
 .modal-content-pago {
@@ -323,10 +345,11 @@ button {
 }
 
 @media (max-width:400px) {
-    .modal-content>div:first-child{
+    .modal-content>div:first-child {
         height: 16vw;
-         h1{
+
+        h1 {
             font-size: 2.5rem;
-         }
+        }
     }
 }

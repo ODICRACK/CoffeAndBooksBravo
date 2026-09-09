@@ -6,7 +6,7 @@ import { useLocation, useSearch } from "wouter";
 const TODAS_INTENSIDADES = ["suave", "intermedio", "intenso", "muy-intenso"];
 
 export default function Filtros({ categoriaActiva }) {
-    const [dropdownActivo, setDropdownActivo] = useState(null); 
+    const [dropdownActivo, setDropdownActivo] = useState(null);
     const [filtrosEspAbiertos, setFiltrosEspAbiertos] = useState(false);
 
     const [location, setLocation] = useLocation();
@@ -16,7 +16,7 @@ export default function Filtros({ categoriaActiva }) {
     // Estados actuales desde URL
     const ordenActual = Number(params.get("orden")) || 0;
     const precioActual = Number(params.get("precio")) || 0;
-    
+
     // Café: Si no hay parámetro, es array vacío ("Todos"). Si hay, lo separamos por comas
     const tiposCafeActuales = params.get("tipoCafe") ? params.get("tipoCafe").split(",") : [];
     // Café: Si no hay parámetro, todas están activas por defecto.
@@ -28,7 +28,9 @@ export default function Filtros({ categoriaActiva }) {
 
     // Actualiza URL para parámetros numéricos/únicos
     const actualizarParametro = (clave, valor) => {
-        const nuevosParams = new URLSearchParams(searchString);
+        // CORRECCIÓN: Leemos la URL real del navegador para no perder 'busqueda'
+        const nuevosParams = new URLSearchParams(window.location.search);
+
         if (valor === 0 || valor === "todos" || valor === "") nuevosParams.delete(clave);
         else nuevosParams.set(clave, valor);
 
@@ -37,17 +39,17 @@ export default function Filtros({ categoriaActiva }) {
     };
 
     // Actualiza URL para checkboxes de Tipo de Café
-    const toggleTipoCafe = (valor) => {
-        const nuevosParams = new URLSearchParams(searchString);
+   const toggleTipoCafe = (valor) => {
+        const nuevosParams = new URLSearchParams(window.location.search);
         
         if (valor === "todos") {
             nuevosParams.delete("tipoCafe");
         } else {
             let tipos = [...tiposCafeActuales];
             if (tipos.includes(valor)) {
-                tipos = tipos.filter(t => t !== valor); // Quitar si ya existe
+                tipos = tipos.filter(t => t !== valor);
             } else {
-                tipos.push(valor); // Agregar si no existe
+                tipos.push(valor);
             }
             
             if (tipos.length === 0) nuevosParams.delete("tipoCafe");
@@ -58,7 +60,7 @@ export default function Filtros({ categoriaActiva }) {
 
     // Actualiza URL para checkboxes de Intensidad
     const toggleIntensidad = (valor) => {
-        const nuevosParams = new URLSearchParams(searchString);
+        const nuevosParams = new URLSearchParams(window.location.search);
         let intensidades = [...intensidadesActuales];
         
         if (intensidades.includes(valor)) {
@@ -67,7 +69,6 @@ export default function Filtros({ categoriaActiva }) {
             intensidades.push(valor);
         }
 
-        // Si están todas activas, limpiamos el parámetro (estado por defecto limpio en URL)
         if (intensidades.length === TODAS_INTENSIDADES.length || intensidades.length === 0) {
             nuevosParams.delete("intensidad");
         } else {
@@ -145,7 +146,7 @@ export default function Filtros({ categoriaActiva }) {
                     </label>
                 </div>
                 <div className="select_div-fltrosEsp-linea-decorativa2"><img src={imgDivisor} alt="" /></div>
-                
+
                 <h3>Intensidad</h3>
                 <div className="grupo-select_div-fltrosEsp-checks">
                     <label className="check">
@@ -177,7 +178,7 @@ export default function Filtros({ categoriaActiva }) {
                 <div className="select_div select_div-mini">
                     <div className={`select_div-header mini ${dropdownActivo === "genero" ? "active" : ""}`} onClick={() => setDropdownActivo(dropdownActivo === "genero" ? null : "genero")}>
                         <div className="select_div-header-div">
-                            <span className="select_div-header-div-opc" style={{textTransform: 'capitalize'}}>{generoLabel}</span>
+                            <span className="select_div-header-div-opc" style={{ textTransform: 'capitalize' }}>{generoLabel}</span>
                             <span className="material-symbols-outlined">keyboard_arrow_down</span>
                         </div>
                     </div>
@@ -192,12 +193,12 @@ export default function Filtros({ categoriaActiva }) {
                     </ul>
                 </div>
                 <div className="select_div-fltrosEsp-linea-decorativa2"><img src={imgDivisor} alt="" /></div>
-                
+
                 <h3>Formato</h3>
                 <div className="select_div select_div-mini">
                     <div className={`select_div-header mini ${dropdownActivo === "formato" ? "active" : ""}`} onClick={() => setDropdownActivo(dropdownActivo === "formato" ? null : "formato")}>
                         <div className="select_div-header-div">
-                            <span className="select_div-header-div-opc" style={{textTransform: 'capitalize'}}>{formatoLabel}</span>
+                            <span className="select_div-header-div-opc" style={{ textTransform: 'capitalize' }}>{formatoLabel}</span>
                             <span className="material-symbols-outlined">keyboard_arrow_down</span>
                         </div>
                     </div>

@@ -63,9 +63,7 @@ export default function Listado({ busqueda = "", categoria = "", tipo = "", onPr
             );
         });
 
-    const productosMostradosBase = productosFiltrados.length > 0
-        ? productosFiltrados
-        : productosPorCategoriaFinal;
+    const productosMostradosBase = textoBusqueda !== "" ? productosFiltrados : productosPorCategoriaFinal;
 
     // 2. Filtros Específicos de wouter
     const productosOrdenados = useMemo(() => {

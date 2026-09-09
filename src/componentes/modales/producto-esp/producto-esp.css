@@ -20,19 +20,19 @@
     background-image: url("/src/assets/marcoProdEsp-cafeMolido.svg");
     position: relative;
     width: 20vw;
-    height: 75vh;
+    height: 35.5vw;
 }
 
 .producto-esp_div.enGrano {
     background-image: url("/src/assets/marcoProdEsp-cafeGrano.svg");
     width: 20vw;
-    height: 70vh;
+    height: 35vw;
 }
 
 .producto-esp_div.capsula {
     background-image: url("/src/assets/marcoProdEsp-cafeCapsula.svg");
     width: 18vw;
-    height: 75vh;
+    height: 35vw;
 }
 
 .producto-esp_btn {
@@ -60,19 +60,19 @@
 
 .producto-esp_div img.enGrano {
     border-radius: 100%;
-    height: 18vh;
-    width: 18vh;
+    height: 8.25vw;
+    width: 8.25vw;
     padding: 2vh;
-    top: 15.9vh;
+    top: 7.8vw;
 }
 
 .producto-esp_div img.molido {
-    width: 212px;
-    height: 126.2px;
-    right: 41px;
+    width: 14.2vw;
+    height: 8.8vw;
+    right: 2.7vw;
     clip-path: ellipse(50% 100% at 49% 100%);
     padding: 2vh;
-    top: 22.93vh;
+    top: 10.48vw;
 }
 
 .modeda {
@@ -89,9 +89,9 @@
 
 .producto-esp_div img.capsula:not(.marcoImg) {
     position: absolute;
-    width: 175px;
-    height: 175px;
-    top: 19vh;
+    width: 11vw;
+    height: 11vw;
+    top: 9vw;
     left: 7.5vw;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -100,11 +100,11 @@
 
 .marcoImg.capsula {
     position: absolute;
-    top: 18.9vh;
+    top: 8.5vw;
     transform: translateX(-50%);
-    width: 183px;
+    width: 12vw;
     left: 7.5vw;
-    height: 183px;
+    height: 12vw;
     background: transparent !important;
     padding: 0;
     border-radius: 0;
@@ -119,19 +119,18 @@
 
 .peso.enGrano {
     position: absolute;
-    top: 3.5vh;
-
+    top: 1.8vw;
     color: rgba(25, 13, 7, 1);
     left: 16vw;
 }
 
 .nombre.enGrano {
     position: absolute;
-    top: 47vh;
+    top: 22.5vw;
     width: 70%;
     text-align: center;
 
-    font-size: 20px;
+    font-size: 1.5vw;
     font-weight: 500;
 
     color: rgba(25, 13, 7, 1);
@@ -139,63 +138,62 @@
 
 .gramos.enGrano {
     position: absolute;
-    bottom: 4vh;
-
+    bottom: 3.2vw;
     color: rgba(25, 13, 7, 1);
-    font-size: 20px;
+    font-size: 1.5vw;
     font-weight: 500;
 }
 
 .peso.molido {
     position: absolute;
-    bottom: 8vh;
+    bottom: 3.2vw;
     left: 14.5vw;
     color: rgba(196, 174, 149, 1);
     font-family: "Inika", serif;
     font-weight: 100;
+    font-size: 1.5vw;
 }
 
 .nombre.molido {
     position: absolute;
-    top: 42vh;
+    top: 20vw;
     width: 70%;
     text-align: center;
     text-align: center;
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 1.8vw;
     font-weight: 500;
     color: rgba(18, 14, 12, 1);
 }
 
 .gramos.molido {
     position: absolute;
-
     right: 13.5vw;
-    bottom: 8vh;
+    bottom: 3.2vw;
     color: rgba(173, 130, 83, 1);
-    font-size: 20px;
+    font-size: 1.5vw;
     font-weight: 500;
 }
 
 .peso.capsula {
     position: absolute;
-    top: 7vh;
+    top: 3vw;
     left: 11.5vw;
     color: rgba(196, 174, 149, 1);
     font-family: "Inika", serif;
     font-weight: 100;
+    font-size: 1.3vw;
 }
 
 .nombre.capsula {
     position: absolute;
     left: 1vw;
-    top: 51vh;
+    top: 24.5vw;
     width: 70%;
     text-align: center;
-    font-size: 16px;
+    font-size: 1.2vw;
     font-weight: 500;
     display: block;
-    /* o block */
     transform: rotate(5deg);
     color: rgba(25, 13, 7, 1);
 }
@@ -206,29 +204,35 @@
     font-family: "IM Fell French Canon", serif;
     transform: rotate(5deg);
     right: 9.5vw;
-    bottom: 8vh;
+    bottom: 3vw;
     color: rgba(25, 13, 7, 1);
-    font-size: 17px;
+    font-size: 1.1vw;
     font-weight: 600;
 }
 
-/*libro*/
+/* =========================
+   LIBRO
+========================= */
+
 .producto-esp_div.libroesp {
-    width: 220px;
-    height: 542px;
+    width: 26vw;
+    height: 35vw;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    perspective: 1200px;
+    perspective: 62.5vw;
 }
+
 
 .libroesp {
     position: relative;
+
     color: rgba(187, 155, 95, 1);
     font-family: "DM Serif Display", serif;
     font-weight: 100;
+
     width: 100%;
     height: 100%;
 
@@ -237,17 +241,25 @@
 }
 
 
+/* =========================
+   GIRO
+========================= */
+
 .producto-esp_div.libroesp:hover .libroesp {
     transform: rotateY(180deg);
 }
 
-/* Caras */
+
+/* =========================
+   CARAS
+========================= */
 
 .libro__cara {
     position: absolute;
 
-    width: 45vw;
-    height: 35vw;
+    width: 100%;
+    height: 100%;
+
     backface-visibility: hidden;
 
     background-repeat: no-repeat;
@@ -255,14 +267,19 @@
     background-position: center;
 }
 
-/* Portada */
+
+/* =========================
+   PORTADA
+========================= */
 
 .libro__frente {
     background-image: url("/src/assets/marcoProdEsp-LibroPortada.svg");
-
 }
 
-/* Contraportada */
+
+/* =========================
+   CONTRAPORTADA
+========================= */
 
 .libro__atras {
     background-image: url("/src/assets/marcoProdEsp-contratapa.svg.svg");
@@ -270,64 +287,119 @@
     transform: rotateY(180deg);
 }
 
+
+/* =========================
+   TÍTULO
+========================= */
+
 .libro__frente-h2 {
     position: absolute;
-    font-size: 17px;
+
+    font-size: 1.2vw;
+
     top: 4vw;
-    right: 14vw;
-    width: 30%;
+    right: 4.4vw;
+
+    width: 55%;
+
     text-align: center;
-    letter-spacing: 2px;
+
+    letter-spacing: 0.1vw;
 }
+
+
+/* =========================
+   AUTOR
+========================= */
 
 .libro__frente-h3 {
     position: absolute;
-    bottom: 6vw;
-    font-size: 17px;
-    letter-spacing: 2px;
-    right: 18vw;
+
+    bottom: 6.5vw;
+
+    font-size: 1.2vw;
+
+    letter-spacing: .10vw;
+
+    right: 7.8vw;
 }
+
+
+/* =========================
+   IMAGEN DEL LIBRO
+========================= */
 
 .libro__frente-img {
+    position: absolute;
+
     top: 7.5vw;
-    width: 180px;
-    height: 280px;
-    left: 17.5vw;
+
+    width: 12.2vw;
+    height: 18.5vw;
+
+    left: 8.3vw;
+
     object-fit: cover;
 
-    --r: 22px;
+
+    /* Bordes redondeados */
+
+    --r: 1.15vw;
 
     -webkit-mask:
-        radial-gradient(var(--r) at var(--r) var(--r), #0000 98%, #000) calc(-1*var(--r)) calc(-1*var(--r));
+        radial-gradient(var(--r) at var(--r) var(--r),
+            #0000 98%,
+            #000) calc(-1 * var(--r)) calc(-1 * var(--r));
 
     mask:
-        radial-gradient(var(--r) at var(--r) var(--r), #0000 98%, #000) calc(-1*var(--r)) calc(-1*var(--r));
+        radial-gradient(var(--r) at var(--r) var(--r),
+            #0000 98%,
+            #000) calc(-1 * var(--r)) calc(-1 * var(--r));
 }
+
+
+/* =========================
+   CONTENIDO CONTRAPORTADA
+========================= */
 
 .libro__atras-contenido {
     position: absolute;
 
-    top: 3.8vw;
-    left: 13vw;
+    top: 4.5vw;
+    left: 4vw;
 
-    width: 16vw;
-    height: 23vw;
+    width: 63%;
+    height: 24.5vw;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+
+/* =========================
+   SINOPSIS
+========================= */
+
 .libro__sinopsis {
     height: 18vw;
+
     overflow-y: auto;
+
     padding-right: .4vw;
+
     text-align: center;
+
     width: 90%;
 }
 
+
+/* =========================
+   SCROLLBAR
+========================= */
+
 .libro__sinopsis::-webkit-scrollbar {
-    width: 4px;
+    width: .21vw;
 }
 
 .libro__sinopsis::-webkit-scrollbar-track {
@@ -336,32 +408,346 @@
 
 .libro__sinopsis::-webkit-scrollbar-thumb {
     background: #5d4d3d;
-    border-radius: 20px;
+
+    border-radius: 1.04vw;
 }
+
+
+/* =========================
+   TEXTO
+========================= */
 
 .libro__sinopsis p,
 .libro__info p {
     color: rgba(187, 155, 95, 1);
-
 
     font-family: "DM Serif Display", serif;
 
     font-size: .95vw;
 
     line-height: 1.45;
-
 }
+
+
+/* =========================
+   INFORMACIÓN
+========================= */
 
 .libro__info {
     margin: 1vw;
+
     display: block !important;
 }
+
 
 .libro__info strong {
     font-weight: bold;
 }
 
+
 .libro__info p {
     margin: .2vw 0;
+
     text-align: left;
+}
+
+
+@media (max-width: 700px) and (min-width:360px) {
+    /* CAFÉS */
+
+    /* MOLIDO */
+    .producto-esp_div.molido {
+        width: 45vw;
+        height: 85vw;
+    }
+
+    .producto-esp_div img.molido {
+        width: 32vw;
+        height: 19.5vw;
+        right: 6vw;
+        top: 24vw;
+    }
+
+    .modeda.molido {
+        top: 13vw !important;
+    }
+
+    .peso.molido {
+        bottom: 12.5vw;
+        left: 32.55vw;
+        font-size: 3vw;
+    }
+
+    .gramos.molido {
+        right: 30.5vw;
+        bottom: 12.5vw;
+        font-size: 3vw;
+    }
+
+    .nombre.molido {
+        top: 45vw;
+        font-size: 3.2vw;
+    }
+
+
+    /* EN GRANO */
+    .producto-esp_div.enGrano {
+        width: 45vw;
+        height: 78vw;
+    }
+
+    .producto-esp_div img.enGrano {
+        width: 18.5vw;
+        height: 18.5vw;
+        top: 17.5vw;
+    }
+
+    .peso.enGrano {
+        top: 3.5vw;
+        left: 35vw;
+        font-size: 3vw;
+    }
+
+    .gramos.enGrano {
+        bottom: 13.5vw;
+        font-size: 3vw;
+    }
+
+    .nombre.enGrano {
+        top: 50.5vw;
+        font-size: 3.2vw;
+    }
+
+
+    /* CÁPSULA */
+    .producto-esp_div.capsula {
+        width: 44vw;
+        height: 85vw;
+    }
+
+    .producto-esp_div img.capsula:not(.marcoImg) {
+        width: 22vw;
+        height: 22vw;
+        top: 22vw;
+        left: 17.5vw;
+    }
+
+    .marcoImg.capsula {
+        top: 21.5vw;
+        width: 23vw;
+        left: 17.5vw;
+        height: 23vw;
+    }
+
+    .peso.capsula {
+        top: 7vw;
+        font-size: 3vw;
+        left: 28.5vw;
+    }
+
+    .nombre.capsula {
+        left: 2.8vw;
+        top: 59vw;
+        font-size: 3vw;
+    }
+
+    .gramos.capsula {
+        right: 22vw;
+        bottom: 6.5vw;
+        font-size: 3vw;
+    }
+
+
+
+    /* LIBROS */
+
+    .producto-esp_div.libroesp {
+        width: 50vw;
+        height: 60vw;
+    }
+
+    .libro__frente-h2 {
+        font-size: 2.2vw;
+        top: 6vw;
+        right: 8.5vw;
+    }
+
+    .libro__frente-h3 {
+        bottom: 12vw;
+        font-size: 2.2vw;
+        right: 16vw;
+    }
+
+    .libro__frente-img {
+        width: 19.8vw;
+        height: 30vw;
+        top: 13.5vw;
+        left: 17.5vw;
+    }
+
+    .libro__atras-contenido {
+        top: 8vw;
+        width: 58%;
+        left: 8vw;
+        height: 70%;
+    }
+
+    .libro__sinopsis p,
+    .libro__info p {
+        font-size: 1.5vw;
+    }
+
+    .libro__sinopsis {
+        height: 60%;
+    }
+
+}
+
+
+@media (max-width: 1024px) and (min-width:700px) {
+    /* CAFÉS */
+
+    /* MOLIDO */
+    .producto-esp_div.molido {
+        width: 30vw;
+        height: 55vw;
+    }
+
+    .producto-esp_div img.molido {
+        width: 21.5vw;
+        height: 12.8vw;
+        right: 3.8vw;
+        top: 16.2vw;
+    }
+
+    .modeda.molido {
+        top: 8vw !important;
+    }
+
+    .peso.molido {
+        bottom: 6.8vw;
+        left: 22vw;
+        font-size: 2vw;
+    }
+
+    .gramos.molido {
+        right: 20.5vw;
+        bottom: 6.8vw;
+        font-size: 2vw;
+    }
+
+    .nombre.molido {
+        top: 30vw;
+        font-size: 2vw;
+    }
+
+
+    /* EN GRANO */
+    .producto-esp_div.enGrano {
+        width: 35vw;
+        height: 60vw;
+    }
+
+    .producto-esp_div img.enGrano {
+        width: 15vw;
+        height: 15vw;
+        top: 13vw;
+    }
+
+    .peso.enGrano {
+        top: 2.5vw;
+        left: 27.5vw;
+        font-size: 2.5vw;
+    }
+
+    .gramos.enGrano {
+        bottom: 4.5vw;
+        font-size: 2.5vw;
+    }
+
+    .nombre.enGrano {
+        top: 39vw;
+        font-size: 3vw;
+    }
+
+
+    /* CÁPSULA */
+    .producto-esp_div.capsula {
+        width: 30vw;
+        height: 60vw;
+    }
+
+    .producto-esp_div img.capsula:not(.marcoImg) {
+        width: 18vw;
+        height: 18vw;
+        top: 15vw;
+        left: 12.5vw;
+    }
+
+    .marcoImg.capsula {
+        top: 14.9vw;
+        width: 18.2vw;
+        left: 12.6vw;
+        height: 18.2vw;
+    }
+
+    .peso.capsula {
+        top: 5.5vw;
+        font-size: 2vw;
+        left: 19.5vw;
+    }
+
+    .nombre.capsula {
+        left: 2vw;
+        top: 40.5vw;
+        font-size: 2vw;
+    }
+
+    .gramos.capsula {
+        right: 15vw;
+        bottom: 6.5vw;
+        font-size: 2vw;
+    }
+
+    /* LIBROS */
+
+    .producto-esp_div.libroesp {
+        width: 50vw;
+        height: 60vw;
+    }
+
+    .libro__frente-h2 {
+        font-size: 2.2vw;
+        top: 6vw;
+        right: 8.5vw;
+    }
+
+    .libro__frente-h3 {
+        bottom: 12vw;
+        font-size: 2.2vw;
+        right: 16vw;
+    }
+
+    .libro__frente-img {
+        width: 19.8vw;
+        height: 30vw;
+        top: 13.5vw;
+        left: 17.5vw;
+    }
+
+    .libro__atras-contenido {
+        top: 8vw;
+        width: 58%;
+        left: 8vw;
+        height: 70%;
+    }
+
+    .libro__sinopsis p,
+    .libro__info p {
+        font-size: 1.5vw;
+    }
+
+    .libro__sinopsis {
+        height: 60%;
+    }
 }

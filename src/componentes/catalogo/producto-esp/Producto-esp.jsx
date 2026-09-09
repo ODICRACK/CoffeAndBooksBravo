@@ -4,6 +4,8 @@ import imgMarcoCap from "../../../assets/marcoImg-capsula.svg";
 import imgNoDisponibleCafe from "../../../assets/img no disponible-cafe.svg";
 import imgNoDisponibleLibro from "../../../assets/img no disponible-libro.svg";
 
+import { agregarAlCarrito } from "../../../servicios/Carrito";
+
 export default function ProductoEsp({ producto, onCerrar }) {
     const obtenerClaseCafe = (tipo) => {
         const tipoNormalizado = tipo?.trim().toLowerCase() || "";
@@ -106,7 +108,10 @@ export default function ProductoEsp({ producto, onCerrar }) {
                     </div>
                 </div>
             )}
-            <div className="producto-esp_btn">
+            <div
+                className="producto-esp_btn"
+                onClick={() => agregarAlCarrito(producto)}
+            >
                 <p>AÑADIR AL CARRITO</p>
             </div>
         </div>

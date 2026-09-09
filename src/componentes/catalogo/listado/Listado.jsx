@@ -41,21 +41,11 @@ export default function Listado({
     );
 
 
-    const productosPorTipo =
-        tipo === ""
-            ? productosDisponibles
-            : productosDisponibles.filter(
-                (producto) =>
-                    producto.productoTipo === tipo
-            );
+    const productosPorTipo = tipo === "" ? productosDisponibles : productosDisponibles.filter((producto) => producto.productoTipo === tipo);
 
 
     //PARA LAS TILDES
-    const normalizar = (texto) =>
-        texto
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .toLowerCase();
+    const normalizar = (texto) => texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
     const productosPorCategoria =
         categoria === ""
@@ -126,6 +116,13 @@ export default function Listado({
                             No encontramos productos relacionados con "{textoBusqueda}".
                         </p>
                     )}
+
+                {categoria !== "" &&
+                    productosPorCategoria.length === 0 && (
+                        <p>
+                            No encontramos productos relacionados con "{categoria}".
+                        </p>
+                    )}
             </div>
 
             {/* CON COINCIDENCIAS */}
@@ -134,6 +131,13 @@ export default function Listado({
                     productosFiltrados.length > 0 && (
                         <p>
                             Resultados de la búsqueda "{textoBusqueda}"
+                        </p>
+                    )}
+
+                {categoria !== "" &&
+                    productosPorCategoria.length > 0 && (
+                        <p>
+                            Resultados de la búsqueda "{categoria}"
                         </p>
                     )}
             </div>

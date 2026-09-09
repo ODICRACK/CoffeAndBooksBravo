@@ -9,6 +9,8 @@ import imgNoDisponibleLibro from "../../../../assets/img no disponible-libro.svg
 import btnCarrito from "../../../../assets/btnCarrito.svg";
 import btnCarritoLibro from "../../../../assets/btnCarritoLibro.svg";
 
+import { agregarAlCarrito } from "../../../../servicios/Carrito";
+
 export default function Productos({ producto, onProductoClick }) {
     return (
         <div>
@@ -44,7 +46,13 @@ export default function Productos({ producto, onProductoClick }) {
                     <p className="producto__div-p cafe">
                         {producto.precio}
                     </p>
-                    <button className="producto__div-btn">
+                    <button
+                        className="producto__div-btn"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            agregarAlCarrito(producto);
+                        }}
+                    >
                         <img
                             src={btnCarrito}
                             alt="Agregar al carrito"
@@ -85,7 +93,13 @@ export default function Productos({ producto, onProductoClick }) {
                     <p className="producto__div-p libro">
                         {producto.precio}
                     </p>
-                    <button className="producto__div-btn">
+                    <button
+                        className="producto__div-btn"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            agregarAlCarrito(producto);
+                        }}
+                    >
                         <img
                             src={btnCarritoLibro}
                             alt="Agregar al carrito"

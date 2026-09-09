@@ -1,18 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import "./Catalogo.css";
-import Header from "../Header/Header.jsx";
-import Footer from "../Footer/Footer.jsx";
-import Listado from "./listado/Listado.jsx";
-import Categorias from "./categorias/Categorias.jsx";
-import ProductoEsp from "./producto-esp/Producto-esp.jsx";
+import Header from "../../componentes/Header/Header.jsx";
+import Footer from "../../componentes/Footer/Footer.jsx";
+import Listado from "../../componentes/listado/Listado.jsx";
+import Categorias from "../../componentes/categorias/Categorias.jsx";
+import ProductoEsp from "../../componentes/modales/producto-esp/Producto-esp.jsx";
 
 export default function Catalogo() {
-    const [busqueda, setBusqueda] = useState(
-        () => new URLSearchParams(window.location.search).get("busqueda") || ""
-    );
+    const [busqueda, setBusqueda] = useState(() => new URLSearchParams(window.location.search).get("busqueda") || "");
     const [productoSeleccionado, setProductoSeleccionado] = useState(null);
-    const [categoriaActiva, setCategoriaActiva] = useState("todos");
+    const [categoriaActiva, setCategoriaActiva] = useState(new URLSearchParams(window.location.search).get("tipo") || "");
+
 
     const abrirProducto = (producto) => {
         setProductoSeleccionado(producto);
@@ -21,20 +20,20 @@ export default function Catalogo() {
         setProductoSeleccionado(null);
     };
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+    const cambioURL=(cate)=>{
+        setCategoriaActiva(cate)
+    }
 
     const categoria = new URLSearchParams(window.location.search).get("categoria") || "";
-    const tipo = new URLSearchParams(window.location.search).get("tipo") || "";
+    const tipoParam = new URLSearchParams(window.location.search).get("tipo");
+    const tipo = tipoParam === "todos" ? "" : tipoParam || "";
 
 
     return (
         <div className={`catalogo ${productoSeleccionado ? "modal-abierto" : ""}`}>
             <Header onBuscar={setBusqueda} />
             <Categorias
-                categoriaActiva={categoriaActiva}
-                setCategoriaActiva={setCategoriaActiva}
+                nueva= {cambioURL}
             />
             <Listado
                 busqueda={busqueda}

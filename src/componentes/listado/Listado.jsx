@@ -1,27 +1,17 @@
 import "./listado.css";
 
-import Productos from "./productos/Productos.jsx";
-import Filtros from "./filtros/Filtros.jsx";
+import Productos from "../productos/Productos.jsx";
+import Filtros from "../filtros/Filtros.jsx";
 
-import Deco1 from '../../../assets/cat-deco-busqueda1.svg';
-import Deco2 from '../../../assets/cat-deco-busqueda2.svg';
+import Deco1 from '../../assets/cat-deco-busqueda1.svg';
+import Deco2 from '../../assets/cat-deco-busqueda2.svg';
 
 import { useEffect, useState } from "react";
 
-import {
-    obtenerTodosLosProductos,
-} from "../../../servicios/googleSheets.js";
+import { obtenerTodosLosProductos } from "../../servicios/googleSheets.js";
 
 
-export default function Listado({
-    busqueda = "",
-    categoria = "",
-    tipo = "",
-    onProductoClick,
-    categoriaActiva
-}) {
-    
-
+export default function Listado({ busqueda = "", categoria = "", tipo = "", onProductoClick, categoriaActiva }) {
     const [productos, setProductos] = useState([]);
 
     useEffect(() => {
@@ -37,6 +27,65 @@ export default function Listado({
                 );
             });
     }, []);
+    const obtenerNumeroId = (id) => {
+        return Number(id.substring(1));
+    };
+
+    const obtenerPrecio = (precio) => {
+        return Number(precio.replace("$", "").replaceAll(",", ""));
+    };
+
+    const actualizarFiltro = (num1, num2) => {
+
+        console.log("hola iniciamos el filtrado");
+        console.log(`num1:${num1} yyyy num2:${num2}`);
+        console.log(productos);
+
+        setProductos([...productos]
+            .filter((producto) => {
+                switch (num2) {
+
+                    case 3:
+                        return producto.oferta === "TRUE";
+
+                    case 0:
+                    default:
+                        return true;
+                }
+            })
+            .sort((a, b) => {
+
+                // num2: precio
+                if (num2 === 1) { // Mayor a menor
+                    return obtenerPrecio(b.precio) - obtenerPrecio(a.precio);
+                }
+
+                if (num2 === 2) { // Menor a mayor
+                    return obtenerPrecio(a.precio) - obtenerPrecio(b.precio);
+                }
+
+                // num1: orden
+                switch (num1) {
+
+                    case 1: // Más vendidos
+                        return Number(b.vendidos) - Number(a.vendidos);
+
+                    case 2: // Menos vendidos
+                        return Number(a.vendidos) - Number(b.vendidos);
+
+                    case 3: // Más recientes
+                        return obtenerNumeroId(b.id) - obtenerNumeroId(a.id);
+
+                    case 4: // Menos recientes
+                        return obtenerNumeroId(a.id) - obtenerNumeroId(b.id);
+
+                    case 0: // Relevancia
+                    default:
+                        return 0;
+                }
+            })
+        );
+    };
 
     const productosDisponibles = productos.filter(
         (producto) => producto.disponible === "TRUE"
@@ -61,10 +110,7 @@ export default function Listado({
                 return normalizar(valorCategoria || "") === normalizar(categoria);
             });
 
-    const productosPorCategoriaFinal =
-        categoria !== "" && productosPorCategoria.length === 0
-            ? productosPorTipo
-            : productosPorCategoria;
+    const productosPorCategoriaFinal = categoria !== "" && productosPorCategoria.length === 0 ? productosPorTipo : productosPorCategoria;
 
     const textoBusqueda = normalizar(busqueda.trim());
 
@@ -123,7 +169,7 @@ export default function Listado({
 
     return (
         <div className="listado">
-            <Filtros categoriaActiva={categoriaActiva} />
+            <Filtros categoriaActiva={categoriaActiva} iniciarFiltrado={actualizarFiltro} />
 
             {/* SIN COINCIDENCIAS */}
             <div className="listado_texto">

@@ -1,20 +1,20 @@
 import "./filtros.css";
-import imgDivisor from "../../../../assets/divisorFiltros.svg"
-import { useState } from "react";
+import imgDivisor from "../../assets/divisorFiltros.svg"
+import { useState, useEffect } from "react";
 
-export default function Filtros({ categoriaActiva }) {
+export default function Filtros({ categoriaActiva, iniciarFiltrado }) {
 
-    const [selectActivo, setSelectActivo] = useState(null);
+    const [selectActivo, setSelectActivo] = useState(0);
+    const [select2Activo, setSelect2Activo] = useState(0);
     const [filtrosEspAbiertos, setFiltrosEspAbiertos] = useState(false);
-    return(
+
+    useEffect(() => {
+        iniciarFiltrado(selectActivo, select2Activo)
+    }, [selectActivo, select2Activo])
+    return (
         <div className="select">
             <div className="select_div">
-                <div
-                    className={`select_div-header ${selectActivo === "ordenar" ? "active" : ""}`}
-                    onClick={() =>
-                        setSelectActivo(selectActivo === "ordenar" ? null : "ordenar")
-                    }
-                >
+                <div className={`select_div-header ${selectActivo === "ordenar" ? "active" : ""}`} onClick={() => setSelectActivo(selectActivo === "ordenar" ? null : "ordenar")}>
                     <p className="select_div-header-lavel">Ordenar por</p>
                     <div className="select_div-header-div">
                         <span className="select_div-header-div-opc">Relevancia</span>
@@ -22,14 +22,14 @@ export default function Filtros({ categoriaActiva }) {
                     </div>
                 </div>
                 <ul className={`select-ul ${selectActivo === "ordenar" ? "active" : ""}`}>
-                    <li className="select_div-header-div-opc" data-value="relevancia" onClick={() => setSelectActivo(null)}>Relevancia</li>
-                    <li className="select_div-header-div-opc" data-value="mas-vendidos" onClick={() => setSelectActivo(null)}>Más vendidos</li>
-                    <li className="select_div-header-div-opc" data-value="menos-vendidos" onClick={() => setSelectActivo(null)}>Menos vendidos</li>
-                    <li className="select_div-header-div-opc" data-value="mas-recientes" onClick={() => setSelectActivo(null)}>Más recientes</li>
-                    <li className="select_div-header-div-opc" data-value="menos-recientes" onClick={() => setSelectActivo(null)}>Menos recientes</li>
+                    <li className="select_div-header-div-opc" data-value="relevancia" onClick={() => setSelectActivo(0)}>Relevancia</li>
+                    <li className="select_div-header-div-opc" data-value="mas-vendidos" onClick={() => setSelectActivo(1)}>Más vendidos</li>
+                    <li className="select_div-header-div-opc" data-value="menos-vendidos" onClick={() => setSelectActivo(2)}>Menos vendidos</li>
+                    <li className="select_div-header-div-opc" data-value="mas-recientes" onClick={() => setSelectActivo(3)}>Más recientes</li>
+                    <li className="select_div-header-div-opc" data-value="menos-recientes" onClick={() => setSelectActivo(4)}>Menos recientes</li>
                 </ul>
             </div>
-            <div className={`select_div-fltrosEsp cafe ${ filtrosEspAbiertos && categoriaActiva === "cafe"? "active" : "" }`}>
+            <div className={`select_div-fltrosEsp cafe ${filtrosEspAbiertos && categoriaActiva === "cafe" ? "active" : ""}`}>
                 <div className="select_div-fltrosEsp-h2">
                     <h2>FILTROS ESPECIFICOS</h2>
                     <img src={imgDivisor} alt="" />
@@ -85,7 +85,7 @@ export default function Filtros({ categoriaActiva }) {
                 </div>
             </div>
 
-            <div className={`select_div-fltrosEsp libro ${ filtrosEspAbiertos && categoriaActiva === "libros" ? "active" : "" }`}>
+            <div className={`select_div-fltrosEsp libro ${filtrosEspAbiertos && categoriaActiva === "libros" ? "active" : ""}`}>
                 <div className="select_div-fltrosEsp-h2">
                     <h2>FILTROS ESPECIFICOS</h2>
                     <img src={imgDivisor} alt="" />
@@ -93,9 +93,8 @@ export default function Filtros({ categoriaActiva }) {
                 <h3>Género</h3>
                 <div className="select_div select_div-mini">
                     <div
-                        className={`select_div-header mini ${
-                            selectActivo === "genero" ? "active" : ""
-                        }`}
+                        className={`select_div-header mini ${selectActivo === "genero" ? "active" : ""
+                            }`}
                         onClick={() =>
                             setSelectActivo(
                                 selectActivo === "genero" ? null : "genero"
@@ -111,9 +110,8 @@ export default function Filtros({ categoriaActiva }) {
                     </div>
 
                     <ul
-                        className={`select-ul genero ${
-                            selectActivo === "genero" ? "active" : ""
-                        }`}
+                        className={`select-ul genero ${selectActivo === "genero" ? "active" : ""
+                            }`}
                     >
                         <li className="select_div-header-div-opc">Todos</li>
                         <li className="select_div-header-div-opc">Fantasia</li>
@@ -133,9 +131,8 @@ export default function Filtros({ categoriaActiva }) {
 
                 <div className="select_div select_div-mini">
                     <div
-                        className={`select_div-header mini ${
-                            selectActivo === "formato" ? "active" : ""
-                        }`}
+                        className={`select_div-header mini ${selectActivo === "formato" ? "active" : ""
+                            }`}
                         onClick={() =>
                             setSelectActivo(
                                 selectActivo === "formato" ? null : "formato"
@@ -151,9 +148,8 @@ export default function Filtros({ categoriaActiva }) {
                     </div>
 
                     <ul
-                        className={`select-ul formato ${
-                            selectActivo === "formato" ? "active" : ""
-                        }`}
+                        className={`select-ul formato ${selectActivo === "formato" ? "active" : ""
+                            }`}
                     >
                         <li className="select_div-header-div-opc">Todos</li>
                         <li className="select_div-header-div-opc">Tapa blanda</li>
@@ -164,9 +160,8 @@ export default function Filtros({ categoriaActiva }) {
             </div>
             {categoriaActiva !== "todos" && (
                 <div
-                    className={`select_div-esp ${
-                        filtrosEspAbiertos ? "active" : ""
-                    }`}
+                    className={`select_div-esp ${filtrosEspAbiertos ? "active" : ""
+                        }`}
                     onClick={() =>
                         setFiltrosEspAbiertos(!filtrosEspAbiertos)
                     }
@@ -189,10 +184,10 @@ export default function Filtros({ categoriaActiva }) {
                     </div>
                 </div>
                 <ul className={`select-ul porPrecio ${selectActivo === "precio" ? "active" : ""}`}>
-                    <li className="select_div-header-div-opc" data-value="todos" onClick={() => setSelectActivo(null)} >Todos</li>
-                    <li className="select_div-header-div-opc" data-value="mayor-menor" onClick={() => setSelectActivo(null)} >Mayor a menor</li>
-                    <li className="select_div-header-div-opc" data-value="menor-mayor" onClick={() => setSelectActivo(null)} >Menor a mayor</li>
-                    <li className="select_div-header-div-opc" data-value="ofertas" onClick={() => setSelectActivo(null)} >Ofertas</li>
+                    <li className="select_div-header-div-opc" data-value="todos" onClick={() => setSelect2Activo(0)} >Todos</li>
+                    <li className="select_div-header-div-opc" data-value="mayor-menor" onClick={() => setSelect2Activo(1)} >Mayor a menor</li>
+                    <li className="select_div-header-div-opc" data-value="menor-mayor" onClick={() => setSelect2Activo(2)} >Menor a mayor</li>
+                    <li className="select_div-header-div-opc" data-value="ofertas" onClick={() => setSelect2Activo(3)} >Ofertas</li>
                 </ul>
             </div>
         </div>

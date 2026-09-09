@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+// import { useLocation } from "wouter";
 import Style from "./PreguntasFrecuentes.module.css"
+
 
 import sepa from "../../assets/SeparacionPFsvg.svg";
 import IconoPF from "../../assets/IconoPF.png";
@@ -9,9 +11,12 @@ import Footer from "../../componentes/Footer/Footer"
 import { obtenerPreguntasFrecuentes } from "../../servicios/googleSheets";
 
 export default function PreguntasFrecuentes({ preTipo }) {
+    // const [location] = useLocation();
+    const parametros = new URLSearchParams(window.location.search);
+
+    const [mostrando, setMostrando] = useState(parametros.get("tipo") || preTipo || "");
     const [preguntas, setPreguntas] = useState([])
     const [tipo, setTipo] = useState([])
-    const [mostrando, setMostrando] = useState(preTipo || "")
     const [seleccionados, setSeleccionados] = useState([]);
     const [seleccionado, setSeleccionado] = useState(null);
 
@@ -25,10 +30,10 @@ export default function PreguntasFrecuentes({ preTipo }) {
             });
     }, [])
 
-    const carrusel = ()=>{
+    const carrusel = () => {
         const carru = document.getElementById("carruPF")
 
-        carru.scrollBy({left:300, behavior: "smooth"});
+        carru.scrollBy({ left: 300, behavior: "smooth" });
     }
     const cambiarSeleccionTipos = (id) => {
         setSeleccionado((actual) => {

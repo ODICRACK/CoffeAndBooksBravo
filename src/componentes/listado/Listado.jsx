@@ -7,14 +7,12 @@ import Deco1 from '../../assets/cat-deco-busqueda1.svg';
 import Deco2 from '../../assets/cat-deco-busqueda2.svg';
 
 import { useEffect, useState, useMemo } from "react";
-import { useSearch } from "wouter"; // Importación de Wouter
+import { useSearch } from "wouter";
 
 import { obtenerTodosLosProductos } from "../../servicios/googleSheets.js";
 
 export default function Listado({ busqueda = "", categoria = "", tipo = "", onProductoClick, categoriaActiva }) {
     const [productos, setProductos] = useState([]);
-    
-    // 1. Obtenemos los query params de la URL
     const searchString = useSearch();
 
     useEffect(() => {
@@ -27,17 +25,17 @@ export default function Listado({ busqueda = "", categoria = "", tipo = "", onPr
     const obtenerPrecio = (precio) => Number(precio.replace("$", "").replaceAll(",", ""));
     const normalizar = (texto) => texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
-    // 2. Filtros Base (Disponibilidad, Tipo, Categoría, Búsqueda)
+    // 1. Filtros Base
     const productosDisponibles = productos.filter((producto) => producto.disponible === "TRUE");
 
     const productosPorTipo = tipo === "" 
         ? productosDisponibles 
-        : productosDisponibles.filter((producto) => producto.productoTipo === tipo);
+        : productosDisponibles.filter((producto) => normalizar(producto.productoTipo || "") === normalizar(tipo));
 
     const productosPorCategoria = categoria === ""
         ? productosPorTipo
         : productosPorTipo.filter((producto) => {
-            const valorCategoria = producto.productoTipo === "cafe" ? producto.tipo : producto.genero;
+            const valorCategoria = normalizar(producto.productoTipo || "") === "cafe" ? producto.tipo : producto.genero;
             return normalizar(valorCategoria || "") === normalizar(categoria);
         });
 
@@ -65,25 +63,62 @@ export default function Listado({ busqueda = "", categoria = "", tipo = "", onPr
             );
         });
 
-    // 3. Unificar la base de productos que se van a mostrar antes de ordenar
     const productosMostradosBase = productosFiltrados.length > 0
         ? productosFiltrados
         : productosPorCategoriaFinal;
 
-    // 4. Aplicar Filtros y Orden de la URL usando useMemo para optimizar
+    // 2. Filtros Específicos de wouter
     const productosOrdenados = useMemo(() => {
         const params = new URLSearchParams(searchString);
-        const ordenParam = Number(params.get("orden")) || 0; // num1
-        const precioParam = Number(params.get("precio")) || 0; // num2
+        const ordenParam = Number(params.get("orden")) || 0;
+        const precioParam = Number(params.get("precio")) || 0;
+        
+        const tiposCafeParam = params.get("tipoCafe") ? params.get("tipoCafe").split(",") : [];
+        const intensidadParam = params.get("intensidad") ? params.get("intensidad").split(",") : ["suave", "intermedio", "intenso", "muy-intenso"];
+        
+        const generoParam = params.get("genero") || "";
+        const formatoParam = params.get("formato") || "";
 
-        let lista = [...productosMostradosBase];
+        let lista = productosMostradosBase.filter(producto => {
+            if (precioParam === 3 && producto.oferta !== "TRUE") return false;
 
-        // Filtrar Ofertas
-        if (precioParam === 3) {
-            lista = lista.filter(producto => producto.oferta === "TRUE");
-        }
+            const tipoProductoSheet = normalizar(producto.productoTipo || "");
 
-        // Ordenar
+            if (tipoProductoSheet === "cafe") {
+                // TIPO: Convertimos "Café molido" -> "cafe molido" -> "molido"
+                let tipoProd = normalizar(producto.tipo || "");
+                tipoProd = tipoProd.replace("cafe", "").trim().replace(/\s+/g, "-");
+                
+                // INTENSIDAD: Convertimos números a las palabras clave de la URL
+                const intRaw = String(producto.intensidad || "").trim();
+                let intProd = "";
+                if (intRaw === "1") intProd = "suave";
+                else if (intRaw === "2") intProd = "intermedio";
+                else if (intRaw === "3") intProd = "intenso";
+                else if (intRaw === "4") intProd = "muy-intenso";
+                else intProd = normalizar(intRaw).replace(/\s+/g, "-"); // Por si acaso algún día escribes "suave" en la planilla
+                
+                if (tiposCafeParam.length > 0 && !tiposCafeParam.includes(tipoProd)) return false;
+                
+                const todasIntensidades = ["suave", "intermedio", "intenso", "muy-intenso"];
+                const filtroIntensidadActivo = intensidadParam.length < todasIntensidades.length;
+                
+                // Aplicamos el filtro usando la intensidad "traducida"
+                if (filtroIntensidadActivo && !intensidadParam.includes(intProd)) return false;
+            }
+
+            if (tipoProductoSheet === "libro" || tipoProductoSheet === "libros") {
+                const genProd = normalizar(producto.genero || "").replace(/\s+/g, "-");
+                const formProd = normalizar(producto.formato || "").replace(/\s+/g, "-");
+
+                if (generoParam && genProd !== generoParam) return false;
+                if (formatoParam && formProd !== formatoParam) return false;
+            }
+
+            return true;
+        });
+
+        // Ordenar global
         lista.sort((a, b) => {
             if (precioParam === 1) return obtenerPrecio(b.precio) - obtenerPrecio(a.precio);
             if (precioParam === 2) return obtenerPrecio(a.precio) - obtenerPrecio(b.precio);
@@ -100,7 +135,7 @@ export default function Listado({ busqueda = "", categoria = "", tipo = "", onPr
         return lista;
     }, [productosMostradosBase, searchString]);
 
-    // 5. Productos Relacionados
+    // 3. Productos Relacionados
     const tipoRelacionado = productosMostradosBase[0]?.productoTipo || tipo;
     const productosRelacionados = tipoRelacionado === ""
         ? []
@@ -110,7 +145,6 @@ export default function Listado({ busqueda = "", categoria = "", tipo = "", onPr
 
     return (
         <div className="listado">
-            {/* Ya no pasamos iniciarFiltrado, Filtros debe modificar la URL directamente */}
             <Filtros categoriaActiva={categoriaActiva} />
 
             <div className="listado_texto">
@@ -129,7 +163,6 @@ export default function Listado({ busqueda = "", categoria = "", tipo = "", onPr
             </div>
 
             <div className="listado_div">
-                {/* Ahora mapeamos SIEMPRE la lista unificada y ordenada */}
                 {productosOrdenados.map((producto) => (
                     <Productos
                         key={producto.id}

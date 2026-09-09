@@ -4,9 +4,13 @@ import imgMarcoCap from "../../../assets/marcoImg-capsula.svg";
 import imgNoDisponibleCafe from "../../../assets/img no disponible-cafe.svg";
 import imgNoDisponibleLibro from "../../../assets/img no disponible-libro.svg";
 
+import { useState } from "react";
+
 import { agregarAlCarrito } from "../../../servicios/Carrito";
 
-export default function ProductoEsp({ producto, onCerrar }) {
+export default function ProductoEsp({ producto }) {
+    const [mensaje, setMensaje] = useState(false);
+
     const obtenerClaseCafe = (tipo) => {
         const tipoNormalizado = tipo?.trim().toLowerCase() || "";
         if (
@@ -28,6 +32,16 @@ export default function ProductoEsp({ producto, onCerrar }) {
     if (!producto) {
         return null;
     }
+
+    const añadirAlCarrito = () => {
+        agregarAlCarrito(producto);
+
+        setMensaje(true);
+
+        setTimeout(() => {
+            setMensaje(false);
+        }, 3000);
+    };
 
     return (
         <div className={`producto-esp ${producto.productoTipo}`}>
@@ -110,10 +124,16 @@ export default function ProductoEsp({ producto, onCerrar }) {
             )}
             <div
                 className="producto-esp_btn"
-                onClick={() => agregarAlCarrito(producto)}
+                onClick={añadirAlCarrito}
             >
                 <p>AÑADIR AL CARRITO</p>
             </div>
+
+            {mensaje && (
+                <div className="mensaje-carrito">
+                    <p>¡Producto añadido al carrito!</p>
+                </div>
+            )}
         </div>
     );
 }

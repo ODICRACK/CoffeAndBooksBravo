@@ -42,7 +42,7 @@
     padding: 0;
     justify-content: center;
 
-    img{
+    img {
         max-width: 35%;
     }
 }
@@ -56,6 +56,17 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     padding-top: 0;
+}
+
+.listado_cargando {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.listado_cargando p {
+    font-family: "Inria Serif", serif;
+    font-size: 18px;
 }
 
 

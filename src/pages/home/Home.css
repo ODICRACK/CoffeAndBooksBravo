@@ -679,6 +679,19 @@
 }
 
 
+
+.Home.modal-abierto .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.Home.modal-abierto .producto-especifico {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
 /* =================================================================================== */
 /* ============================== RESPONSIVE - MOBILE (<=600px) ===================== */
 /* =================================================================================== */

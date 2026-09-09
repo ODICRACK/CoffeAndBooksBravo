@@ -5,8 +5,9 @@ import { Link } from 'wouter';
 
 import { obtenerCategorias, obtenerProductosDestacados } from "../../servicios/googleSheets";
 
-import Header from "../../componentes/Header/Header"
-import Footer from "../../componentes/Footer/Footer"
+import Header from "../../componentes/Header/Header";
+import Footer from "../../componentes/Footer/Footer";
+import ProductoEsp from '../../componentes/catalogo/producto-esp/Producto-esp';
 // import Carrito from "../modales/Carrito/Carrito"
 
 import inicioSeparador from '../../assets/home_inicio-separador.svg';
@@ -29,6 +30,15 @@ export default function Home() {
 
     const [destacados, setDestacados] = useState([]);
     const [categorias, setCategorias] = useState([]);
+    const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+
+    const abrirProducto = (producto) => {
+        setProductoSeleccionado(producto);
+    };
+
+    const cerrarProducto = () => {
+        setProductoSeleccionado(null);
+    };
 
     useEffect(() => {
 
@@ -72,7 +82,7 @@ export default function Home() {
         carru.scrollBy({ left: num > 0 ? 300 : -300, behavior: "smooth" });
     }
     return (
-        <div className='Home'>
+        <div className={`Home ${productoSeleccionado ? "modal-abierto" : ""}`}>
 
             <section className='Inicio'>
                 <Header />
@@ -152,6 +162,7 @@ export default function Home() {
                             <div
                                 className='Destacados__carrusel-tarjeta'
                                 key={producto.id}
+                                onClick={() => abrirProducto(producto)}
                             >
                                 <div className='Destacados__carrusel-tarjeta--top'>
                                     <span className='Destacados__carrusel-tarjeta--img'>
@@ -279,6 +290,19 @@ export default function Home() {
 
                 </div>
             </section>
+            <div
+                className="overlay"
+                onClick={cerrarProducto}
+            ></div>
+
+            <div className="producto-especifico">
+                {productoSeleccionado && (
+                    <ProductoEsp
+                        producto={productoSeleccionado}
+                        onCerrar={cerrarProducto}
+                    />
+                )}
+            </div>
             <Footer />
             {/* <Carrito/> */}
         </div>

@@ -36,6 +36,33 @@ export default function Carrito({ onCerrar, cerrando }) {
                 .replace(/,/g, "")
         );
     }
+    function finalizarCompra() {
+    if (carrito.length === 0) {
+        alert("El carrito está vacío");
+        return;
+    }
+
+    const productos = carrito.map((producto) => {
+        const precio = precioComoNumero(producto.precio);
+        const subtotal = precio * producto.cantidad;
+        return `${producto.cantidad}x ${producto.nombre} - $${subtotal.toLocaleString("es-AR")}`;
+    });
+
+    const total = calcularTotal(carrito);
+    const mensaje = `Hola! Quiero realizar el siguiente pedido:
+
+*Pedido:*
+${productos.join("\n")}
+----------------------------------------------------
+*Total:* $${total.toLocaleString("es-AR")}
+
+Quedo a la espera de confirmación.
+Gracias♡`;
+        const mensajeCodificado = encodeURIComponent(mensaje);
+        const numeroWhatsApp = "5492901534508";
+        const url = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+        window.open(url, "_blank");
+    }
 
     return (
         <div
@@ -175,7 +202,7 @@ export default function Carrito({ onCerrar, cerrando }) {
                         })}
                     </h2>
                     <div>
-                        <button>FINALIZAR COMPRA</button>
+                        <button onClick={finalizarCompra}>FINALIZAR COMPRA</button>
                     </div>
                     <div>
                         <button

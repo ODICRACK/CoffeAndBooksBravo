@@ -24,10 +24,9 @@ export default function SearchMovile({ mostrar, onBuscar, volver }) {
 
             const tipo =
                 new URLSearchParams(window.location.search).get("tipo");
-
-            setLocation(
-                `/catalogo?tipo=${tipo || ""}&busqueda=${encodeURIComponent(texto)}`
+                setLocation(`/catalogo?tipo=${tipo || ""}&busqueda=${encodeURIComponent(texto)}`
             );
+            volver()
         }
     };
     return (

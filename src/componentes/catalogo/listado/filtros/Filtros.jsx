@@ -1,25 +1,35 @@
 import "./filtros.css";
 import imgDivisor from "../../../../assets/divisorFiltros.svg"
-export default function Filtros(){
+import { useState } from "react";
+
+export default function Filtros({ categoriaActiva }) {
+
+    const [selectActivo, setSelectActivo] = useState(null);
+    const [filtrosEspAbiertos, setFiltrosEspAbiertos] = useState(false);
     return(
         <div className="select">
             <div className="select_div">
-                <div className="select_div-header  ">
+                <div
+                    className={`select_div-header ${selectActivo === "ordenar" ? "active" : ""}`}
+                    onClick={() =>
+                        setSelectActivo(selectActivo === "ordenar" ? null : "ordenar")
+                    }
+                >
                     <p className="select_div-header-lavel">Ordenar por</p>
                     <div className="select_div-header-div">
                         <span className="select_div-header-div-opc">Relevancia</span>
                         <span className="material-symbols-outlined">keyboard_arrow_down</span>
                     </div>
                 </div>
-                <ul className="select-ul  " >
-                    <li className="select_div-header-div-opc" data-value="relevancia">Relevancia</li>
-                    <li className="select_div-header-div-opc" data-value="mas-vendidos">Más vendidos</li>
-                    <li className="select_div-header-div-opc" data-value="menos-vendidos">Menos vendidos</li>
-                    <li className="select_div-header-div-opc" data-value="mas-recientes">Más recientes</li>
-                    <li className="select_div-header-div-opc" data-value="menos-recientes">Menos recientes</li>
+                <ul className={`select-ul ${selectActivo === "ordenar" ? "active" : ""}`}>
+                    <li className="select_div-header-div-opc" data-value="relevancia" onClick={() => setSelectActivo(null)}>Relevancia</li>
+                    <li className="select_div-header-div-opc" data-value="mas-vendidos" onClick={() => setSelectActivo(null)}>Más vendidos</li>
+                    <li className="select_div-header-div-opc" data-value="menos-vendidos" onClick={() => setSelectActivo(null)}>Menos vendidos</li>
+                    <li className="select_div-header-div-opc" data-value="mas-recientes" onClick={() => setSelectActivo(null)}>Más recientes</li>
+                    <li className="select_div-header-div-opc" data-value="menos-recientes" onClick={() => setSelectActivo(null)}>Menos recientes</li>
                 </ul>
             </div>
-            <div className="select_div-fltrosEsp  cafe">
+            <div className={`select_div-fltrosEsp cafe ${ filtrosEspAbiertos && categoriaActiva === "cafe"? "active" : "" }`}>
                 <div className="select_div-fltrosEsp-h2">
                     <h2>FILTROS ESPECIFICOS</h2>
                     <img src={imgDivisor} alt="" />
@@ -73,9 +83,9 @@ export default function Filtros(){
                         Muy intenso
                     </label>
                 </div>
-
             </div>
-            <div className="select_div-fltrosEsp   libro">
+
+            <div className={`select_div-fltrosEsp libro ${ filtrosEspAbiertos && categoriaActiva === "libros" ? "active" : "" }`}>
                 <div className="select_div-fltrosEsp-h2">
                     <h2>FILTROS ESPECIFICOS</h2>
                     <img src={imgDivisor} alt="" />
@@ -127,22 +137,37 @@ export default function Filtros(){
                     </ul>
                 </div>
             </div>
-            <div className="select_div-esp">
-                <span className="material-symbols-outlined">tune</span>
-            </div>
+            {categoriaActiva !== "todos" && (
+                <div
+                    className={`select_div-esp ${
+                        filtrosEspAbiertos ? "active" : ""
+                    }`}
+                    onClick={() =>
+                        setFiltrosEspAbiertos(!filtrosEspAbiertos)
+                    }
+                >
+                    <span className="material-symbols-outlined">
+                        tune
+                    </span>
+                </div>
+            )}
             <div className="select_div">
-                <div className="select_div-header   ">
+                <div className={`select_div-header ${selectActivo === "precio" ? "active" : ""}`}
+                    onClick={() =>
+                        setSelectActivo(selectActivo === "precio" ? null : "precio")
+                    }
+                >
                     <p className="select_div-header-lavel">Ordenar por precio</p>
                     <div className="select_div-header-div">
                         <span className="select_div-header-div-opc">Todos</span>
                         <span className="material-symbols-outlined">keyboard_arrow_down</span>
                     </div>
                 </div>
-                <ul className="select-ul   porPrecio">
-                    <li className="select_div-header-div-opc" data-value="todos">Todos</li>
-                    <li className="select_div-header-div-opc" data-value="mayor-menor">Mayor a menor</li>
-                    <li className="select_div-header-div-opc" data-value="menor-mayor">Menor a mayor</li>
-                    <li className="select_div-header-div-opc" data-value="ofertas">Ofertas</li>
+                <ul className={`select-ul porPrecio ${selectActivo === "precio" ? "active" : ""}`}>
+                    <li className="select_div-header-div-opc" data-value="todos" onClick={() => setSelectActivo(null)} >Todos</li>
+                    <li className="select_div-header-div-opc" data-value="mayor-menor" onClick={() => setSelectActivo(null)} >Mayor a menor</li>
+                    <li className="select_div-header-div-opc" data-value="menor-mayor" onClick={() => setSelectActivo(null)} >Menor a mayor</li>
+                    <li className="select_div-header-div-opc" data-value="ofertas" onClick={() => setSelectActivo(null)} >Ofertas</li>
                 </ul>
             </div>
         </div>

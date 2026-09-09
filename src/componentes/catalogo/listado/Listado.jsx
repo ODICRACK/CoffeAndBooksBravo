@@ -17,8 +17,10 @@ export default function Listado({
     busqueda = "",
     categoria = "",
     tipo = "",
-    onProductoClick
+    onProductoClick,
+    categoriaActiva
 }) {
+    
 
     const [productos, setProductos] = useState([]);
 
@@ -121,7 +123,7 @@ export default function Listado({
 
     return (
         <div className="listado">
-            <Filtros />
+            <Filtros categoriaActiva={categoriaActiva} />
 
             {/* SIN COINCIDENCIAS */}
             <div className="listado_texto">

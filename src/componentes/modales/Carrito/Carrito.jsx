@@ -7,7 +7,7 @@ import carritoTarjetaImgCafe from '../../../assets/carrito_tarjeta-imgCafe.svg';
 import carritoTarjetaIconoCafe from '../../../assets/carrito_tarjeta-iconoCafe.svg';
 import carritoDataSeparador from '../../../assets/carrito_data-separador.svg';
 
-export default function Carrito(){
+export default function Carrito({ onCerrar, cerrando }) {
     useEffect(() => {
         document.body.style.overflow = "hidden";
 
@@ -16,9 +16,14 @@ export default function Carrito(){
         };
     }, []);
     return(
-        <div className="modal-overlay">
-            <img src={carritoDeco} alt="" />
-            <div className="modal-content">
+        <div className="modal-overlay"
+                onClick={onCerrar}>
+                    <img
+            src={carritoDeco}
+            alt=""
+            className={cerrando ? "cerrando-deco" : ""}
+        />
+            <div className={`modal-content ${cerrando ? "cerrando" : ""}`}>
                 <div>
                     <h1>CARRITO</h1>
                 </div>

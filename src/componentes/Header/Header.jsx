@@ -4,12 +4,21 @@ import { useState } from "react";
 
 import logoHeader from "../../assets/logoHeader.svg";
 import bandera from "../../assets/banner.svg";
-
+import Carrito from "../modales/Carrito/Carrito";
 export default function Header({ modo, onBuscar }) {
 
     const [busqueda, setBusqueda] = useState("");
     const [, setLocation] = useLocation();
+    const [carritoAbierto, setCarritoAbierto] = useState(false);
+const [cerrandoCarrito, setCerrandoCarrito] = useState(false);
+const cerrarCarrito = () => {
+    setCerrandoCarrito(true);
 
+    setTimeout(() => {
+        setCarritoAbierto(false);
+        setCerrandoCarrito(false);
+    }, 400);
+};
     const mover = (donde) => {
         window.scrollTo(0, 0)
         setLocation(`/${donde}`);
@@ -76,6 +85,7 @@ export default function Header({ modo, onBuscar }) {
     }
 
     return (
+        <>
         <header className={Style.Header}>
 
             <div className={Style["Header__div"]}>
@@ -156,14 +166,14 @@ export default function Header({ modo, onBuscar }) {
                             </div>
 
 
-                            <Link
+                            <div
                                 className={Style["Icono"]}
-                                href="/carrito"
+                                onClick={() => setCarritoAbierto(true)}
                             >
                                 <span className="material-symbols-outlined">
                                     shopping_cart
                                 </span>
-                            </Link>
+                            </div>
 
 
                             <div className={Style["Icono"]}>
@@ -178,5 +188,12 @@ export default function Header({ modo, onBuscar }) {
                 </div>
             </div>
         </header>
+        {carritoAbierto && (
+    <Carrito
+        onCerrar={cerrarCarrito}
+        cerrando={cerrandoCarrito}
+    />
+)}
+    </>
     );
 }

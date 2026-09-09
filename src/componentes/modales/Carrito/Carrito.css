@@ -10,6 +10,7 @@ button {
     cursor: pointer;
 }
 
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -27,10 +28,36 @@ button {
     img {
         position: relative;
         left: 0.6vw;
+        
+        animation: aparecerCarrito 0.4s ease-out;
+    }
+}
+
+.modal-content.cerrando {
+    animation: salirCarrito 0.4s ease-in forwards;
+}
+
+@keyframes salirCarrito {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(150%);
     }
 }
 
 /* La caja del modal por encima del overlay */
+.modal-overlay img {
+    position: relative;
+    left: 0.6vw;
+    animation: aparecerCarrito 0.4s ease-out;
+}
+
+.modal-overlay img.cerrando-deco {
+    animation: salirCarrito 0.4s ease-in forwards;
+}
+
 .modal-content {
     height: 100%;
     /* width: 22.2vw; */
@@ -40,6 +67,16 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: aparecerCarrito 0.4s ease-out;
+}
+@keyframes aparecerCarrito {
+    from {
+        transform: translateX(200%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
 }
 
 .modal-content>div:first-child {

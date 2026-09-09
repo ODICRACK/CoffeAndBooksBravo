@@ -1,6 +1,5 @@
 import { Route, Router, Switch } from "wouter";
 
-
 // import Footer from "./componentes/Footer/Footer"
 //import Header from "./componentes/Header/Header.jsx"
 import PreguntasFrecuentes from "./pages/PreguntasFrecuentes/PreguntasFrecuentes"

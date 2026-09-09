@@ -34,7 +34,7 @@ button {
 }
 
 .modal-content.cerrando {
-    animation: salirCarrito 0.4s ease-in forwards;
+    animation: salirCarrito 1s ease-in forwards;
 }
 
 @keyframes salirCarrito {
@@ -51,7 +51,6 @@ button {
 .modal-overlay img {
     position: relative;
     left: 0.6vw;
-    animation: aparecerCarrito 0.4s ease-out;
 }
 
 .modal-overlay img.cerrando-deco {

@@ -10,6 +10,7 @@ import ProductoEsp from "./producto-esp/Producto-esp.jsx";
 export default function Catalogo() {
     const [busqueda, setBusqueda] = useState("");
     const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+    const [categoriaActiva, setCategoriaActiva] = useState("todos");
 
     const abrirProducto = (producto) => {
         setProductoSeleccionado(producto);
@@ -23,19 +24,22 @@ export default function Catalogo() {
     }, []);
 
     const categoria = new URLSearchParams(window.location.search).get("categoria") || "";
-
     const tipo = new URLSearchParams(window.location.search).get("tipo") || "";
 
 
     return (
         <div className={`catalogo ${productoSeleccionado ? "modal-abierto" : ""}`}>
             <Header onBuscar={setBusqueda} />
-            <Categorias />
+            <Categorias
+                categoriaActiva={categoriaActiva}
+                setCategoriaActiva={setCategoriaActiva}
+            />
             <Listado
                 busqueda={busqueda}
                 categoria={categoria}
                 tipo={tipo}
                 onProductoClick={abrirProducto}
+                categoriaActiva={categoriaActiva}
             />
             <div
                 className="overlay"

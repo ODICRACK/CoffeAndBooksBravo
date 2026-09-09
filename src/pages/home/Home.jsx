@@ -7,7 +7,7 @@ import { obtenerCategorias, obtenerProductosDestacados } from "../../servicios/g
 
 import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
-import ProductoEsp from '../../componentes/catalogo/producto-esp/Producto-esp';
+import ProductoEsp from '../../componentes/modales/producto-esp/Producto-esp';
 // import Carrito from "../modales/Carrito/Carrito"
 
 import inicioSeparador from '../../assets/home_inicio-separador.svg';

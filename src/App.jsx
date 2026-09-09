@@ -4,7 +4,7 @@ import { Route, Router, Switch } from "wouter";
 //import Header from "./componentes/Header/Header.jsx"
 import PreguntasFrecuentes from "./pages/PreguntasFrecuentes/PreguntasFrecuentes"
 import Home from './pages/home/Home';
-import Catalogo from "./componentes/catalogo/Catalogo"
+import Catalogo from "./pages/catalogo/Catalogo"
 import SearchMovile from "./componentes/modales/SearchMovile/SearchMovile";
 import './App.css'
 

@@ -1,15 +1,15 @@
 import "./productos.css";
 
-import divisorCardCafe from "../../../../assets/divisorCardCafe.svg";
-import divisorCardLibro from "../../../../assets/divisorCardLibro.svg";
+import divisorCardCafe from "../../assets/divisorCardCafe.svg";
+import divisorCardLibro from "../../assets/divisorCardLibro.svg";
 
-import imgNoDisponibleCafe from "../../../../assets/img no disponible-cafe.svg";
-import imgNoDisponibleLibro from "../../../../assets/img no disponible-libro.svg";
+import imgNoDisponibleCafe from "../../assets/img no disponible-cafe.svg";
+import imgNoDisponibleLibro from "../../assets/img no disponible-libro.svg";
 
-import btnCarrito from "../../../../assets/btnCarrito.svg";
-import btnCarritoLibro from "../../../../assets/btnCarritoLibro.svg";
+import btnCarrito from "../../assets/btnCarrito.svg";
+import btnCarritoLibro from "../../assets/btnCarritoLibro.svg";
 
-import { agregarAlCarrito } from "../../../../servicios/Carrito";
+import { agregarAlCarrito } from "../../servicios/Carrito";
 
 export default function Productos({ producto, onProductoClick }) {
     return (

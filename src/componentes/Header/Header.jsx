@@ -1,28 +1,73 @@
 import Style from "./Header.module.css";
 import { Link, useLocation } from "wouter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import logoHeader from "../../assets/logoHeader.svg";
 import bandera from "../../assets/banner.svg";
 import Carrito from "../modales/Carrito/Carrito";
-export default function Header({ modo, onBuscar }) {
+export default function Header({onBuscar }) {
 
     const [busqueda, setBusqueda] = useState("");
     const [, setLocation] = useLocation();
     const [carritoAbierto, setCarritoAbierto] = useState(false);
-const [cerrandoCarrito, setCerrandoCarrito] = useState(false);
-const cerrarCarrito = () => {
-    setCerrandoCarrito(true);
+    const [cerrandoCarrito, setCerrandoCarrito] = useState(false);
+    const [activo, setActivo] = useState(false);
+    const [activoR, setActivoR] = useState(false);
+    const [pantallaChica, setPantallaChica] = useState(window.innerWidth < 768);
 
-    setTimeout(() => {
-        setCarritoAbierto(false);
-        setCerrandoCarrito(false);
-    }, 400);
-};
+    const cerrarCarrito = () => {
+        setCerrandoCarrito(true);
+
+        setTimeout(() => {
+            setCarritoAbierto(false);
+            setCerrandoCarrito(false);
+        }, 400);
+    };
+
+    
+    
+    useEffect(() => {
+
+        const verificarPantalla = () => {
+            const esChica = window.innerWidth < 768;
+
+            setPantallaChica(esChica);
+
+            if (esChica) {
+                setActivo(false);
+                setActivoR(false)
+            }
+        };
+
+        verificarPantalla();
+
+        window.addEventListener("resize", verificarPantalla);
+
+        return () => {
+            window.removeEventListener("resize", verificarPantalla);
+        };
+
+    }, []);
+
+    const volver = () => {
+        console.log("aca estytoy")
+        setActivoR(false)
+    }
+    const search = () => {
+
+        if (pantallaChica == false) {
+            setActivo(true)
+        }
+        else {
+            setActivo(false)
+            setActivoR(true)
+        }
+    }
     const mover = (donde) => {
         window.scrollTo(0, 0)
         setLocation(`/${donde}`);
     }
+
     const buscar = (e) => {
         if (e.key === "Enter") {
             const texto = busqueda.trim();
@@ -36,164 +81,233 @@ const cerrarCarrito = () => {
             const tipo =
                 new URLSearchParams(window.location.search).get("tipo");
 
-            setLocation(
-                `/catalogo?tipo=${tipo || ""}&busqueda=${encodeURIComponent(texto)}`
-            );
+            setLocation(`/catalogo?tipo=${tipo || ""}&busqueda=${encodeURIComponent(texto)}`);
         }
     };
 
-    if (modo == "busqueda") {
+    
+    if (activoR) {
         return (
-            <header className={Style.Header2}>
+            <SearchMovile
+                mostrar={setActivoR}
+                onBuscar={onBuscar}
+                volver={volver}
+            />
+        );
+    }
+    else {
+        return (
+            <header className={Style.Header}>
 
                 <div className={Style["Header__div"]}>
 
-                    <div
-                        className={`${Style["Header__div-div-nav-iconos"]} ${Style["responsive"]}`}
-                    >
-                        <Link
-                            className={Style["Icono"]}
-                            href="/carrito"
-                        >
-                            <span className="material-symbols-outlined">
-                                arrow_back_ios_new
-                            </span>
-                        </Link>
+                    <div className={Style["Header__div-div"]}>
 
-                        <div
-                            className={`${Style["Icono"]} ${Style["search"]}`}
-                        >
-
-                            <span className="material-symbols-outlined">
-                                search
-                            </span>
-
-                            <input
-                                type="text"
-                                className={Style.Input}
-                                value={busqueda}
-                                onChange={(e) =>
-                                    setBusqueda(e.target.value)
-                                }
-                                onKeyDown={buscar}
+                        <div className={Style["Header__div-div-logo"]} onClick={() => mover("")}>
+                            <img
+                                src={logoHeader}
+                                alt=""
                             />
+                            <h1>
+                                Coffee & Books
+                            </h1>
+                        </div>
+
+
+                        <div className={Style["Header__div-div-nav"]}>
+
+                            <div className={Style["Header__div-div-nav-nav"]}>
+
+                                <h2 className={Style.hache}>
+                                    <Link
+                                        className={Style.Link}
+                                        href="/catalogo"
+                                    >
+                                        Catalogo
+                                    </Link>
+                                </h2>
+
+                                <h2 className={`${Style.hache} ${Style.ulti}`}>
+                                    <a className={Style.Link} href="/#info">
+                                        Sobre mi
+                                    </a>
+                                </h2>
+
+                                <h2 className={Style.hache}>
+                                    <Link
+                                        className={Style.Link}
+                                        href="/"
+                                    >
+                                        Inicio
+                                    </Link>
+                                </h2>
+
+                                <div className={Style["BanderaContainer"]}>
+
+                                    <img
+                                        src={bandera}
+                                        alt=""
+                                        className={Style["Bandera"]}
+                                    />
+
+                                </div>
+
+                            </div>
+
+                            <div className={Style["Header__div-div-nav-iconos"]}>
+                                <div className={`${Style["Icono"]} ${activo ? `${Style["activo"]}` : ""}`} onClick={search}>
+                                    <span className="material-symbols-outlined">
+                                        search
+                                    </span>
+                                    <input
+                                        type="text"
+                                        className={Style.Input}
+                                        value={busqueda}
+                                        onChange={(e) => setBusqueda(e.target.value)}
+                                        onKeyDown={buscar}
+                                    />
+                                </div>
+
+
+                                <Link
+                                    className={Style["Icono"]}
+                                    href="/carrito"
+                                >
+                                    <span className="material-symbols-outlined">
+                                        shopping_cart
+                                    </span>
+                                </Link>
+
+
+                                <div className={Style["Icono"]}>
+                                    <span
+                                        className={
+                                            Style["ic--baseline-whatsapp"]
+                                        }
+                                    ></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+        );
+    }
+<<<<<<< HEAD
+
+    return (
+        <>
+            <header className={Style.Header}>
+
+                <div className={Style["Header__div"]}>
+
+                    <div className={Style["Header__div-div"]}>
+
+                        <div className={Style["Header__div-div-logo"]} onClick={() => mover("")}>
+                            <img
+                                src={logoHeader}
+                                alt=""
+                            />
+                            <h1>
+                                Coffee & Books
+                            </h1>
+                        </div>
+
+
+                        <div className={Style["Header__div-div-nav"]}>
+
+                            <div className={Style["Header__div-div-nav-nav"]}>
+
+                                <h2 className={Style.hache}>
+                                    <Link
+                                        className={Style.Link}
+                                        href="/catalogo"
+                                    >
+                                        Catalogo
+                                    </Link>
+                                </h2>
+
+                                <h2 className={Style.hache}>
+                                    <a
+                                        className={Style.Link}
+                                        href="/#info"
+                                    >
+                                        Sobre mi
+                                    </a>
+                                </h2>
+
+                                <h2 className={Style.hache}>
+                                    <Link
+                                        className={Style.Link}
+                                        href="/"
+                                    >
+                                        Inicio
+                                    </Link>
+                                </h2>
+
+                                <div className={Style["BanderaContainer"]}>
+
+                                    <img
+                                        src={bandera}
+                                        alt=""
+                                        className={Style["Bandera"]}
+                                    />
+
+                                </div>
+
+                            </div>
+
+
+                            <div className={Style["Header__div-div-nav-iconos"]}>
+                                <div
+                                    className={`${Style["Icono"]} ${Style["activo"]}`}
+                                >
+                                    <span className="material-symbols-outlined">
+                                        search
+                                    </span>
+                                    <input
+                                        type="text"
+                                        className={Style.Input}
+                                        value={busqueda}
+                                        onChange={(e) =>
+                                            setBusqueda(e.target.value)
+                                        }
+                                        onKeyDown={buscar}
+                                    />
+                                </div>
+
+
+                                <div
+                                    className={Style["Icono"]}
+                                    onClick={() => setCarritoAbierto(true)}
+                                >
+                                    <span className="material-symbols-outlined">
+                                        shopping_cart
+                                    </span>
+                                </div>
+
+
+                                <div className={Style["Icono"]}>
+                                    <span
+                                        className={
+                                            Style["ic--baseline-whatsapp"]
+                                        }
+                                    ></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </header>
-        );
-    }
-
-    return (
-        <>
-        <header className={Style.Header}>
-
-            <div className={Style["Header__div"]}>
-
-                <div className={Style["Header__div-div"]}>
-
-                    <div className={Style["Header__div-div-logo"]} onClick={() => mover("")}>
-                        <img
-                            src={logoHeader}
-                            alt=""
-                        />
-                        <h1>
-                            Coffee & Books
-                        </h1>
-                    </div>
-
-
-                    <div className={Style["Header__div-div-nav"]}>
-
-                        <div className={Style["Header__div-div-nav-nav"]}>
-
-                            <h2 className={Style.hache}>
-                                <Link
-                                    className={Style.Link}
-                                    href="/catalogo"
-                                >
-                                    Catalogo
-                                </Link>
-                            </h2>
-
-                            <h2 className={Style.hache}>
-                                <a
-                                    className={Style.Link}
-                                    href="/#info"
-                                >
-                                    Sobre mi
-                                </a>
-                            </h2>
-
-                            <h2 className={Style.hache}>
-                                <Link
-                                    className={Style.Link}
-                                    href="/"
-                                >
-                                    Inicio
-                                </Link>
-                            </h2>
-
-                            <div className={Style["BanderaContainer"]}>
-
-                                <img
-                                    src={bandera}
-                                    alt=""
-                                    className={Style["Bandera"]}
-                                />
-
-                            </div>
-
-                        </div>
-
-
-                        <div className={Style["Header__div-div-nav-iconos"]}>
-                            <div
-                                className={`${Style["Icono"]} ${Style["activo"]}`}
-                            >
-                                <span className="material-symbols-outlined">
-                                    search
-                                </span>
-                                <input
-                                    type="text"
-                                    className={Style.Input}
-                                    value={busqueda}
-                                    onChange={(e) =>
-                                        setBusqueda(e.target.value)
-                                    }
-                                    onKeyDown={buscar}
-                                />
-                            </div>
-
-
-                            <div
-                                className={Style["Icono"]}
-                                onClick={() => setCarritoAbierto(true)}
-                            >
-                                <span className="material-symbols-outlined">
-                                    shopping_cart
-                                </span>
-                            </div>
-
-
-                            <div className={Style["Icono"]}>
-                                <span
-                                    className={
-                                        Style["ic--baseline-whatsapp"]
-                                    }
-                                ></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        {carritoAbierto && (
-    <Carrito
-        onCerrar={cerrarCarrito}
-        cerrando={cerrandoCarrito}
-    />
-)}
-    </>
+            {carritoAbierto && (
+                <Carrito
+                    onCerrar={cerrarCarrito}
+                    cerrando={cerrandoCarrito}
+                />
+            )}
+        </>
     );
+=======
+>>>>>>> pulido
 }

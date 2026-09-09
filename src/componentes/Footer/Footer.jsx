@@ -52,11 +52,11 @@ function FooterEscritorio() {
                                 <div>
                                     <ul>
                                         <li><Link href="/preguntas" onClick={() => { window.scrollTo(0, 0) }}>Preguntas frecuentes</Link></li>
-                                        <li><a href="#">Envios y entregas</a></li>
-                                        <li><a href="#">Cambios y devoluciones</a></li>
-                                        <li><a href="#">Metodos de pago</a></li>
-                                        <li><a href="#">Terminos y condicones</a></li>
-                                        <li><a href="#">Politica de privacidad</a></li>
+                                        <li><Link href="/preguntas?tipo=Envios" onClick={() => { window.scrollTo(0, 0) }}>Envios y entregas</Link></li>
+                                        <li><Link href="/preguntas?tipo=Cambios y devoluciones" onClick={() => { window.scrollTo(0, 0) }}>Cambios y devoluciones</Link></li>
+                                        <li><Link href="/preguntas?tipo=Pagos" onClick={() => { window.scrollTo(0, 0) }}>Metodos de pago</Link></li>
+                                        <li><Link href="#">Terminos y condicones</Link></li>
+                                        <li><Link href="#">Politica de privacidad</Link></li>
                                     </ul>
                                 </div>
                             </div>

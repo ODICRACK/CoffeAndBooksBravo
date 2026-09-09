@@ -1,14 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital@0;1&display=swap');
-
-:root {
-    /* Colores principales */
-
-    --letras: #C4AE95;
-    --detalles: #b79d7a;
-    --bordes: #8a7453;
-    --fondos: #121818;
+*{
+    font-family: IM FELL Great Primer;
 }
-
 .ic--baseline-whatsapp {
     display: inline-block;
     width: 1em;
@@ -31,19 +24,11 @@
 
 .Header2 {
     z-index: 1001;
-
-}
-
-.Header {
-    display: flex;
-    justify-content: center;
 }
 
 .Header__div {
-    /*height: 90px; */
     z-index: 5;
     width: 87.4vw;
-    /* max-width: 1500px; */
     background-image: url(../../assets/headerFondo.svg);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -51,7 +36,6 @@
     display: flex;
     padding-top: 0.3vw;
     padding-bottom: 1.8vw;
-    /* padding-bottom: 2.7%; */
     padding-left: 7vw;
     padding-right: 7vw;
 }
@@ -88,7 +72,6 @@
         display: flex;
         align-items: flex-end;
     }
-
 }
 
 .Header__div-div-logo:hover {
@@ -120,15 +103,12 @@
     height: auto;
     gap: 1vw;
 
-
-
     .hache {
         border-right: 1.5px solid #C4AE95;
         padding-right: 1.5vw;
         height: 60%;
         display: flex;
         align-items: center;
-
     }
 
     .Link {
@@ -138,15 +118,12 @@
         color: #C4AE95;
         position: relative;
         z-index: 10;
-
     }
 
     .Link:hover {
         color: #AD8253;
         transition: 0.8s;
     }
-
-
 
     .BanderaContainer {
         position: absolute;
@@ -157,7 +134,6 @@
         justify-content: center;
         width: 9vw;
         height: 8vw;
-        /* height: 2vw; */
         overflow: hidden;
         transition: .6s ease;
     }
@@ -165,12 +141,10 @@
     .Bandera {
         width: 9vw;
         height: 9vw;
-
     }
 
     .hache:nth-child(1):hover~.BanderaContainer {
         transform: translateX(0);
-
     }
 
     .hache:nth-child(2):hover~.BanderaContainer {
@@ -181,10 +155,6 @@
         transform: translateX(16vw);
     }
 }
-
-
-
-
 
 .Header__div-div-nav-iconos {
     padding-right: 2.3vw;
@@ -211,7 +181,6 @@
         .Input {
             display: none;
         }
-
     }
 
     .Icono:hover {
@@ -238,7 +207,6 @@
             color: white;
             outline: none;
             font-size: 1.1vw;
-
         }
     }
 }
@@ -259,13 +227,56 @@
         color: white;
         outline: none;
         font-size: 1.1vw;
-
     }
-
+}
+.hola {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    background-color: rgb(9, 13, 12);
+    
+    div ~ div{
+        margin-top: -3.7vw;
+    }
+}
+.none{
+    display: none !important;
+}
+.div--div {
+    margin-top: 1vw;
+    width: 85%;
+    
 }
 
+.div--div>img {
+    max-width: 100%;
+    height: auto;
+}
 
+.div--div>div {
+    margin-top: 1vw;
+    padding-left: 2.2vw;
+    display: flex;
+    align-items: center;
+    gap: 2.9vw;
+    font-size: 3vw;
+    h2{
+        margin-top: -0.5vw;
+    }
+    img {
+        --media: 7vw;
+        height: var(--media);
+        width: var(--media);
+    }
+    
+}
 @media (max-width: 768px) {
+
     .Header {
         display: flex;
         justify-content: center;
@@ -273,7 +284,6 @@
     }
 
     .Header__div {
-        /*height: 90px; */
         width: 100vw;
         box-sizing: border-box;
         background-image: url(../../assets/FondoHeaderResponsivesvg.svg);
@@ -281,7 +291,6 @@
         background-position: left start;
         padding-top: 0.3vw;
         padding-bottom: 2vw;
-        /* padding-bottom: 2.7%; */
         padding-left: 7.7vw;
         padding-right: 7.7vw;
     }
@@ -350,12 +359,10 @@
         .Bandera {
             width: 19vw;
             height: 19vw;
-
         }
 
         .hache:nth-child(1):hover~.BanderaContainer {
             transform: translateX(0);
-
         }
 
         .hache:nth-child(2):hover~.BanderaContainer {
@@ -407,8 +414,7 @@
                 border: none;
                 color: white;
                 outline: none;
-                font-size: 1.1vw;
-
+                font-size: 3.1vw;
             }
         }
     }

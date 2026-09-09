@@ -5,6 +5,7 @@ import { Route, Router, Switch } from "wouter";
 import PreguntasFrecuentes from "./pages/PreguntasFrecuentes/PreguntasFrecuentes"
 import Home from './pages/home/Home';
 import Catalogo from "./componentes/catalogo/Catalogo"
+import SearchMovile from "./componentes/modales/SearchMovile/SearchMovile";
 import './App.css'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" component={Home} />
           <Route path="/preguntas" component={PreguntasFrecuentes} />
           <Route path="/catalogo" component={Catalogo} />
+          <Route path="/search" component={SearchMovile} />
         </Switch>
       </Router>
     </div>

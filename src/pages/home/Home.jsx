@@ -263,7 +263,7 @@ export default function Home() {
                                     </p>
 
                                     <Link
-                                        href={`/catalogo?categoria=${encodeURIComponent(categoria.categoria)}`}
+                                        href={`/catalogo?categoria=${encodeURIComponent(categoria.categoria)}&tipo=${encodeURIComponent(categoria.tipo)}`}
                                         className="Categorias__tarjeta-btn"
                                     >
                                         Explorar categoría

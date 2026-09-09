@@ -94,7 +94,7 @@ export default function Listado({ busqueda = "", categoria = "", tipo = "", onPr
                 else if (intRaw === "2") intProd = "intermedio";
                 else if (intRaw === "3") intProd = "intenso";
                 else if (intRaw === "4") intProd = "muy-intenso";
-                else intProd = normalizar(intRaw).replace(/\s+/g, "-"); // Por si acaso algún día escribes "suave" en la planilla
+                else intProd = normalizar(intRaw).replace(/\s+/g, "-");
                 
                 if (tiposCafeParam.length > 0 && !tiposCafeParam.includes(tipoProd)) return false;
                 

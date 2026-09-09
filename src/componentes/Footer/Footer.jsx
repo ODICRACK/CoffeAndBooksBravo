@@ -34,11 +34,11 @@ function FooterEscritorio() {
                                 <h2>Navegacion</h2>
                                 <div>
                                     <ul>
-                                        <li><a href="#">Menu principal</a></li>
-                                        <li><a href="#">Cafes</a></li>
-                                        <li><a href="#">Libros</a></li>
-                                        <li><a href="#">Productos</a></li>
-                                        <li><a href="#">Contacto</a></li>
+                                        <li><Link href="/">Menu principal</Link></li>
+                                        <li><Link href="/catalogo?tipo=cafe">Cafes</Link></li>
+                                        <li><Link href="/catalogo?tipo=libro">Libros</Link></li>
+                                        <li><Link href="/catalogo">Productos</Link></li>
+                                        <li><Link href="/">Contacto</Link></li>
                                     </ul>
                                 </div>
                             </div>

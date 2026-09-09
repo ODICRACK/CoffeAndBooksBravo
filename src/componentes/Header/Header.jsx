@@ -1,27 +1,66 @@
 import Style from "./Header.module.css";
 import { Link, useLocation } from "wouter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import logoHeader from "../../assets/logoHeader.svg";
 import bandera from "../../assets/banner.svg";
 import Carrito from "../modales/Carrito/Carrito";
-export default function Header({ modo, onBuscar }) {
+import SearchMovile from "../modales/SearchMovile/SearchMovile";
+export default function Header({ onBuscar }) {
 
     const [busqueda, setBusqueda] = useState("");
     const [location, setLocation] = useLocation();
     const [carritoAbierto, setCarritoAbierto] = useState(false);
     const [cerrandoCarrito, setCerrandoCarrito] = useState(false);
+    const [activo, setActivo] = useState(false);
+    const [activoR, setActivoR] = useState(false);
+    const [pantallaChica, setPantallaChica] = useState(window.innerWidth < 768);
 
+    useEffect(() => {
 
-    console.log(location)
+        const verificarPantalla = () => {
+            const esChica = window.innerWidth < 768;
+
+            setPantallaChica(esChica);
+
+            if (esChica) {
+                setActivo(false);
+                setActivoR(false)
+            }
+        };
+
+        verificarPantalla();
+
+        window.addEventListener("resize", verificarPantalla);
+
+        return () => {
+            window.removeEventListener("resize", verificarPantalla);
+        };
+
+    }, []);
+
+    const volver = () => {
+        console.log("aca estytoy")
+        setActivoR(false)
+    }
+    const search = () => {
+
+        if (pantallaChica == false) {
+            setActivo(true)
+        }
+        else {
+            setActivo(false)
+            setActivoR(true)
+        }
+    }
     const cambiarBandera = () => {
         if (location == "/catalogo") {
             console.log("aca")
-            return(0)
+            return (0)
         }
         if (location == "/") {
             console.log("acano")
-            return(16)
+            return (16)
         }
     }
     const cerrarCarrito = () => {
@@ -32,6 +71,7 @@ export default function Header({ modo, onBuscar }) {
             setCerrandoCarrito(false);
         }, 400);
     };
+
     const mover = (donde) => {
         window.scrollTo(0, 0)
         setLocation(`/${donde}`);
@@ -55,49 +95,17 @@ export default function Header({ modo, onBuscar }) {
         }
     };
 
-    if (modo == "busqueda") {
+    if (activoR) {
         return (
-            <header className={Style.Header2}>
-
-                <div className={Style["Header__div"]}>
-
-                    <div
-                        className={`${Style["Header__div-div-nav-iconos"]} ${Style["responsive"]}`}
-                    >
-                        <Link
-                            className={Style["Icono"]}
-                            href="/carrito"
-                        >
-                            <span className="material-symbols-outlined">
-                                arrow_back_ios_new
-                            </span>
-                        </Link>
-
-                        <div
-                            className={`${Style["Icono"]} ${Style["search"]}`}
-                        >
-
-                            <span className="material-symbols-outlined">
-                                search
-                            </span>
-
-                            <input
-                                type="text"
-                                className={Style.Input}
-                                value={busqueda}
-                                onChange={(e) =>
-                                    setBusqueda(e.target.value)
-                                }
-                                onKeyDown={buscar}
-                            />
-                        </div>
-                    </div>
-                </div>
-            </header>
+            <SearchMovile
+                mostrar={setActivoR}
+                onBuscar={onBuscar}
+                volver={volver}
+            />
         );
     }
-
-    return (
+    else{
+        return (
         <>
             <header className={Style.Header}>
 
@@ -123,7 +131,7 @@ export default function Header({ modo, onBuscar }) {
                                 <h2 className={Style.hache}>
                                     <Link
                                         className={Style.Link}
-                                        onClick={()=>mover("catalogo?tipo=todos")}
+                                        onClick={() => mover("catalogo?tipo=todos")}
                                     >
                                         Catalogo
                                     </Link>
@@ -147,7 +155,7 @@ export default function Header({ modo, onBuscar }) {
                                     </Link>
                                 </h2>
 
-                                <div className={Style["BanderaContainer"]} style={{"transform":`translateX(${cambiarBandera()}vw)`}}>
+                                <div className={Style["BanderaContainer"]} style={{ "transform": `translateX(${cambiarBandera()}vw)` }}>
 
                                     <img
                                         src={bandera}
@@ -162,7 +170,7 @@ export default function Header({ modo, onBuscar }) {
 
                             <div className={Style["Header__div-div-nav-iconos"]}>
                                 <div
-                                    className={`${Style["Icono"]} ${Style["activo"]}`}
+                                    className={`${Style["Icono"]} ${activo ? `${Style["activo"]}` : ""}`} onClick={search}
                                 >
                                     <span className="material-symbols-outlined">
                                         search
@@ -209,4 +217,6 @@ export default function Header({ modo, onBuscar }) {
             )}
         </>
     );
+    }
+    
 }

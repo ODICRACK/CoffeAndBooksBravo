@@ -180,7 +180,7 @@ export default function Home() {
 
                     <Link
                         className="Inicio__boton"
-                        href='/catalogo'>
+                        href='/catalogo?tipo=todos'>
                         Productos
                     </Link>
                 </div>

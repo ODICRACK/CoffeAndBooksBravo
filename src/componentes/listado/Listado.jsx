@@ -1,15 +1,18 @@
+import { useEffect, useState, useMemo } from "react";
+import { useSearch } from "wouter";
+
 import "./listado.css";
+
 
 import Productos from "../productos/Productos.jsx";
 import Filtros from "../filtros/Filtros.jsx";
+import { obtenerTodosLosProductos } from "../../servicios/googleSheets.js";
 
 import Deco1 from '../../assets/cat-deco-busqueda1.svg';
 import Deco2 from '../../assets/cat-deco-busqueda2.svg';
 
-import { useEffect, useState, useMemo } from "react";
-import { useSearch } from "wouter";
 
-import { obtenerTodosLosProductos } from "../../servicios/googleSheets.js";
+
 
 export default function Listado({ busqueda = "", categoria = "", tipo = "", onProductoClick, categoriaActiva }) {
     const [productos, setProductos] = useState([]);

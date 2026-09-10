@@ -81,7 +81,7 @@ function FooterEscritorio() {
                                     <div className="ContenedorInput">
                                         <input type="text" placeholder="Ingresa tu coreo" />
                                         <div>
-                                            <span className="material-symbols-outlined">
+                                            <span className="material-symbols-outlined IconoMandar">
                                                 outgoing_mail
                                             </span>
                                         </div>

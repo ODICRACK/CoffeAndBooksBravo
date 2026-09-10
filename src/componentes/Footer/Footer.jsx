@@ -83,7 +83,7 @@ function FooterEscritorio() {
                                     <div className="ContenedorInput">
                                         <input type="text" placeholder="Ingresa tu coreo" />
                                         <div>
-                                            <span className="material-symbols-outlined">
+                                            <span className="material-symbols-outlined IconoMandar">
                                                 outgoing_mail
                                             </span>
                                         </div>
@@ -126,22 +126,22 @@ function FooterCelu() {
                         <div className="ContenedorUl">
                             <ul>
                                 <li>
-                                    <a href="">Preguntas frecuentes</a>
+                                    <Link href="/preguntas">Preguntas frecuentes</Link>
                                 </li>
                                 <li>
-                                    <a href="">Envios y entregas</a>
+                                    <Link href="/preguntas?tipo=Envios">Envios y entregas</Link>
                                 </li>
                                 <li>
-                                    <a href="">Cambios y devoluciones</a>
+                                    <Link href="/preguntas?tipo=Cambios">Cambios y devoluciones</Link>
                                 </li>
                                 <li>
-                                    <a href="">Metodos de pago</a>
+                                    <Link href="preguntas?tipo=Pagos">Metodos de pago</Link>
                                 </li>
                                 <li>
                                     <a href="">Terminos y condicones</a>
                                 </li>
                                 <li>
-                                    <a href="">Politica de privacidad</a>
+                                    <Link href="/preguntas">Politica de privacidad</Link>
                                 </li>
                             </ul>
 
@@ -200,11 +200,11 @@ function FooterCelu() {
                         </div>
                         <div className="ContenedorUl">
                             <ul>
-                                <li><a href="#">Menu principal</a></li>
-                                <li><a href="#">Cafes</a></li>
-                                <li><a href="#">Libros</a></li>
-                                <li><a href="#">Productos</a></li>
-                                <li onClick={abrirWhatsApp}><a href="#">Contacto</a></li>
+                                <li><Link href="/">Menu principal</Link></li>
+                                <li><Link href="/catalogo?tipo=cafe">Cafes</Link></li>
+                                <li><Link href="/catalogo?tipo=libro">Libros</Link></li>
+                                <li><Link href="/catalogo">Productos</Link></li>
+                                <li><a href="#">Contacto</a></li>
                             </ul>
 
                         </div>

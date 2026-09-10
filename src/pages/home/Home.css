@@ -10,6 +10,9 @@
 /* --------------------------------------------------------------------------------- */
 /* ------------------------------------- INICIO ------------------------------------ */
 /* --------------------------------------------------------------------------------- */
+.Slice {
+    display: none;
+}
 
 .Inicio {
     position: relative;
@@ -302,7 +305,6 @@
     background-color: #121818;
     overflow: hidden;
     width: 100%;
-    padding: 0 2.5%;
     gap: 2rem;
     z-index: 1;
     overflow-x: scroll;
@@ -856,15 +858,13 @@
     }
 
     .Destacados__carrusel {
-        width: 90vw;
+        width: 99vw;
         height: 36vw;
         padding: 0;
     }
 
     .Destacados__carrusel-contenedor {
         gap: 2vw;
-        margin: 0 4.5vw;
-        padding-left: 4.5vw;
     }
 
     .Destacados__carrusel-tarjeta {
@@ -895,6 +895,116 @@
     .Destacados__carrusel-btn {
         height: 100%;
         width: 10vw;
+        display: none;
+    }
+
+    .Slice {
+        background-color: var(--fondos);
+        display: block !important;
+        height: 9vh;
+        width: 100%;
+    }
+
+    .scroll-indicator {
+        width: 100%;
+        display: grid;
+
+        grid-template-columns: 40px 1fr 40px;
+        grid-template-rows: 25px 25px;
+
+        align-items: center;
+
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+
+    /* Flechas */
+
+    .scroll-arrow {
+        background: none;
+        border: none;
+
+        color: #b68132;
+        font-size: 35px;
+        line-height: 1;
+
+        cursor: pointer;
+
+        padding: 0;
+    }
+
+    .scroll-arrow--left {
+        justify-self: start;
+    }
+
+    .scroll-arrow--right {
+        justify-self: end;
+    }
+
+
+    /* Barra */
+
+    .scroll-track {
+        position: relative;
+
+        width: 100%;
+        height: 12px;
+
+        background: #000;
+
+        border-radius: 10px;
+
+        overflow: hidden;
+    }
+
+
+    /* Parte dorada */
+
+    .scroll-progress {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        height: 100%;
+        width: 0%;
+
+        background: #b68132;
+
+        border-radius: 10px;
+
+        transition: width 0.05s linear;
+    }
+
+
+    /* Texto */
+
+    .scroll-indicator p {
+        grid-column: 1 / 4;
+
+        margin: 0;
+
+        text-align: center;
+
+        color: #b9aa98;
+
+        font-size: 16px;
+    }
+
+
+    /* Contenedor real */
+
+    .contenedor-scroll {
+        width: 100%;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scrollbar-width: none;
+    }
+
+    .contenedor-scroll::-webkit-scrollbar {
+        display: none;
     }
 
     .Destacados__carrusel-btn img {

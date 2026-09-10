@@ -23,10 +23,19 @@ export default function Catalogo() {
 
     // El único estado local es el del modal, porque no depende de la URL
     const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+    const body = document.querySelector("body")
+    const abrirProducto = (producto) => {setProductoSeleccionado(producto); anclar(true)};
 
-    const abrirProducto = (producto) => setProductoSeleccionado(producto);
-    const cerrarProducto = () => setProductoSeleccionado(null);
+    const cerrarProducto = () => {setProductoSeleccionado(null); anclar(false)};
 
+    const anclar = (ancla)=>{
+        if (ancla){
+            body.style.overflow = "hidden"
+        }
+        else{
+            body.style.overflow = "scroll"
+        }
+    } 
     // 2. En lugar de actualizar un estado local, actualizamos la URL directamente
     const handleBuscar = (texto) => {
         const nuevosParams = new URLSearchParams(window.location.search);

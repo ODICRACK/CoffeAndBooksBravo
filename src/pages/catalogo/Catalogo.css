@@ -1,23 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    background-color: rgb(9,13,12);
+body {
+    background-color: rgb(9, 13, 12);
 }
 
 
 /* Cuando el modal esté abierto */
-body.modal-abierto{
+body.modal-abierto {
     overflow: hidden;
 }
 
-.catalogo{
+.catalogo {
     position: relative;
     min-height: 100vh;
 }
@@ -26,14 +27,12 @@ body.modal-abierto{
 /* Fondo oscuro */
 /* ========================= */
 
-.overlay{
+.overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.65);
-
+    background: rgba(0, 0, 0, .65);
     opacity: 0;
     visibility: hidden;
-
     transition: opacity .3s ease, visibility .3s ease;
 
     z-index: 9998;
@@ -43,7 +42,7 @@ body.modal-abierto{
 /* Modal */
 /* ========================= */
 
-.producto-especifico{
+.producto-especifico {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -54,18 +53,19 @@ body.modal-abierto{
     z-index: 9999;
     max-width: 90vw;
 }
+
 /* ========================= */
 /* Modal abierto */
 /* ========================= */
 
-.catalogo.modal-abierto .overlay{
+.catalogo.modal-abierto .overlay {
     opacity: 1;
     visibility: visible;
+
 }
 
-.catalogo.modal-abierto .producto-especifico{
+.catalogo.modal-abierto .producto-especifico {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
 }
-

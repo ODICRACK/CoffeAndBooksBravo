@@ -56,12 +56,15 @@ export default function Header({ onBuscar }) {
     }
     const cambiarBandera = () => {
         if (location == "/catalogo") {
-            console.log("aca")
+
             return (0)
         }
         if (location == "/") {
-            console.log("acano")
-            return (16)
+            if (window.innerWidth > 768) {
+                return (16)
+
+            }
+            return (28)
         }
     }
     const cerrarCarrito = () => {
@@ -104,119 +107,119 @@ export default function Header({ onBuscar }) {
             />
         );
     }
-    else{
+    else {
         return (
-        <>
-            <header className={Style.Header}>
+            <>
+                <header className={Style.Header}>
 
-                <div className={Style["Header__div"]}>
+                    <div className={Style["Header__div"]}>
 
-                    <div className={Style["Header__div-div"]}>
+                        <div className={Style["Header__div-div"]}>
 
-                        <div className={Style["Header__div-div-logo"]} onClick={() => mover("")}>
-                            <img
-                                src={logoHeader}
-                                alt=""
-                            />
-                            <h1>
-                                Coffee & Books
-                            </h1>
-                        </div>
-
-
-                        <div className={Style["Header__div-div-nav"]}>
-
-                            <div className={Style["Header__div-div-nav-nav"]}>
-
-                                <h2 className={Style.hache}>
-                                    <Link
-                                        className={Style.Link}
-                                        onClick={() => mover("catalogo?tipo=todos")}
-                                    >
-                                        Catalogo
-                                    </Link>
-                                </h2>
-
-                                <h2 className={Style.hache}>
-                                    <a
-                                        className={Style.Link}
-                                        href="/#info"
-                                    >
-                                        Sobre mi
-                                    </a>
-                                </h2>
-
-                                <h2 className={Style.hache}>
-                                    <Link
-                                        className={Style.Link}
-                                        href="/"
-                                    >
-                                        Inicio
-                                    </Link>
-                                </h2>
-
-                                <div className={Style["BanderaContainer"]} style={{ "transform": `translateX(${cambiarBandera()}vw)` }}>
-
-                                    <img
-                                        src={bandera}
-                                        alt=""
-                                        className={Style["Bandera"]}
-                                    />
-
-                                </div>
-
+                            <div className={Style["Header__div-div-logo"]} onClick={() => mover("")}>
+                                <img
+                                    src={logoHeader}
+                                    alt=""
+                                />
+                                <h1>
+                                    Coffee & Books
+                                </h1>
                             </div>
 
 
-                            <div className={Style["Header__div-div-nav-iconos"]}>
-                                <div
-                                    className={`${Style["Icono"]} ${activo ? `${Style["activo"]}` : ""}`} onClick={search}
-                                >
-                                    <span className="material-symbols-outlined">
-                                        search
-                                    </span>
-                                    <input
-                                        type="text"
-                                        className={Style.Input}
-                                        value={busqueda}
-                                        onChange={(e) =>
-                                            setBusqueda(e.target.value)
-                                        }
-                                        onKeyDown={buscar}
-                                    />
+                            <div className={Style["Header__div-div-nav"]}>
+
+                                <div className={Style["Header__div-div-nav-nav"]}>
+
+                                    <h2 className={Style.hache}>
+                                        <Link
+                                            className={Style.Link}
+                                            onClick={() => mover("catalogo?tipo=todos")}
+                                        >
+                                            Catalogo
+                                        </Link>
+                                    </h2>
+
+                                    <h2 className={Style.hache}>
+                                        <a
+                                            className={Style.Link}
+                                            href="/#info"
+                                        >
+                                            Sobre mi
+                                        </a>
+                                    </h2>
+
+                                    <h2 className={Style.hache}>
+                                        <Link
+                                            className={Style.Link}
+                                            href="/"
+                                        >
+                                            Inicio
+                                        </Link>
+                                    </h2>
+
+                                    <div className={Style["BanderaContainer"]} style={{ "transform": `translateX(${cambiarBandera()}vw)` }}>
+
+                                        <img
+                                            src={bandera}
+                                            alt=""
+                                            className={Style["Bandera"]}
+                                        />
+
+                                    </div>
+
                                 </div>
 
 
-                                <div
-                                    className={Style["Icono"]}
-                                    onClick={() => setCarritoAbierto(true)}
-                                >
-                                    <span className="material-symbols-outlined">
-                                        shopping_cart
-                                    </span>
-                                </div>
+                                <div className={Style["Header__div-div-nav-iconos"]}>
+                                    <div
+                                        className={`${Style["Icono"]} ${activo ? `${Style["activo"]}` : ""}`} onClick={search}
+                                    >
+                                        <span className="material-symbols-outlined">
+                                            search
+                                        </span>
+                                        <input
+                                            type="text"
+                                            className={Style.Input}
+                                            value={busqueda}
+                                            onChange={(e) =>
+                                                setBusqueda(e.target.value)
+                                            }
+                                            onKeyDown={buscar}
+                                        />
+                                    </div>
 
 
-                                <div className={Style["Icono"]} onClick={abrirWhatsApp}>
-                                    <span
-                                        className={
-                                            Style["ic--baseline-whatsapp"]
-                                        }
-                                    ></span>
+                                    <div
+                                        className={Style["Icono"]}
+                                        onClick={() => setCarritoAbierto(true)}
+                                    >
+                                        <span className="material-symbols-outlined">
+                                            shopping_cart
+                                        </span>
+                                    </div>
+
+
+                                    <div className={Style["Icono"]}>
+                                        <span
+                                            className={
+                                                Style["ic--baseline-whatsapp"]
+                                            }
+                                        ></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </header>
-            {carritoAbierto && (
-                <Carrito
-                    onCerrar={cerrarCarrito}
-                    cerrando={cerrandoCarrito}
-                />
-            )}
-        </>
-    );
+                </header>
+                {carritoAbierto && (
+                    <Carrito
+                        onCerrar={cerrarCarrito}
+                        cerrando={cerrandoCarrito}
+                    />
+                )}
+            </>
+        );
     }
-    
+
 }

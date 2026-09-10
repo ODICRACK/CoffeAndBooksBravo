@@ -1,6 +1,6 @@
 import './Home.css';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link } from 'wouter';
 
 import { obtenerCategorias, obtenerProductosDestacados } from "../../servicios/googleSheets";
@@ -32,6 +32,9 @@ export default function Home() {
     const [categorias, setCategorias] = useState([]);
     const [productoSeleccionado, setProductoSeleccionado] = useState(null);
 
+    const carruRef = useRef(null);
+    const progressRef = useRef(null);
+
     const abrirProducto = (producto) => {
         setProductoSeleccionado(producto);
     };
@@ -39,7 +42,76 @@ export default function Home() {
     const cerrarProducto = () => {
         setProductoSeleccionado(null);
     };
+    useEffect(() => {
 
+        const carrusel = carruRef.current;
+        const progress = progressRef.current;
+
+        if (!carrusel || !progress) return;
+
+        function actualizarIndicador() {
+
+            const scrollWidth = carrusel.scrollWidth;
+            const clientWidth = carrusel.clientWidth;
+            const scrollLeft = carrusel.scrollLeft;
+
+            // Cuánto contenido se puede desplazar
+            const scrollMax =
+                scrollWidth - clientWidth;
+
+            if (scrollMax <= 0) {
+                progress.style.width = "100%";
+                progress.style.left = "0%";
+                return;
+            }
+
+            // Porcentaje visible del contenido
+            const porcentajeVisible =
+                (clientWidth / scrollWidth) * 100;
+
+            // Posición del scroll
+            const porcentajeScroll =
+                (scrollLeft / scrollMax) * 100;
+
+            // Espacio disponible para mover el indicador
+            const espacioMovimiento =
+                100 - porcentajeVisible;
+
+            const posicion =
+                (porcentajeScroll / 100) * espacioMovimiento;
+
+            progress.style.width =
+                `${porcentajeVisible}%`;
+
+            progress.style.left =
+                `${posicion}%`;
+        }
+
+        carrusel.addEventListener(
+            "scroll",
+            actualizarIndicador
+        );
+
+        window.addEventListener(
+            "resize",
+            actualizarIndicador
+        );
+
+        actualizarIndicador();
+
+        return () => {
+            carrusel.removeEventListener(
+                "scroll",
+                actualizarIndicador
+            );
+
+            window.removeEventListener(
+                "resize",
+                actualizarIndicador
+            );
+        };
+
+    }, []);
     useEffect(() => {
 
         obtenerProductosDestacados()
@@ -156,7 +228,7 @@ export default function Home() {
                         <img src={destCarruselAtras} alt="" onClick={() => carrusel(-1)} />
                     </button>
 
-                    <div className='Destacados__carrusel-contenedor' id='carru'>
+                    <div className='Destacados__carrusel-contenedor' ref={carruRef}>
 
                         {destacados.map((producto) => (
                             <div
@@ -206,6 +278,38 @@ export default function Home() {
                     <button className='Destacados__carrusel-sig Destacados__carrusel-btn'>
                         <img src={destCarruselSig} alt="" onClick={() => carrusel(1)} />
                     </button>
+                </div>
+                <div className="Slice">
+                    <div className="scroll-indicator">
+
+                        <button
+                            className="scroll-arrow scroll-arrow--left"
+                            onClick={() => carrusel(-1)}
+                        >
+                            <span className="material-symbols-outlined">
+                                arrow_back
+                            </span>
+                        </button>
+
+                        <div className="scroll-track">
+                            <div
+                                className="scroll-progress"
+                                ref={progressRef}
+                            ></div>
+                        </div>
+
+                        <button
+                            className="scroll-arrow scroll-arrow--right"
+                            onClick={() => carrusel(1)}
+                        >
+                            <span className="material-symbols-outlined">
+                                arrow_forward
+                            </span>
+                        </button>
+
+                        <p>Desliza para ver mas</p>
+
+                    </div>
                 </div>
             </section>
 

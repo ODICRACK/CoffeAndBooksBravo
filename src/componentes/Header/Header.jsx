@@ -201,11 +201,9 @@ export default function Header({ onBuscar }) {
 
 
                                     <div className={Style["Icono"]}>
-                                        <span
-                                            className={
-                                                Style["ic--baseline-whatsapp"]
-                                            }
-                                        ></span>
+                                        <span className={ Style["ic--baseline-whatsapp"] } onClick={abrirWhatsApp}>
+
+                                        </span>
                                     </div>
                                 </div>
                             </div>

@@ -1,18 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital@0;1&display=swap');
-
-* {
+*{
     font-family: IM FELL Great Primer;
 }
-
-:root {
-    /* Colores principales */
-
-    --letras: #C4AE95;
-    --detalles: #b79d7a;
-    --bordes: #8a7453;
-    --fondos: #121818;
-}
-
 .ic--baseline-whatsapp {
     display: inline-block;
     width: 1em;
@@ -191,7 +180,6 @@
 
         .Input {
             display: none;
-            background-color: var(--fondos);
         }
     }
 
@@ -241,7 +229,6 @@
         font-size: 1.1vw;
     }
 }
-
 .hola {
     display: flex;
     flex-direction: column;
@@ -252,20 +239,15 @@
     height: 100vh;
     z-index: 1000;
     background-color: rgb(9, 13, 12);
-
-    div~div {
-        margin-top: -3.7vw;
-    }
+    
 }
-
-.none {
+.none{
     display: none !important;
 }
-
 .div--div {
     margin-top: 1vw;
     width: 85%;
-
+    
 }
 
 .div--div>img {
@@ -278,21 +260,18 @@
     padding-left: 2.2vw;
     display: flex;
     align-items: center;
-    gap: 2.9vw;
+    gap: 4vw;
     font-size: 3vw;
-
-    h2 {
+    h2{
         margin-top: -0.5vw;
     }
-
     img {
         --media: 7vw;
         height: var(--media);
         width: var(--media);
     }
-
+    
 }
-
 @media (max-width: 768px) {
 
     .Header {

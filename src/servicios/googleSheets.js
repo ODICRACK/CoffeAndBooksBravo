@@ -98,6 +98,28 @@ export function obtenerTodosLosProductos() {
 
 }
 
+export function obtenerProductosRelacionados(texto) {
+
+    return obtenerTodosLosProductos()
+    .then((productos) => {
+
+        const busqueda = texto
+            .toLowerCase()
+            .trim();
+
+        const resultados = productos.filter((producto) => {
+
+            const nombre = producto.nombre
+                ?.toLowerCase()
+                .trim();
+
+            return nombre && nombre.includes(busqueda);
+        });
+
+        return resultados.slice(0, 5);
+    });
+}
+
 export function obtenerProductosDestacados() {
     return obtenerTodosLosProductos().then((productos) => {
         return productos.sort((a, b) => Number(b.vendidos) - Number(a.vendidos)).slice(0, 10);

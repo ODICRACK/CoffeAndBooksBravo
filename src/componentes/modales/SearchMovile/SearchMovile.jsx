@@ -1,15 +1,16 @@
 import { useState } from "react"
 import { Link, useLocation } from "wouter";
 import Style from "./SearchMovile.module.css"
+import { obtenerProductosRelacionados } from "../../../servicios/googleSheets.js";
 
 import lineaSearch from "../../../assets/lineaSearch.svg"
 import cafe from "../../../assets/cafe.svg"
-//import libro from "../../assets/libro.svg"
+import libro from "../../../assets/libro.svg"
 //import cafeLibro from "../../assets/libroCafe.svg"
 
 export default function SearchMovile({ mostrar, onBuscar, volver }) {
     const [busqueda, setBusqueda] = useState("");
-
+    const [productosRelacionados, setProductosRelacionados] = useState([]);
     const [, setLocation] = useLocation();
 
     const buscar = (e) => {
@@ -29,6 +30,20 @@ export default function SearchMovile({ mostrar, onBuscar, volver }) {
             volver()
         }
     };
+    const buscarProductos = async (texto) => {
+
+    setBusqueda(texto);
+
+    if (texto.trim() === "") {
+        setProductosRelacionados([]);
+        return;
+    }
+
+    const productos = await obtenerProductosRelacionados(texto);
+
+    setProductosRelacionados(productos);
+};
+
     return (
         <div className={`${Style["hola"]} ${mostrar ? "" : `${Style["none"]}`}`}>
             <header className={Style.Header2}>
@@ -54,7 +69,7 @@ export default function SearchMovile({ mostrar, onBuscar, volver }) {
                                 className={Style.Input}
                                 value={busqueda}
                                 onChange={(e) =>
-                                    setBusqueda(e.target.value)
+                                    buscarProductos(e.target.value)
                                 }
                                 onKeyDown={buscar}
                             />
@@ -65,40 +80,16 @@ export default function SearchMovile({ mostrar, onBuscar, volver }) {
             </header>
             <div className={Style["div--div"]}>
                 <img src={lineaSearch} alt="Separacion linea" />
-                <div>
-                    <img src={cafe} alt="" />
-                    <h2>Cafe americano de america</h2>
-                </div>
+                {productosRelacionados.map((producto) => (
+                    <div key={`${producto.productoTipo}-${producto.id}`}>
+                        <img 
+                            src={producto.productoTipo === "libro" ? libro : cafe} 
+                            alt={producto.nombre} 
+                        />
+                        <h2>{producto.nombre}</h2>
+                    </div>
+                ))}
             </div>
-            <div className={Style["div--div"]}>
-                <img src={lineaSearch} alt="Separacion linea" />
-                <div>
-                    <img src={cafe} alt="" />
-                    <h2>Cafe americano de america</h2>
-                </div>
-            </div>
-            <div className={Style["div--div"]}>
-                <img src={lineaSearch} alt="Separacion linea" />
-                <div>
-                    <img src={cafe} alt="" />
-                    <h2>Cafe americano de america</h2>
-                </div>
-            </div>
-            <div className={Style["div--div"]}>
-                <img src={lineaSearch} alt="Separacion linea" />
-                <div>
-                    <img src={cafe} alt="" />
-                    <h2>Cafe americano de america</h2>
-                </div>
-            </div>
-            <div className={Style["div--div"]}>
-                <img src={lineaSearch} alt="Separacion linea" />
-                <div>
-                    <img src={cafe} alt="" />
-                    <h2>Cafe americano de america</h2>
-                </div>
-            </div>
-
         </div>
     )
 }

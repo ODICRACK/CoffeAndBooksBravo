@@ -94,7 +94,17 @@ export default function Header({ onBuscar }) {
             );
         }
     };
+    const abrirWhatsApp = () => {
+        const numeroWhatsApp = "5492901534508";
 
+        const mensaje = "Hola! Quería hacer una consulta sobre los productos de  *𝐂𝐨𝐟𝐟𝐞𝐞 & 𝐁𝐨𝐨𝐤𝐬*";
+
+        const mensajeCodificado = encodeURIComponent(mensaje);
+
+        const url = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+
+        window.open(url, "_blank");
+    };
     if (activoR) {
         return (
             <SearchMovile
@@ -197,7 +207,7 @@ export default function Header({ onBuscar }) {
                                 </div>
 
 
-                                <div className={Style["Icono"]}>
+                                <div className={Style["Icono"]} onClick={abrirWhatsApp}>
                                     <span
                                         className={
                                             Style["ic--baseline-whatsapp"]

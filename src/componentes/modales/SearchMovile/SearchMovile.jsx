@@ -57,13 +57,10 @@ export default function SearchMovile({ mostrar, onBuscar, volver }) {
                                 arrow_back_ios_new
                             </span>
                         </Link>
-
                         <div className={`${Style["Icono"]} ${Style["search"]}`}>
-
                             <span className="material-symbols-outlined">
                                 search
                             </span>
-
                             <input
                                 type="text"
                                 className={Style.Input}

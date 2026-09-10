@@ -37,19 +37,19 @@ export default function Carrito({ onCerrar, cerrando }) {
         );
     }
     function finalizarCompra() {
-    if (carrito.length === 0) {
-        alert("El carrito está vacío");
-        return;
-    }
+        if (carrito.length === 0) {
+            alert("El carrito está vacío");
+            return;
+        }
 
-    const productos = carrito.map((producto) => {
-        const precio = precioComoNumero(producto.precio);
-        const subtotal = precio * producto.cantidad;
-        return `${producto.cantidad}x ${producto.nombre} - $${subtotal.toLocaleString("es-AR")}`;
-    });
+        const productos = carrito.map((producto) => {
+            const precio = precioComoNumero(producto.precio);
+            const subtotal = precio * producto.cantidad;
+            return `${producto.cantidad}x ${producto.nombre} - $${subtotal.toLocaleString("es-AR")}`;
+        });
 
-    const total = calcularTotal(carrito);
-    const mensaje = `Hola! Quiero realizar el siguiente pedido:
+        const total = calcularTotal(carrito);
+        const mensaje = `Hola! Quiero realizar el siguiente pedido:
 
 *Pedido:*
 ${productos.join("\n")}
@@ -202,7 +202,11 @@ Gracias♡`;
                         })}
                     </h2>
                     <div>
-                        <button onClick={finalizarCompra}>FINALIZAR COMPRA</button>
+                        <button
+                            onClick={() => {
+                                finalizarCompra();
+                                setCarrito(vaciarCarrito);
+                            }}>FINALIZAR COMPRA</button>
                     </div>
                     <div>
                         <button

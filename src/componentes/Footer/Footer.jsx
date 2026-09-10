@@ -9,6 +9,8 @@ import LibroIcon from "../../assets/LibroFooter.svg";
 import LogoIcon from "../../assets/LogoCABFooter.svg";
 import SeparacionFooter from "../../assets/SeparacionFooter.svg";
 
+import { abrirWhatsApp } from "../../servicios/MsjWsp";
+
 function FooterEscritorio() {
     return (
         <footer className="Footer">
@@ -38,7 +40,7 @@ function FooterEscritorio() {
                                         <li><Link href="/catalogo?tipo=cafe">Cafes</Link></li>
                                         <li><Link href="/catalogo?tipo=libro">Libros</Link></li>
                                         <li><Link href="/catalogo">Productos</Link></li>
-                                        <li><Link href="/">Contacto</Link></li>
+                                        <li onClick={abrirWhatsApp}><Link href="/">Contacto</Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -76,7 +78,7 @@ function FooterEscritorio() {
                                         <span className="material-symbols-outlined">
                                             call
                                         </span>
-                                        <h3>+54 2901 601801</h3>
+                                        <h3 onClick={abrirWhatsApp}>+54 2901 601801</h3>
                                     </div>
                                     <div className="ContenedorInput">
                                         <input type="text" placeholder="Ingresa tu coreo" />
@@ -159,7 +161,7 @@ function FooterCelu() {
                                 <span className="material-symbols-outlined">
                                     call
                                 </span>
-                                <h3>+54 2901 60 1801</h3>
+                                <h3 onClick={abrirWhatsApp}>+54 2901 60 1801</h3>
                             </div>
                         </div>
 
@@ -202,7 +204,7 @@ function FooterCelu() {
                                 <li><a href="#">Cafes</a></li>
                                 <li><a href="#">Libros</a></li>
                                 <li><a href="#">Productos</a></li>
-                                <li><a href="#">Contacto</a></li>
+                                <li onClick={abrirWhatsApp}><a href="#">Contacto</a></li>
                             </ul>
 
                         </div>

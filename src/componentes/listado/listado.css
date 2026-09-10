@@ -101,11 +101,14 @@
         grid-template-columns: repeat(3, 1fr);
         padding-top: 3rem;
     }
+    .producto__div{
+        scale: 0.9;
+    }
 }
 
 
 /* 📱 Tablets grandes */
-@media (min-width: 850px) and (max-width: 1023px) {
+@media (min-width: 800px) and (max-width: 1023px) {
 
     .listado {
 
@@ -137,6 +140,9 @@
 
     .listado_texto p {
         font-size: 0.6vw;
+    }
+    .producto__div{
+        scale: 0.7;
     }
 }
 

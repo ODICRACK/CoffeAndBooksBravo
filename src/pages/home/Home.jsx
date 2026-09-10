@@ -149,9 +149,9 @@ export default function Home() {
     }, []);
 
     const carrusel = (num) => {
-        const carru = document.getElementById("carru")
-
-        carru.scrollBy({ left: num > 0 ? 300 : -300, behavior: "smooth" });
+        carruRef.current.scrollBy({
+            left: num > 0 ? 300 : -300, behavior: "smooth"
+        });
     }
     return (
         <div className={`Home ${productoSeleccionado ? "modal-abierto" : ""}`}>

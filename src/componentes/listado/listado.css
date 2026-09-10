@@ -16,7 +16,7 @@
 .listado_div {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    padding-top: 5rem;
+    padding-top: 6.5vw;
 }
 
 .listado_div-relacionados {
@@ -25,9 +25,9 @@
 
 .listado_texto p {
     position: absolute;
-    top: 12vh;
+    top: 5vw;
     left: 5vw;
-    font-size: 25px;
+    font-size: 2vw;
     margin: 0;
     padding: 0;
     display: flex;
@@ -79,9 +79,11 @@
         margin: 0 0.5rem;
     }
 
-    .listado_div {
+    .listado_div,
+    .listado_div-relacionados--list {
         grid-template-columns: repeat(5, 1fr);
     }
+
 }
 
 
@@ -90,12 +92,12 @@
 @media (min-width: 767px) and (max-width: 849px) {
 
     .listado {
-
         padding: 0 0.5rem;
         margin: 0 0.5rem;
     }
 
-    .listado_div {
+    .listado_div,
+    .listado_div-relacionados--list {
         grid-template-columns: repeat(3, 1fr);
         padding-top: 3rem;
     }
@@ -111,7 +113,8 @@
         margin: 0 0.5rem;
     }
 
-    .listado_div {
+    .listado_div,
+    .listado_div-relacionados--list {
         grid-template-columns: repeat(3, 1fr);
         padding-top: 3rem;
     }
@@ -126,9 +129,14 @@
         margin: 0 0.5rem;
     }
 
-    .listado_div {
+    .listado_div,
+    .listado_div-relacionados--list {
         grid-template-columns: repeat(3, 1fr);
         padding-top: 0.5rem;
+    }
+
+    .listado_texto p {
+        font-size: 0.6vw;
     }
 }
 
@@ -136,16 +144,32 @@
 /* 📱 Celulares pequeños */
 @media (max-width: 479px) {
     .listado {
-
         background-image: url("/src/assets/marcoListado-responsive.png");
         padding: 0 0.5rem;
         margin: 0 0.5rem;
     }
 
-    .listado_div {
+    .listado_div,
+    .listado_div-relacionados--list {
         grid-template-columns: repeat(2, 1fr);
-        padding-top: 0.5rem;
+        padding-top: 1rem;
         padding-bottom: 3rem;
+    }
+
+    .listado_texto p {
+        margin-top: 2vw;
+        font-size: 3vw;
+        top: 12vw;
+        left: 10vw;
+    }
+
+    .listado_div-relacionados--deco {
+        width: 70vw;
+        gap: 1.5vw;
+    }
+
+    .listado_div-relacionados--deco p {
+        font-size: 4vw;
     }
 
 }
